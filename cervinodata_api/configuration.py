@@ -58,7 +58,7 @@ class Configuration(object):
        Cookie: JSESSIONID abc123
     """
 
-    def __init__(self, host="https://app.cervinodata.com/api/v1",
+    def __init__(self, host="http://localhost/api/v1",
                  api_key=None, api_key_prefix=None,
                  username=None, password=None):
         """Constructor
@@ -304,11 +304,11 @@ class Configuration(object):
         """
         return [
             {
-                'url': "https://app.cervinodata.com/api/v1",
+                'url': "/api/v1",
                 'description': "API v1",
             },
             {
-                'url': "https://app.cervinodata.com/api",
+                'url': "/api",
                 'description': "API beta",
             }
         ]
