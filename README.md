@@ -55,8 +55,8 @@ configuration = cervinodata_api.Configuration()
 # Configure Bearer authorization: bearerAuth
 configuration.access_token = 'YOUR_BEARER_TOKEN'
 
-# Defining host is optional and default to http://localhost/api/v1
-configuration.host = "http://localhost/api/v1"
+# Defining host is optional and default to https://app.cervinodata.com/api/v1
+configuration.host = "https://app.cervinodata.com/api/v1"
 # Create an instance of the API class
 api_instance = cervinodata_api.AdvertisingDataApi(cervinodata_api.ApiClient(configuration))
 organisation_uuid = 'organisation_uuid_example' # str | Organisation uuid
@@ -73,7 +73,7 @@ except ApiException as e:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost/api/v1*
+All URIs are relative to *https://app.cervinodata.com/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
