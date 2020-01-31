@@ -304,12 +304,24 @@ class Configuration(object):
         """
         return [
             {
-                'url': "https://app.cervinodata.com/api/v1",
+                'url': "{host}/api/v1",
                 'description': "API v1",
+                'variables': {
+                    'host': {
+                        'description': "No description provided",
+                        'default_value': "https://app.cervinodata.com",
+                        }
+                    }
             },
             {
-                'url': "https://app.cervinodata.com/api",
-                'description': "API beta",
+                'url': "{host}/api",
+                'description': "API Beta",
+                'variables': {
+                    'host': {
+                        'description': "No description provided",
+                        'default_value': "https://app.cervinodata.com",
+                        }
+                    }
             }
         ]
 
