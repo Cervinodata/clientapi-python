@@ -49,6 +49,7 @@ class AnalyticsDataGoalsApi(object):
         :param async_req bool: execute request asynchronously
         :param str organisation_uuid: Organisation uuid (required)
         :param date from_date: From date
+        :param str date_format: Outputted date format
         :param str format: Output format (use csv for large result sets)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -76,6 +77,7 @@ class AnalyticsDataGoalsApi(object):
         :param async_req bool: execute request asynchronously
         :param str organisation_uuid: Organisation uuid (required)
         :param date from_date: From date
+        :param str date_format: Outputted date format
         :param str format: Output format (use csv for large result sets)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -93,7 +95,7 @@ class AnalyticsDataGoalsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['organisation_uuid', 'from_date', 'format']  # noqa: E501
+        all_params = ['organisation_uuid', 'from_date', 'date_format', 'format']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -121,6 +123,8 @@ class AnalyticsDataGoalsApi(object):
         query_params = []
         if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
             query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
+        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
+            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
         if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
             query_params.append(('format', local_var_params['format']))  # noqa: E501
 
@@ -165,6 +169,7 @@ class AnalyticsDataGoalsApi(object):
         :param async_req bool: execute request asynchronously
         :param str organisation_uuid: Organisation uuid (required)
         :param date from_date: From date
+        :param str date_format: Outputted date format
         :param str format: Output format (use csv for large result sets)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -192,6 +197,7 @@ class AnalyticsDataGoalsApi(object):
         :param async_req bool: execute request asynchronously
         :param str organisation_uuid: Organisation uuid (required)
         :param date from_date: From date
+        :param str date_format: Outputted date format
         :param str format: Output format (use csv for large result sets)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -209,7 +215,7 @@ class AnalyticsDataGoalsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['organisation_uuid', 'from_date', 'format']  # noqa: E501
+        all_params = ['organisation_uuid', 'from_date', 'date_format', 'format']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -237,6 +243,8 @@ class AnalyticsDataGoalsApi(object):
         query_params = []
         if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
             query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
+        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
+            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
         if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
             query_params.append(('format', local_var_params['format']))  # noqa: E501
 
@@ -281,6 +289,7 @@ class AnalyticsDataGoalsApi(object):
         :param async_req bool: execute request asynchronously
         :param str organisation_uuid: Organisation uuid (required)
         :param date from_date: From date
+        :param str date_format: Outputted date format
         :param str format: Output format (use csv for large result sets)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -308,6 +317,7 @@ class AnalyticsDataGoalsApi(object):
         :param async_req bool: execute request asynchronously
         :param str organisation_uuid: Organisation uuid (required)
         :param date from_date: From date
+        :param str date_format: Outputted date format
         :param str format: Output format (use csv for large result sets)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -325,7 +335,7 @@ class AnalyticsDataGoalsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['organisation_uuid', 'from_date', 'format']  # noqa: E501
+        all_params = ['organisation_uuid', 'from_date', 'date_format', 'format']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -353,6 +363,8 @@ class AnalyticsDataGoalsApi(object):
         query_params = []
         if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
             query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
+        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
+            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
         if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
             query_params.append(('format', local_var_params['format']))  # noqa: E501
 
@@ -397,6 +409,7 @@ class AnalyticsDataGoalsApi(object):
         :param async_req bool: execute request asynchronously
         :param str organisation_uuid: Organisation uuid (required)
         :param date from_date: From date
+        :param str date_format: Outputted date format
         :param str format: Output format (use csv for large result sets)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -424,6 +437,7 @@ class AnalyticsDataGoalsApi(object):
         :param async_req bool: execute request asynchronously
         :param str organisation_uuid: Organisation uuid (required)
         :param date from_date: From date
+        :param str date_format: Outputted date format
         :param str format: Output format (use csv for large result sets)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -441,7 +455,7 @@ class AnalyticsDataGoalsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['organisation_uuid', 'from_date', 'format']  # noqa: E501
+        all_params = ['organisation_uuid', 'from_date', 'date_format', 'format']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -469,6 +483,8 @@ class AnalyticsDataGoalsApi(object):
         query_params = []
         if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
             query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
+        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
+            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
         if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
             query_params.append(('format', local_var_params['format']))  # noqa: E501
 
