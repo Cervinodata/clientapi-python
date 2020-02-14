@@ -277,17 +277,17 @@ class AnalyticsDataGoalsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_analytics_goal_report_per_device_per_channel_group_per_day(self, organisation_uuid, **kwargs):  # noqa: E501
-        """Return analytics goal report per device per channel group per day by organisation  # noqa: E501
+    def get_analytics_goal_report_per_device_per_channel_group_per_organisation_per_view_per_day(self, organisation_uuids, **kwargs):  # noqa: E501
+        """Return analytics goal report per device per channel group per organisation per view per day  # noqa: E501
 
-        Analytics goal report per device per channel group per day by organisation  # noqa: E501
+        Analytics goal report per device per channel group per organisation per view per day  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_analytics_goal_report_per_device_per_channel_group_per_day(organisation_uuid, async_req=True)
+        >>> thread = api.get_analytics_goal_report_per_device_per_channel_group_per_organisation_per_view_per_day(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str organisation_uuid: Organisation uuid (required)
+        :param list[str] organisation_uuids: Organisation uuids (required)
         :param date from_date: From date
         :param str date_format: Outputted date format
         :param str format: Output format (use csv for large result sets)
@@ -303,19 +303,19 @@ class AnalyticsDataGoalsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_analytics_goal_report_per_device_per_channel_group_per_day_with_http_info(organisation_uuid, **kwargs)  # noqa: E501
+        return self.get_analytics_goal_report_per_device_per_channel_group_per_organisation_per_view_per_day_with_http_info(organisation_uuids, **kwargs)  # noqa: E501
 
-    def get_analytics_goal_report_per_device_per_channel_group_per_day_with_http_info(self, organisation_uuid, **kwargs):  # noqa: E501
-        """Return analytics goal report per device per channel group per day by organisation  # noqa: E501
+    def get_analytics_goal_report_per_device_per_channel_group_per_organisation_per_view_per_day_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
+        """Return analytics goal report per device per channel group per organisation per view per day  # noqa: E501
 
-        Analytics goal report per device per channel group per day by organisation  # noqa: E501
+        Analytics goal report per device per channel group per organisation per view per day  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_analytics_goal_report_per_device_per_channel_group_per_day_with_http_info(organisation_uuid, async_req=True)
+        >>> thread = api.get_analytics_goal_report_per_device_per_channel_group_per_organisation_per_view_per_day_with_http_info(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str organisation_uuid: Organisation uuid (required)
+        :param list[str] organisation_uuids: Organisation uuids (required)
         :param date from_date: From date
         :param str date_format: Outputted date format
         :param str format: Output format (use csv for large result sets)
@@ -335,7 +335,7 @@ class AnalyticsDataGoalsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['organisation_uuid', 'from_date', 'date_format', 'format']  # noqa: E501
+        all_params = ['organisation_uuids', 'from_date', 'date_format', 'format']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -345,20 +345,21 @@ class AnalyticsDataGoalsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_analytics_goal_report_per_device_per_channel_group_per_day" % key
+                    " to method get_analytics_goal_report_per_device_per_channel_group_per_organisation_per_view_per_day" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'organisation_uuid' is set
-        if self.api_client.client_side_validation and ('organisation_uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organisation_uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organisation_uuid` when calling `get_analytics_goal_report_per_device_per_channel_group_per_day`")  # noqa: E501
+        # verify the required parameter 'organisation_uuids' is set
+        if self.api_client.client_side_validation and ('organisation_uuids' not in local_var_params or  # noqa: E501
+                                                        local_var_params['organisation_uuids'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `organisation_uuids` when calling `get_analytics_goal_report_per_device_per_channel_group_per_organisation_per_view_per_day`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'organisation_uuid' in local_var_params:
-            path_params['organisationUuid'] = local_var_params['organisation_uuid']  # noqa: E501
+        if 'organisation_uuids' in local_var_params:
+            path_params['organisationUuids'] = local_var_params['organisation_uuids']  # noqa: E501
+            collection_formats['organisationUuids'] = 'csv'  # noqa: E501
 
         query_params = []
         if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
@@ -382,7 +383,7 @@ class AnalyticsDataGoalsApi(object):
         auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/data/analytics-goal-report-per-device-per-channel-group-per-day/{organisationUuid}', 'GET',
+            '/data/analytics-goal-report-per-device-per-channel-group-per-organisation-per-view-per-day/{organisationUuids}', 'GET',
             path_params,
             query_params,
             header_params,
