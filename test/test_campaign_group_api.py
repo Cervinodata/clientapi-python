@@ -1,7 +1,5 @@
 # coding: utf-8
 
-# flake8: noqa
-
 """
     Cervinodata API documentation
 
@@ -15,23 +13,29 @@
 
 from __future__ import absolute_import
 
-__version__ = "0.1.0"
+import unittest
 
-# import apis into sdk package
-from cervinodata_api.api.advertising_data_api import AdvertisingDataApi
-from cervinodata_api.api.analytics_data_api import AnalyticsDataApi
-from cervinodata_api.api.analytics_data_default_metrics_api import AnalyticsDataDefaultMetricsApi
-from cervinodata_api.api.analytics_data_goals_api import AnalyticsDataGoalsApi
-from cervinodata_api.api.campaign_group_api import CampaignGroupApi
-from cervinodata_api.api.generic_data_api import GenericDataApi
+import cervinodata_api
+from cervinodata_api.api.campaign_group_api import CampaignGroupApi  # noqa: E501
+from cervinodata_api.rest import ApiException
 
-# import ApiClient
-from cervinodata_api.api_client import ApiClient
-from cervinodata_api.configuration import Configuration
-from cervinodata_api.exceptions import OpenApiException
-from cervinodata_api.exceptions import ApiTypeError
-from cervinodata_api.exceptions import ApiValueError
-from cervinodata_api.exceptions import ApiKeyError
-from cervinodata_api.exceptions import ApiException
-# import models into sdk package
 
+class TestCampaignGroupApi(unittest.TestCase):
+    """CampaignGroupApi unit test stubs"""
+
+    def setUp(self):
+        self.api = cervinodata_api.api.campaign_group_api.CampaignGroupApi()  # noqa: E501
+
+    def tearDown(self):
+        pass
+
+    def test_get_campaign_group_analytics_report_per_organisation_per_day(self):
+        """Test case for get_campaign_group_analytics_report_per_organisation_per_day
+
+        Return campaign group analytics report per organisation per day  # noqa: E501
+        """
+        pass
+
+
+if __name__ == '__main__':
+    unittest.main()
