@@ -37,6 +37,127 @@ class AdvertisingDataApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def get_ad_account_report_per_organisation_per_day(self, organisation_uuids, **kwargs):  # noqa: E501
+        """Return ad account report per organisation per day  # noqa: E501
+
+        Ad account report per organisation  per day  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ad_account_report_per_organisation_per_day(organisation_uuids, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param list[str] organisation_uuids: Organisation uuids (required)
+        :param date from_date: From date
+        :param str date_format: Outputted date format
+        :param str format: Output format (use csv for large result sets)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_ad_account_report_per_organisation_per_day_with_http_info(organisation_uuids, **kwargs)  # noqa: E501
+
+    def get_ad_account_report_per_organisation_per_day_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
+        """Return ad account report per organisation per day  # noqa: E501
+
+        Ad account report per organisation  per day  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_ad_account_report_per_organisation_per_day_with_http_info(organisation_uuids, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param list[str] organisation_uuids: Organisation uuids (required)
+        :param date from_date: From date
+        :param str date_format: Outputted date format
+        :param str format: Output format (use csv for large result sets)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(str, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['organisation_uuids', 'from_date', 'date_format', 'format']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_ad_account_report_per_organisation_per_day" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organisation_uuids' is set
+        if self.api_client.client_side_validation and ('organisation_uuids' not in local_var_params or  # noqa: E501
+                                                        local_var_params['organisation_uuids'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `organisation_uuids` when calling `get_ad_account_report_per_organisation_per_day`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'organisation_uuids' in local_var_params:
+            path_params['organisationUuids'] = local_var_params['organisation_uuids']  # noqa: E501
+            collection_formats['organisationUuids'] = 'csv'  # noqa: E501
+
+        query_params = []
+        if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
+            query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
+        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
+            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
+        if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
+            query_params.append(('format', local_var_params['format']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['text/csv', 'application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['bearerAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/data/ad-account-report-per-organisation-per-day/{organisationUuids}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_ad_accounts(self, organisation_uuid, **kwargs):  # noqa: E501
         """Return ad accounts by organisation  # noqa: E501
 

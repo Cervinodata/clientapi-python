@@ -59,15 +59,17 @@ configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration.host = "https://app.cervinodata.com/api/v1"
 # Create an instance of the API class
 api_instance = cervinodata_api.AdvertisingDataApi(cervinodata_api.ApiClient(configuration))
-organisation_uuid = 'organisation_uuid_example' # str | Organisation uuid
-format = 'format_example' # str | Output format (optional)
+organisation_uuids = ['organisation_uuids_example'] # list[str] | Organisation uuids
+from_date = '2013-10-20' # date | From date (optional)
+date_format = 'date_format_example' # str | Outputted date format (optional)
+format = 'format_example' # str | Output format (use csv for large result sets) (optional)
 
 try:
-    # Return ad accounts by organisation
-    api_response = api_instance.get_ad_accounts(organisation_uuid, format=format)
+    # Return ad account report per organisation per day
+    api_response = api_instance.get_ad_account_report_per_organisation_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AdvertisingDataApi->get_ad_accounts: %s\n" % e)
+    print("Exception when calling AdvertisingDataApi->get_ad_account_report_per_organisation_per_day: %s\n" % e)
 
 ```
 
@@ -77,6 +79,7 @@ All URIs are relative to *https://app.cervinodata.com/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AdvertisingDataApi* | [**get_ad_account_report_per_organisation_per_day**](docs/AdvertisingDataApi.md#get_ad_account_report_per_organisation_per_day) | **GET** /data/ad-account-report-per-organisation-per-day/{organisationUuids} | Return ad account report per organisation per day
 *AdvertisingDataApi* | [**get_ad_accounts**](docs/AdvertisingDataApi.md#get_ad_accounts) | **GET** /data/ad-accounts/{organisationUuid} | Return ad accounts by organisation
 *AdvertisingDataApi* | [**get_ad_campaign_report_per_day**](docs/AdvertisingDataApi.md#get_ad_campaign_report_per_day) | **GET** /data/ad-campaign-report-per-day/{organisationUuid} | Return ad campaign report per day by organisation
 *AdvertisingDataApi* | [**get_ad_campaign_report_per_organisation_per_account_per_day**](docs/AdvertisingDataApi.md#get_ad_campaign_report_per_organisation_per_account_per_day) | **GET** /data/ad-campaign-report-per-organisation-per-account-per-day/{organisationUuids} | Return ad campaign report per organisation per account per day
