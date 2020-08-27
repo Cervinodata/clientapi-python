@@ -19,7 +19,7 @@ import re  # noqa: F401
 import six
 
 from cervinodata_api.api_client import ApiClient
-from cervinodata_api.exceptions import (
+from cervinodata_api.exceptions import (  # noqa: F401
     ApiTypeError,
     ApiValueError
 )
@@ -43,24 +43,32 @@ class AnalyticsDataGoalsApi(object):
         Analytics goal report per campaign per day by organisation  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_analytics_goal_report_per_campaign_per_day(organisation_uuid, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str organisation_uuid: Organisation uuid (required)
-        :param date from_date: From date
-        :param str date_format: Outputted date format
-        :param str format: Output format (use csv for large result sets)
+        :param organisation_uuid: Organisation uuid (required)
+        :type organisation_uuid: str
+        :param from_date: From date
+        :type from_date: date
+        :param date_format: Outputted date format
+        :type date_format: str
+        :param format: Output format (use csv for large result sets)
+        :type format: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: str
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: str
         """
         kwargs['_return_http_data_only'] = True
         return self.get_analytics_goal_report_per_campaign_per_day_with_http_info(organisation_uuid, **kwargs)  # noqa: E501
@@ -71,35 +79,58 @@ class AnalyticsDataGoalsApi(object):
         Analytics goal report per campaign per day by organisation  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_analytics_goal_report_per_campaign_per_day_with_http_info(organisation_uuid, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str organisation_uuid: Organisation uuid (required)
-        :param date from_date: From date
-        :param str date_format: Outputted date format
-        :param str format: Output format (use csv for large result sets)
+        :param organisation_uuid: Organisation uuid (required)
+        :type organisation_uuid: str
+        :param from_date: From date
+        :type from_date: date
+        :param date_format: Outputted date format
+        :type date_format: str
+        :param format: Output format (use csv for large result sets)
+        :type format: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(str, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['organisation_uuid', 'from_date', 'date_format', 'format']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'organisation_uuid',
+            'from_date',
+            'date_format',
+            'format'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -155,7 +186,8 @@ class AnalyticsDataGoalsApi(object):
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_analytics_goal_report_per_channel_group_per_day(self, organisation_uuid, **kwargs):  # noqa: E501
         """Return analytics goal report per channel group per day by organisation  # noqa: E501
@@ -163,24 +195,32 @@ class AnalyticsDataGoalsApi(object):
         Analytics goal report per channel group per day by organisation  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_analytics_goal_report_per_channel_group_per_day(organisation_uuid, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str organisation_uuid: Organisation uuid (required)
-        :param date from_date: From date
-        :param str date_format: Outputted date format
-        :param str format: Output format (use csv for large result sets)
+        :param organisation_uuid: Organisation uuid (required)
+        :type organisation_uuid: str
+        :param from_date: From date
+        :type from_date: date
+        :param date_format: Outputted date format
+        :type date_format: str
+        :param format: Output format (use csv for large result sets)
+        :type format: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: str
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: str
         """
         kwargs['_return_http_data_only'] = True
         return self.get_analytics_goal_report_per_channel_group_per_day_with_http_info(organisation_uuid, **kwargs)  # noqa: E501
@@ -191,35 +231,58 @@ class AnalyticsDataGoalsApi(object):
         Analytics goal report per channel group per day by organisation  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_analytics_goal_report_per_channel_group_per_day_with_http_info(organisation_uuid, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str organisation_uuid: Organisation uuid (required)
-        :param date from_date: From date
-        :param str date_format: Outputted date format
-        :param str format: Output format (use csv for large result sets)
+        :param organisation_uuid: Organisation uuid (required)
+        :type organisation_uuid: str
+        :param from_date: From date
+        :type from_date: date
+        :param date_format: Outputted date format
+        :type date_format: str
+        :param format: Output format (use csv for large result sets)
+        :type format: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(str, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['organisation_uuid', 'from_date', 'date_format', 'format']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'organisation_uuid',
+            'from_date',
+            'date_format',
+            'format'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -275,7 +338,8 @@ class AnalyticsDataGoalsApi(object):
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_analytics_goal_report_per_device_per_day(self, organisation_uuid, **kwargs):  # noqa: E501
         """Return analytics goal report per device per day by organisation  # noqa: E501
@@ -283,24 +347,32 @@ class AnalyticsDataGoalsApi(object):
         Analytics goal report per device per day by organisation  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_analytics_goal_report_per_device_per_day(organisation_uuid, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str organisation_uuid: Organisation uuid (required)
-        :param date from_date: From date
-        :param str date_format: Outputted date format
-        :param str format: Output format (use csv for large result sets)
+        :param organisation_uuid: Organisation uuid (required)
+        :type organisation_uuid: str
+        :param from_date: From date
+        :type from_date: date
+        :param date_format: Outputted date format
+        :type date_format: str
+        :param format: Output format (use csv for large result sets)
+        :type format: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: str
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: str
         """
         kwargs['_return_http_data_only'] = True
         return self.get_analytics_goal_report_per_device_per_day_with_http_info(organisation_uuid, **kwargs)  # noqa: E501
@@ -311,35 +383,58 @@ class AnalyticsDataGoalsApi(object):
         Analytics goal report per device per day by organisation  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_analytics_goal_report_per_device_per_day_with_http_info(organisation_uuid, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str organisation_uuid: Organisation uuid (required)
-        :param date from_date: From date
-        :param str date_format: Outputted date format
-        :param str format: Output format (use csv for large result sets)
+        :param organisation_uuid: Organisation uuid (required)
+        :type organisation_uuid: str
+        :param from_date: From date
+        :type from_date: date
+        :param date_format: Outputted date format
+        :type date_format: str
+        :param format: Output format (use csv for large result sets)
+        :type format: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(str, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['organisation_uuid', 'from_date', 'date_format', 'format']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'organisation_uuid',
+            'from_date',
+            'date_format',
+            'format'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -395,7 +490,8 @@ class AnalyticsDataGoalsApi(object):
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
 
     def get_analytics_goal_report_per_source_medium_per_day(self, organisation_uuid, **kwargs):  # noqa: E501
         """Return analytics goal report per source medium per day by organisation  # noqa: E501
@@ -403,24 +499,32 @@ class AnalyticsDataGoalsApi(object):
         Analytics goal report per source medium per day by organisation  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_analytics_goal_report_per_source_medium_per_day(organisation_uuid, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str organisation_uuid: Organisation uuid (required)
-        :param date from_date: From date
-        :param str date_format: Outputted date format
-        :param str format: Output format (use csv for large result sets)
+        :param organisation_uuid: Organisation uuid (required)
+        :type organisation_uuid: str
+        :param from_date: From date
+        :type from_date: date
+        :param date_format: Outputted date format
+        :type date_format: str
+        :param format: Output format (use csv for large result sets)
+        :type format: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: str
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: str
         """
         kwargs['_return_http_data_only'] = True
         return self.get_analytics_goal_report_per_source_medium_per_day_with_http_info(organisation_uuid, **kwargs)  # noqa: E501
@@ -431,35 +535,58 @@ class AnalyticsDataGoalsApi(object):
         Analytics goal report per source medium per day by organisation  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_analytics_goal_report_per_source_medium_per_day_with_http_info(organisation_uuid, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str organisation_uuid: Organisation uuid (required)
-        :param date from_date: From date
-        :param str date_format: Outputted date format
-        :param str format: Output format (use csv for large result sets)
+        :param organisation_uuid: Organisation uuid (required)
+        :type organisation_uuid: str
+        :param from_date: From date
+        :type from_date: date
+        :param date_format: Outputted date format
+        :type date_format: str
+        :param format: Output format (use csv for large result sets)
+        :type format: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
+        :type _return_http_data_only: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
+        :type _preload_content: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(str, status_code(int), headers(HTTPHeaderDict))
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
+        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
-        all_params = ['organisation_uuid', 'from_date', 'date_format', 'format']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'organisation_uuid',
+            'from_date',
+            'date_format',
+            'format'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -515,4 +642,5 @@ class AnalyticsDataGoalsApi(object):
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))

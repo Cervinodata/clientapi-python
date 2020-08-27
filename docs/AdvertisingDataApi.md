@@ -30,25 +30,37 @@ import time
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
-configuration = cervinodata_api.Configuration()
-# Configure Bearer authorization: bearerAuth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
+# Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cervinodata_api.Configuration(
+    host = "https://app.cervinodata.com/api/v1"
+)
 
-# Defining host is optional and default to https://app.cervinodata.com/api/v1
-configuration.host = "https://app.cervinodata.com/api/v1"
-# Create an instance of the API class
-api_instance = cervinodata_api.AdvertisingDataApi(cervinodata_api.ApiClient(configuration))
-organisation_uuids = ['organisation_uuids_example'] # list[str] | Organisation uuids
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: bearerAuth
+configuration = cervinodata_api.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with cervinodata_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cervinodata_api.AdvertisingDataApi(api_client)
+    organisation_uuids = ['organisation_uuids_example'] # list[str] | Organisation uuids
 from_date = '2013-10-20' # date | From date (optional)
 date_format = 'date_format_example' # str | Outputted date format (optional)
 format = 'format_example' # str | Output format (use csv for large result sets) (optional)
 
-try:
-    # Return ad account report per organisation per day
-    api_response = api_instance.get_ad_account_report_per_organisation_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AdvertisingDataApi->get_ad_account_report_per_organisation_per_day: %s\n" % e)
+    try:
+        # Return ad account report per organisation per day
+        api_response = api_instance.get_ad_account_report_per_organisation_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_ad_account_report_per_organisation_per_day: %s\n" % e)
 ```
 
 ### Parameters
@@ -98,23 +110,35 @@ import time
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
-configuration = cervinodata_api.Configuration()
-# Configure Bearer authorization: bearerAuth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
+# Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cervinodata_api.Configuration(
+    host = "https://app.cervinodata.com/api/v1"
+)
 
-# Defining host is optional and default to https://app.cervinodata.com/api/v1
-configuration.host = "https://app.cervinodata.com/api/v1"
-# Create an instance of the API class
-api_instance = cervinodata_api.AdvertisingDataApi(cervinodata_api.ApiClient(configuration))
-organisation_uuid = 'organisation_uuid_example' # str | Organisation uuid
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: bearerAuth
+configuration = cervinodata_api.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with cervinodata_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cervinodata_api.AdvertisingDataApi(api_client)
+    organisation_uuid = 'organisation_uuid_example' # str | Organisation uuid
 format = 'format_example' # str | Output format (optional)
 
-try:
-    # Return ad accounts by organisation
-    api_response = api_instance.get_ad_accounts(organisation_uuid, format=format)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AdvertisingDataApi->get_ad_accounts: %s\n" % e)
+    try:
+        # Return ad accounts by organisation
+        api_response = api_instance.get_ad_accounts(organisation_uuid, format=format)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_ad_accounts: %s\n" % e)
 ```
 
 ### Parameters
@@ -162,25 +186,37 @@ import time
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
-configuration = cervinodata_api.Configuration()
-# Configure Bearer authorization: bearerAuth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
+# Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cervinodata_api.Configuration(
+    host = "https://app.cervinodata.com/api/v1"
+)
 
-# Defining host is optional and default to https://app.cervinodata.com/api/v1
-configuration.host = "https://app.cervinodata.com/api/v1"
-# Create an instance of the API class
-api_instance = cervinodata_api.AdvertisingDataApi(cervinodata_api.ApiClient(configuration))
-organisation_uuid = 'organisation_uuid_example' # str | Organisation uuid
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: bearerAuth
+configuration = cervinodata_api.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with cervinodata_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cervinodata_api.AdvertisingDataApi(api_client)
+    organisation_uuid = 'organisation_uuid_example' # str | Organisation uuid
 from_date = '2013-10-20' # date | From date (optional)
 date_format = 'date_format_example' # str | Outputted date format (optional)
 format = 'format_example' # str | Output format (use csv for large result sets) (optional)
 
-try:
-    # Return ad campaign report per day by organisation
-    api_response = api_instance.get_ad_campaign_report_per_day(organisation_uuid, from_date=from_date, date_format=date_format, format=format)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AdvertisingDataApi->get_ad_campaign_report_per_day: %s\n" % e)
+    try:
+        # Return ad campaign report per day by organisation
+        api_response = api_instance.get_ad_campaign_report_per_day(organisation_uuid, from_date=from_date, date_format=date_format, format=format)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_ad_campaign_report_per_day: %s\n" % e)
 ```
 
 ### Parameters
@@ -230,25 +266,37 @@ import time
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
-configuration = cervinodata_api.Configuration()
-# Configure Bearer authorization: bearerAuth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
+# Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cervinodata_api.Configuration(
+    host = "https://app.cervinodata.com/api/v1"
+)
 
-# Defining host is optional and default to https://app.cervinodata.com/api/v1
-configuration.host = "https://app.cervinodata.com/api/v1"
-# Create an instance of the API class
-api_instance = cervinodata_api.AdvertisingDataApi(cervinodata_api.ApiClient(configuration))
-organisation_uuids = ['organisation_uuids_example'] # list[str] | Organisation uuids
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: bearerAuth
+configuration = cervinodata_api.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with cervinodata_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cervinodata_api.AdvertisingDataApi(api_client)
+    organisation_uuids = ['organisation_uuids_example'] # list[str] | Organisation uuids
 from_date = '2013-10-20' # date | From date (optional)
 date_format = 'date_format_example' # str | Outputted date format (optional)
 format = 'format_example' # str | Output format (use csv for large result sets) (optional)
 
-try:
-    # Return ad campaign report per organisation per account per campaign per device per day
-    api_response = api_instance.get_ad_campaign_report_per_organisation_per_account_per_campaign_per_device_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AdvertisingDataApi->get_ad_campaign_report_per_organisation_per_account_per_campaign_per_device_per_day: %s\n" % e)
+    try:
+        # Return ad campaign report per organisation per account per campaign per device per day
+        api_response = api_instance.get_ad_campaign_report_per_organisation_per_account_per_campaign_per_device_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_ad_campaign_report_per_organisation_per_account_per_campaign_per_device_per_day: %s\n" % e)
 ```
 
 ### Parameters
@@ -298,25 +346,37 @@ import time
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
-configuration = cervinodata_api.Configuration()
-# Configure Bearer authorization: bearerAuth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
+# Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cervinodata_api.Configuration(
+    host = "https://app.cervinodata.com/api/v1"
+)
 
-# Defining host is optional and default to https://app.cervinodata.com/api/v1
-configuration.host = "https://app.cervinodata.com/api/v1"
-# Create an instance of the API class
-api_instance = cervinodata_api.AdvertisingDataApi(cervinodata_api.ApiClient(configuration))
-organisation_uuids = ['organisation_uuids_example'] # list[str] | Organisation uuids
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: bearerAuth
+configuration = cervinodata_api.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with cervinodata_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cervinodata_api.AdvertisingDataApi(api_client)
+    organisation_uuids = ['organisation_uuids_example'] # list[str] | Organisation uuids
 from_date = '2013-10-20' # date | From date (optional)
 date_format = 'date_format_example' # str | Outputted date format (optional)
 format = 'format_example' # str | Output format (use csv for large result sets) (optional)
 
-try:
-    # Return ad campaign report per organisation per account per day
-    api_response = api_instance.get_ad_campaign_report_per_organisation_per_account_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AdvertisingDataApi->get_ad_campaign_report_per_organisation_per_account_per_day: %s\n" % e)
+    try:
+        # Return ad campaign report per organisation per account per day
+        api_response = api_instance.get_ad_campaign_report_per_organisation_per_account_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_ad_campaign_report_per_organisation_per_account_per_day: %s\n" % e)
 ```
 
 ### Parameters
@@ -366,24 +426,36 @@ import time
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
-configuration = cervinodata_api.Configuration()
-# Configure Bearer authorization: bearerAuth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
+# Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cervinodata_api.Configuration(
+    host = "https://app.cervinodata.com/api/v1"
+)
 
-# Defining host is optional and default to https://app.cervinodata.com/api/v1
-configuration.host = "https://app.cervinodata.com/api/v1"
-# Create an instance of the API class
-api_instance = cervinodata_api.AdvertisingDataApi(cervinodata_api.ApiClient(configuration))
-organisation_uuid = 'organisation_uuid_example' # str | Organisation uuid
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: bearerAuth
+configuration = cervinodata_api.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with cervinodata_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cervinodata_api.AdvertisingDataApi(api_client)
+    organisation_uuid = 'organisation_uuid_example' # str | Organisation uuid
 from_date = '2013-10-20' # date | From date (optional)
 format = 'format_example' # str | Output format (optional)
 
-try:
-    # Return ad campaigns by organisation
-    api_response = api_instance.get_ad_campaigns(organisation_uuid, from_date=from_date, format=format)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AdvertisingDataApi->get_ad_campaigns: %s\n" % e)
+    try:
+        # Return ad campaigns by organisation
+        api_response = api_instance.get_ad_campaigns(organisation_uuid, from_date=from_date, format=format)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_ad_campaigns: %s\n" % e)
 ```
 
 ### Parameters
@@ -432,25 +504,37 @@ import time
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
-configuration = cervinodata_api.Configuration()
-# Configure Bearer authorization: bearerAuth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
+# Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cervinodata_api.Configuration(
+    host = "https://app.cervinodata.com/api/v1"
+)
 
-# Defining host is optional and default to https://app.cervinodata.com/api/v1
-configuration.host = "https://app.cervinodata.com/api/v1"
-# Create an instance of the API class
-api_instance = cervinodata_api.AdvertisingDataApi(cervinodata_api.ApiClient(configuration))
-organisation_uuids = ['organisation_uuids_example'] # list[str] | Organisation uuids
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: bearerAuth
+configuration = cervinodata_api.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with cervinodata_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cervinodata_api.AdvertisingDataApi(api_client)
+    organisation_uuids = ['organisation_uuids_example'] # list[str] | Organisation uuids
 from_date = '2013-10-20' # date | From date (optional)
 date_format = 'date_format_example' # str | Outputted date format (optional)
 format = 'format_example' # str | Output format (use csv for large result sets) (optional)
 
-try:
-    # Return facebook ad extended report per organisation per account per campaign per device per day
-    api_response = api_instance.get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_device_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AdvertisingDataApi->get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_device_per_day: %s\n" % e)
+    try:
+        # Return facebook ad extended report per organisation per account per campaign per device per day
+        api_response = api_instance.get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_device_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_device_per_day: %s\n" % e)
 ```
 
 ### Parameters
@@ -500,25 +584,37 @@ import time
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
-configuration = cervinodata_api.Configuration()
-# Configure Bearer authorization: bearerAuth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
+# Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cervinodata_api.Configuration(
+    host = "https://app.cervinodata.com/api/v1"
+)
 
-# Defining host is optional and default to https://app.cervinodata.com/api/v1
-configuration.host = "https://app.cervinodata.com/api/v1"
-# Create an instance of the API class
-api_instance = cervinodata_api.AdvertisingDataApi(cervinodata_api.ApiClient(configuration))
-organisation_uuids = ['organisation_uuids_example'] # list[str] | Organisation uuids
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: bearerAuth
+configuration = cervinodata_api.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with cervinodata_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cervinodata_api.AdvertisingDataApi(api_client)
+    organisation_uuids = ['organisation_uuids_example'] # list[str] | Organisation uuids
 from_date = '2013-10-20' # date | From date (optional)
 date_format = 'date_format_example' # str | Outputted date format (optional)
 format = 'format_example' # str | Output format (use csv for large result sets) (optional)
 
-try:
-    # Return google ads report per organisation per account per campaign per device per day
-    api_response = api_instance.get_google_ads_report_per_organisation_per_account_per_campaign_per_device_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AdvertisingDataApi->get_google_ads_report_per_organisation_per_account_per_campaign_per_device_per_day: %s\n" % e)
+    try:
+        # Return google ads report per organisation per account per campaign per device per day
+        api_response = api_instance.get_google_ads_report_per_organisation_per_account_per_campaign_per_device_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_google_ads_report_per_organisation_per_account_per_campaign_per_device_per_day: %s\n" % e)
 ```
 
 ### Parameters

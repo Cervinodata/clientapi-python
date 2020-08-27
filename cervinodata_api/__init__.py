@@ -32,6 +32,7 @@ from cervinodata_api.exceptions import OpenApiException
 from cervinodata_api.exceptions import ApiTypeError
 from cervinodata_api.exceptions import ApiValueError
 from cervinodata_api.exceptions import ApiKeyError
+from cervinodata_api.exceptions import ApiAttributeError
 from cervinodata_api.exceptions import ApiException
 # import models into sdk package
 

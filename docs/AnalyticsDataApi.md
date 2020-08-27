@@ -23,23 +23,35 @@ import time
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
-configuration = cervinodata_api.Configuration()
-# Configure Bearer authorization: bearerAuth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
+# Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cervinodata_api.Configuration(
+    host = "https://app.cervinodata.com/api/v1"
+)
 
-# Defining host is optional and default to https://app.cervinodata.com/api/v1
-configuration.host = "https://app.cervinodata.com/api/v1"
-# Create an instance of the API class
-api_instance = cervinodata_api.AnalyticsDataApi(cervinodata_api.ApiClient(configuration))
-organisation_uuid = 'organisation_uuid_example' # str | Organisation uuid
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: bearerAuth
+configuration = cervinodata_api.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with cervinodata_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cervinodata_api.AnalyticsDataApi(api_client)
+    organisation_uuid = 'organisation_uuid_example' # str | Organisation uuid
 format = 'format_example' # str | Output format (optional)
 
-try:
-    # Return views by organisation
-    api_response = api_instance.get_views(organisation_uuid, format=format)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AnalyticsDataApi->get_views: %s\n" % e)
+    try:
+        # Return views by organisation
+        api_response = api_instance.get_views(organisation_uuid, format=format)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AnalyticsDataApi->get_views: %s\n" % e)
 ```
 
 ### Parameters

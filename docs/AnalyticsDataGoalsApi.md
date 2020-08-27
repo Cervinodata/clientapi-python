@@ -26,25 +26,37 @@ import time
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
-configuration = cervinodata_api.Configuration()
-# Configure Bearer authorization: bearerAuth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
+# Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cervinodata_api.Configuration(
+    host = "https://app.cervinodata.com/api/v1"
+)
 
-# Defining host is optional and default to https://app.cervinodata.com/api/v1
-configuration.host = "https://app.cervinodata.com/api/v1"
-# Create an instance of the API class
-api_instance = cervinodata_api.AnalyticsDataGoalsApi(cervinodata_api.ApiClient(configuration))
-organisation_uuid = 'organisation_uuid_example' # str | Organisation uuid
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: bearerAuth
+configuration = cervinodata_api.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with cervinodata_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cervinodata_api.AnalyticsDataGoalsApi(api_client)
+    organisation_uuid = 'organisation_uuid_example' # str | Organisation uuid
 from_date = '2013-10-20' # date | From date (optional)
 date_format = 'date_format_example' # str | Outputted date format (optional)
 format = 'format_example' # str | Output format (use csv for large result sets) (optional)
 
-try:
-    # Return analytics goal report per campaign per day by organisation
-    api_response = api_instance.get_analytics_goal_report_per_campaign_per_day(organisation_uuid, from_date=from_date, date_format=date_format, format=format)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AnalyticsDataGoalsApi->get_analytics_goal_report_per_campaign_per_day: %s\n" % e)
+    try:
+        # Return analytics goal report per campaign per day by organisation
+        api_response = api_instance.get_analytics_goal_report_per_campaign_per_day(organisation_uuid, from_date=from_date, date_format=date_format, format=format)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AnalyticsDataGoalsApi->get_analytics_goal_report_per_campaign_per_day: %s\n" % e)
 ```
 
 ### Parameters
@@ -94,25 +106,37 @@ import time
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
-configuration = cervinodata_api.Configuration()
-# Configure Bearer authorization: bearerAuth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
+# Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cervinodata_api.Configuration(
+    host = "https://app.cervinodata.com/api/v1"
+)
 
-# Defining host is optional and default to https://app.cervinodata.com/api/v1
-configuration.host = "https://app.cervinodata.com/api/v1"
-# Create an instance of the API class
-api_instance = cervinodata_api.AnalyticsDataGoalsApi(cervinodata_api.ApiClient(configuration))
-organisation_uuid = 'organisation_uuid_example' # str | Organisation uuid
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: bearerAuth
+configuration = cervinodata_api.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with cervinodata_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cervinodata_api.AnalyticsDataGoalsApi(api_client)
+    organisation_uuid = 'organisation_uuid_example' # str | Organisation uuid
 from_date = '2013-10-20' # date | From date (optional)
 date_format = 'date_format_example' # str | Outputted date format (optional)
 format = 'format_example' # str | Output format (use csv for large result sets) (optional)
 
-try:
-    # Return analytics goal report per channel group per day by organisation
-    api_response = api_instance.get_analytics_goal_report_per_channel_group_per_day(organisation_uuid, from_date=from_date, date_format=date_format, format=format)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AnalyticsDataGoalsApi->get_analytics_goal_report_per_channel_group_per_day: %s\n" % e)
+    try:
+        # Return analytics goal report per channel group per day by organisation
+        api_response = api_instance.get_analytics_goal_report_per_channel_group_per_day(organisation_uuid, from_date=from_date, date_format=date_format, format=format)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AnalyticsDataGoalsApi->get_analytics_goal_report_per_channel_group_per_day: %s\n" % e)
 ```
 
 ### Parameters
@@ -162,25 +186,37 @@ import time
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
-configuration = cervinodata_api.Configuration()
-# Configure Bearer authorization: bearerAuth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
+# Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cervinodata_api.Configuration(
+    host = "https://app.cervinodata.com/api/v1"
+)
 
-# Defining host is optional and default to https://app.cervinodata.com/api/v1
-configuration.host = "https://app.cervinodata.com/api/v1"
-# Create an instance of the API class
-api_instance = cervinodata_api.AnalyticsDataGoalsApi(cervinodata_api.ApiClient(configuration))
-organisation_uuid = 'organisation_uuid_example' # str | Organisation uuid
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: bearerAuth
+configuration = cervinodata_api.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with cervinodata_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cervinodata_api.AnalyticsDataGoalsApi(api_client)
+    organisation_uuid = 'organisation_uuid_example' # str | Organisation uuid
 from_date = '2013-10-20' # date | From date (optional)
 date_format = 'date_format_example' # str | Outputted date format (optional)
 format = 'format_example' # str | Output format (use csv for large result sets) (optional)
 
-try:
-    # Return analytics goal report per device per day by organisation
-    api_response = api_instance.get_analytics_goal_report_per_device_per_day(organisation_uuid, from_date=from_date, date_format=date_format, format=format)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AnalyticsDataGoalsApi->get_analytics_goal_report_per_device_per_day: %s\n" % e)
+    try:
+        # Return analytics goal report per device per day by organisation
+        api_response = api_instance.get_analytics_goal_report_per_device_per_day(organisation_uuid, from_date=from_date, date_format=date_format, format=format)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AnalyticsDataGoalsApi->get_analytics_goal_report_per_device_per_day: %s\n" % e)
 ```
 
 ### Parameters
@@ -230,25 +266,37 @@ import time
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
-configuration = cervinodata_api.Configuration()
-# Configure Bearer authorization: bearerAuth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
+# Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cervinodata_api.Configuration(
+    host = "https://app.cervinodata.com/api/v1"
+)
 
-# Defining host is optional and default to https://app.cervinodata.com/api/v1
-configuration.host = "https://app.cervinodata.com/api/v1"
-# Create an instance of the API class
-api_instance = cervinodata_api.AnalyticsDataGoalsApi(cervinodata_api.ApiClient(configuration))
-organisation_uuid = 'organisation_uuid_example' # str | Organisation uuid
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: bearerAuth
+configuration = cervinodata_api.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with cervinodata_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cervinodata_api.AnalyticsDataGoalsApi(api_client)
+    organisation_uuid = 'organisation_uuid_example' # str | Organisation uuid
 from_date = '2013-10-20' # date | From date (optional)
 date_format = 'date_format_example' # str | Outputted date format (optional)
 format = 'format_example' # str | Output format (use csv for large result sets) (optional)
 
-try:
-    # Return analytics goal report per source medium per day by organisation
-    api_response = api_instance.get_analytics_goal_report_per_source_medium_per_day(organisation_uuid, from_date=from_date, date_format=date_format, format=format)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AnalyticsDataGoalsApi->get_analytics_goal_report_per_source_medium_per_day: %s\n" % e)
+    try:
+        # Return analytics goal report per source medium per day by organisation
+        api_response = api_instance.get_analytics_goal_report_per_source_medium_per_day(organisation_uuid, from_date=from_date, date_format=date_format, format=format)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AnalyticsDataGoalsApi->get_analytics_goal_report_per_source_medium_per_day: %s\n" % e)
 ```
 
 ### Parameters

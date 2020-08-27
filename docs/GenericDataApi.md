@@ -24,21 +24,33 @@ import time
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
-configuration = cervinodata_api.Configuration()
+# Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cervinodata_api.Configuration(
+    host = "https://app.cervinodata.com/api/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure Bearer authorization: bearerAuth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = cervinodata_api.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
 
-# Defining host is optional and default to https://app.cervinodata.com/api/v1
-configuration.host = "https://app.cervinodata.com/api/v1"
-# Create an instance of the API class
-api_instance = cervinodata_api.GenericDataApi(cervinodata_api.ApiClient(configuration))
-
-try:
-    # Return campaign groups
-    api_response = api_instance.get_campaign_groups()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling GenericDataApi->get_campaign_groups: %s\n" % e)
+# Enter a context with an instance of the API client
+with cervinodata_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cervinodata_api.GenericDataApi(api_client)
+    
+    try:
+        # Return campaign groups
+        api_response = api_instance.get_campaign_groups()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling GenericDataApi->get_campaign_groups: %s\n" % e)
 ```
 
 ### Parameters
@@ -80,22 +92,34 @@ import time
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
-configuration = cervinodata_api.Configuration()
+# Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cervinodata_api.Configuration(
+    host = "https://app.cervinodata.com/api/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure Bearer authorization: bearerAuth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = cervinodata_api.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
 
-# Defining host is optional and default to https://app.cervinodata.com/api/v1
-configuration.host = "https://app.cervinodata.com/api/v1"
-# Create an instance of the API class
-api_instance = cervinodata_api.GenericDataApi(cervinodata_api.ApiClient(configuration))
-format = 'format_example' # str | Output format (optional)
+# Enter a context with an instance of the API client
+with cervinodata_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cervinodata_api.GenericDataApi(api_client)
+    format = 'format_example' # str | Output format (optional)
 
-try:
-    # Return organisations
-    api_response = api_instance.get_organisations(format=format)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling GenericDataApi->get_organisations: %s\n" % e)
+    try:
+        # Return organisations
+        api_response = api_instance.get_organisations(format=format)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling GenericDataApi->get_organisations: %s\n" % e)
 ```
 
 ### Parameters
