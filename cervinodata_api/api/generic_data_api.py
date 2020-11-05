@@ -139,6 +139,10 @@ class GenericDataApi(object):
 
         # Authentication setting
         auth_settings = ['bearerAuth']  # noqa: E501
+        
+        response_types_map = {
+            200: "list[object]",
+        }
 
         return self.api_client.call_api(
             '/data/campaign-groups', 'GET',
@@ -148,7 +152,7 @@ class GenericDataApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[object]',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -266,6 +270,10 @@ class GenericDataApi(object):
 
         # Authentication setting
         auth_settings = ['bearerAuth']  # noqa: E501
+        
+        response_types_map = {
+            200: "str",
+        }
 
         return self.api_client.call_api(
             '/data/organisations', 'GET',
@@ -275,7 +283,7 @@ class GenericDataApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='str',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

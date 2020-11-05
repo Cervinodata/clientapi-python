@@ -171,6 +171,12 @@ class AnalyticsDataGoalsApi(object):
 
         # Authentication setting
         auth_settings = ['bearerAuth']  # noqa: E501
+        
+        response_types_map = {
+            200: "str",
+            400: None,
+            404: None,
+        }
 
         return self.api_client.call_api(
             '/data/analytics-goal-report-per-campaign-per-day/{organisationUuid}', 'GET',
@@ -180,7 +186,7 @@ class AnalyticsDataGoalsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='str',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -323,6 +329,12 @@ class AnalyticsDataGoalsApi(object):
 
         # Authentication setting
         auth_settings = ['bearerAuth']  # noqa: E501
+        
+        response_types_map = {
+            200: "str",
+            400: None,
+            404: None,
+        }
 
         return self.api_client.call_api(
             '/data/analytics-goal-report-per-channel-group-per-day/{organisationUuid}', 'GET',
@@ -332,7 +344,7 @@ class AnalyticsDataGoalsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='str',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -475,6 +487,12 @@ class AnalyticsDataGoalsApi(object):
 
         # Authentication setting
         auth_settings = ['bearerAuth']  # noqa: E501
+        
+        response_types_map = {
+            200: "str",
+            400: None,
+            404: None,
+        }
 
         return self.api_client.call_api(
             '/data/analytics-goal-report-per-device-per-day/{organisationUuid}', 'GET',
@@ -484,7 +502,7 @@ class AnalyticsDataGoalsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='str',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -627,6 +645,12 @@ class AnalyticsDataGoalsApi(object):
 
         # Authentication setting
         auth_settings = ['bearerAuth']  # noqa: E501
+        
+        response_types_map = {
+            200: "str",
+            400: None,
+            404: None,
+        }
 
         return self.api_client.call_api(
             '/data/analytics-goal-report-per-source-medium-per-day/{organisationUuid}', 'GET',
@@ -636,7 +660,7 @@ class AnalyticsDataGoalsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='str',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
