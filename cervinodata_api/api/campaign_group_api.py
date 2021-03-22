@@ -1293,7 +1293,7 @@ class CampaignGroupApi(object):
         }
 
         return self.api_client.call_api(
-            '/data/campaign-group-facebook-ad-conversion-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids}', 'GET',
+            '/data/campaign-group-facebook-ad-custom-conversion-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids}', 'GET',
             path_params,
             query_params,
             header_params,
