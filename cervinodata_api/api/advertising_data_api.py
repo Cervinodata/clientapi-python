@@ -40,7 +40,7 @@ class AdvertisingDataApi(object):
     def get_ad_account_report_per_organisation_per_day(self, organisation_uuids, **kwargs):  # noqa: E501
         """Return ad account report per organisation per day  # noqa: E501
 
-        Ad account report per organisation  per day  # noqa: E501
+        Ad account report per organisation per day  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -76,7 +76,7 @@ class AdvertisingDataApi(object):
     def get_ad_account_report_per_organisation_per_day_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
         """Return ad account report per organisation per day  # noqa: E501
 
-        Ad account report per organisation  per day  # noqa: E501
+        Ad account report per organisation per day  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
