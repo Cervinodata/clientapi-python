@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Cervinodata API documentation
 
@@ -11,17 +9,18 @@
 """
 
 
-from __future__ import absolute_import
-
 import re  # noqa: F401
+import sys  # noqa: F401
 
-# python 2 and python 3 compatibility library
-import six
-
-from cervinodata_api.api_client import ApiClient
-from cervinodata_api.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
+from cervinodata_api.api_client import ApiClient, Endpoint as _Endpoint
+from cervinodata_api.model_utils import (  # noqa: F401
+    check_allowed_values,
+    check_validations,
+    date,
+    datetime,
+    file_type,
+    none_type,
+    validate_and_convert_types
 )
 
 
@@ -36,8 +35,1852 @@ class CampaignGroupApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.get_campaign_group_ad_report_per_organisation_per_campaign_per_day_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/data/campaign-group-ad-report-per-organisation-per-campaign-per-day/{organisationUuids}',
+                'operation_id': 'get_campaign_group_ad_report_per_organisation_per_campaign_per_day',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organisation_uuids',
+                    'from_date',
+                    'date_format',
+                    'format',
+                ],
+                'required': [
+                    'organisation_uuids',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'date_format',
+                    'format',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('date_format',): {
 
-    def get_campaign_group_ad_report_per_organisation_per_campaign_per_day(self, organisation_uuids, **kwargs):  # noqa: E501
+                        "YYYY-MM-DD": "YYYY-MM-DD",
+                        "YYYYMMDD": "YYYYMMDD"
+                    },
+                    ('format',): {
+
+                        "CSV": "csv",
+                        "JSON": "json"
+                    },
+                },
+                'openapi_types': {
+                    'organisation_uuids':
+                        ([str],),
+                    'from_date':
+                        (date,),
+                    'date_format':
+                        (str,),
+                    'format':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organisation_uuids': 'organisationUuids',
+                    'from_date': 'from_date',
+                    'date_format': 'date_format',
+                    'format': 'format',
+                },
+                'location_map': {
+                    'organisation_uuids': 'path',
+                    'from_date': 'query',
+                    'date_format': 'query',
+                    'format': 'query',
+                },
+                'collection_format_map': {
+                    'organisation_uuids': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/csv',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_campaign_group_ad_report_per_organisation_per_campaign_per_week_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/data/campaign-group-ad-report-per-organisation-per-campaign-per-week/{organisationUuids}',
+                'operation_id': 'get_campaign_group_ad_report_per_organisation_per_campaign_per_week',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organisation_uuids',
+                    'from_date',
+                    'date_format',
+                    'format',
+                ],
+                'required': [
+                    'organisation_uuids',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'date_format',
+                    'format',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('date_format',): {
+
+                        "YYYY-MM-DD": "YYYY-MM-DD",
+                        "YYYYMMDD": "YYYYMMDD"
+                    },
+                    ('format',): {
+
+                        "CSV": "csv",
+                        "JSON": "json"
+                    },
+                },
+                'openapi_types': {
+                    'organisation_uuids':
+                        ([str],),
+                    'from_date':
+                        (date,),
+                    'date_format':
+                        (str,),
+                    'format':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organisation_uuids': 'organisationUuids',
+                    'from_date': 'from_date',
+                    'date_format': 'date_format',
+                    'format': 'format',
+                },
+                'location_map': {
+                    'organisation_uuids': 'path',
+                    'from_date': 'query',
+                    'date_format': 'query',
+                    'format': 'query',
+                },
+                'collection_format_map': {
+                    'organisation_uuids': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/csv',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_campaign_group_ad_report_per_organisation_per_day_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/data/campaign-group-ad-report-per-organisation-per-day/{organisationUuids}',
+                'operation_id': 'get_campaign_group_ad_report_per_organisation_per_day',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organisation_uuids',
+                    'from_date',
+                    'date_format',
+                    'format',
+                ],
+                'required': [
+                    'organisation_uuids',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'date_format',
+                    'format',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('date_format',): {
+
+                        "YYYY-MM-DD": "YYYY-MM-DD",
+                        "YYYYMMDD": "YYYYMMDD"
+                    },
+                    ('format',): {
+
+                        "CSV": "csv",
+                        "JSON": "json"
+                    },
+                },
+                'openapi_types': {
+                    'organisation_uuids':
+                        ([str],),
+                    'from_date':
+                        (date,),
+                    'date_format':
+                        (str,),
+                    'format':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organisation_uuids': 'organisationUuids',
+                    'from_date': 'from_date',
+                    'date_format': 'date_format',
+                    'format': 'format',
+                },
+                'location_map': {
+                    'organisation_uuids': 'path',
+                    'from_date': 'query',
+                    'date_format': 'query',
+                    'format': 'query',
+                },
+                'collection_format_map': {
+                    'organisation_uuids': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/csv',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_campaign_group_adform_report_per_organisation_per_campaign_per_day_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/data/campaign-group-adform-report-per-organisation-per-campaign-per-day/{organisationUuids}',
+                'operation_id': 'get_campaign_group_adform_report_per_organisation_per_campaign_per_day',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organisation_uuids',
+                    'from_date',
+                    'date_format',
+                    'format',
+                ],
+                'required': [
+                    'organisation_uuids',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'date_format',
+                    'format',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('date_format',): {
+
+                        "YYYY-MM-DD": "YYYY-MM-DD",
+                        "YYYYMMDD": "YYYYMMDD"
+                    },
+                    ('format',): {
+
+                        "CSV": "csv",
+                        "JSON": "json"
+                    },
+                },
+                'openapi_types': {
+                    'organisation_uuids':
+                        ([str],),
+                    'from_date':
+                        (date,),
+                    'date_format':
+                        (str,),
+                    'format':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organisation_uuids': 'organisationUuids',
+                    'from_date': 'from_date',
+                    'date_format': 'date_format',
+                    'format': 'format',
+                },
+                'location_map': {
+                    'organisation_uuids': 'path',
+                    'from_date': 'query',
+                    'date_format': 'query',
+                    'format': 'query',
+                },
+                'collection_format_map': {
+                    'organisation_uuids': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/csv',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_campaign_group_adform_report_per_organisation_per_campaign_per_line_item_per_day_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/data/campaign-group-adform-report-per-organisation-per-campaign-per-line-item-per-day/{organisationUuids}',
+                'operation_id': 'get_campaign_group_adform_report_per_organisation_per_campaign_per_line_item_per_day',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organisation_uuids',
+                    'from_date',
+                    'date_format',
+                    'format',
+                ],
+                'required': [
+                    'organisation_uuids',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'date_format',
+                    'format',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('date_format',): {
+
+                        "YYYY-MM-DD": "YYYY-MM-DD",
+                        "YYYYMMDD": "YYYYMMDD"
+                    },
+                    ('format',): {
+
+                        "CSV": "csv",
+                        "JSON": "json"
+                    },
+                },
+                'openapi_types': {
+                    'organisation_uuids':
+                        ([str],),
+                    'from_date':
+                        (date,),
+                    'date_format':
+                        (str,),
+                    'format':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organisation_uuids': 'organisationUuids',
+                    'from_date': 'from_date',
+                    'date_format': 'date_format',
+                    'format': 'format',
+                },
+                'location_map': {
+                    'organisation_uuids': 'path',
+                    'from_date': 'query',
+                    'date_format': 'query',
+                    'format': 'query',
+                },
+                'collection_format_map': {
+                    'organisation_uuids': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/csv',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_campaign_group_analytics_report_per_organisation_per_day_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/data/campaign-group-analytics-report-per-organisation-per-day/{organisationUuids}',
+                'operation_id': 'get_campaign_group_analytics_report_per_organisation_per_day',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organisation_uuids',
+                    'from_date',
+                    'date_format',
+                    'format',
+                ],
+                'required': [
+                    'organisation_uuids',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'date_format',
+                    'format',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('date_format',): {
+
+                        "YYYY-MM-DD": "YYYY-MM-DD",
+                        "YYYYMMDD": "YYYYMMDD"
+                    },
+                    ('format',): {
+
+                        "CSV": "csv",
+                        "JSON": "json"
+                    },
+                },
+                'openapi_types': {
+                    'organisation_uuids':
+                        ([str],),
+                    'from_date':
+                        (date,),
+                    'date_format':
+                        (str,),
+                    'format':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organisation_uuids': 'organisationUuids',
+                    'from_date': 'from_date',
+                    'date_format': 'date_format',
+                    'format': 'format',
+                },
+                'location_map': {
+                    'organisation_uuids': 'path',
+                    'from_date': 'query',
+                    'date_format': 'query',
+                    'format': 'query',
+                },
+                'collection_format_map': {
+                    'organisation_uuids': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/csv',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_campaign_group_bing_ads_extended_report_per_organisation_per_account_per_campaign_per_day_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/data/campaign-group-bing-ads-extended-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids}',
+                'operation_id': 'get_campaign_group_bing_ads_extended_report_per_organisation_per_account_per_campaign_per_day',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organisation_uuids',
+                    'from_date',
+                    'date_format',
+                    'format',
+                ],
+                'required': [
+                    'organisation_uuids',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'date_format',
+                    'format',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('date_format',): {
+
+                        "YYYY-MM-DD": "YYYY-MM-DD",
+                        "YYYYMMDD": "YYYYMMDD"
+                    },
+                    ('format',): {
+
+                        "CSV": "csv",
+                        "JSON": "json"
+                    },
+                },
+                'openapi_types': {
+                    'organisation_uuids':
+                        ([str],),
+                    'from_date':
+                        (date,),
+                    'date_format':
+                        (str,),
+                    'format':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organisation_uuids': 'organisationUuids',
+                    'from_date': 'from_date',
+                    'date_format': 'date_format',
+                    'format': 'format',
+                },
+                'location_map': {
+                    'organisation_uuids': 'path',
+                    'from_date': 'query',
+                    'date_format': 'query',
+                    'format': 'query',
+                },
+                'collection_format_map': {
+                    'organisation_uuids': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/csv',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_campaign_group_double_click_bid_manager_report_per_organisation_per_account_per_campaign_per_creative_per_day_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/data/campaign-group-doubleclick-bid-manager-report-per-organisation-per-account-per-campaign-per-creative-per-day/{organisationUuids}',
+                'operation_id': 'get_campaign_group_double_click_bid_manager_report_per_organisation_per_account_per_campaign_per_creative_per_day',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organisation_uuids',
+                    'from_date',
+                    'date_format',
+                    'format',
+                ],
+                'required': [
+                    'organisation_uuids',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'date_format',
+                    'format',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('date_format',): {
+
+                        "YYYY-MM-DD": "YYYY-MM-DD",
+                        "YYYYMMDD": "YYYYMMDD"
+                    },
+                    ('format',): {
+
+                        "CSV": "csv",
+                        "JSON": "json"
+                    },
+                },
+                'openapi_types': {
+                    'organisation_uuids':
+                        ([str],),
+                    'from_date':
+                        (date,),
+                    'date_format':
+                        (str,),
+                    'format':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organisation_uuids': 'organisationUuids',
+                    'from_date': 'from_date',
+                    'date_format': 'date_format',
+                    'format': 'format',
+                },
+                'location_map': {
+                    'organisation_uuids': 'path',
+                    'from_date': 'query',
+                    'date_format': 'query',
+                    'format': 'query',
+                },
+                'collection_format_map': {
+                    'organisation_uuids': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/csv',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_campaign_group_double_click_bid_manager_report_per_organisation_per_account_per_campaign_per_day_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/data/campaign-group-doubleclick-bid-manager-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids}',
+                'operation_id': 'get_campaign_group_double_click_bid_manager_report_per_organisation_per_account_per_campaign_per_day',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organisation_uuids',
+                    'from_date',
+                    'date_format',
+                    'format',
+                ],
+                'required': [
+                    'organisation_uuids',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'date_format',
+                    'format',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('date_format',): {
+
+                        "YYYY-MM-DD": "YYYY-MM-DD",
+                        "YYYYMMDD": "YYYYMMDD"
+                    },
+                    ('format',): {
+
+                        "CSV": "csv",
+                        "JSON": "json"
+                    },
+                },
+                'openapi_types': {
+                    'organisation_uuids':
+                        ([str],),
+                    'from_date':
+                        (date,),
+                    'date_format':
+                        (str,),
+                    'format':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organisation_uuids': 'organisationUuids',
+                    'from_date': 'from_date',
+                    'date_format': 'date_format',
+                    'format': 'format',
+                },
+                'location_map': {
+                    'organisation_uuids': 'path',
+                    'from_date': 'query',
+                    'date_format': 'query',
+                    'format': 'query',
+                },
+                'collection_format_map': {
+                    'organisation_uuids': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/csv',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_campaign_group_double_click_campaign_manager_report_per_organisation_per_account_per_campaign_per_day_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/data/campaign-group-doubleclick-campaign-manager-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids}',
+                'operation_id': 'get_campaign_group_double_click_campaign_manager_report_per_organisation_per_account_per_campaign_per_day',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organisation_uuids',
+                    'from_date',
+                    'date_format',
+                    'format',
+                ],
+                'required': [
+                    'organisation_uuids',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'date_format',
+                    'format',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('date_format',): {
+
+                        "YYYY-MM-DD": "YYYY-MM-DD",
+                        "YYYYMMDD": "YYYYMMDD"
+                    },
+                    ('format',): {
+
+                        "CSV": "csv",
+                        "JSON": "json"
+                    },
+                },
+                'openapi_types': {
+                    'organisation_uuids':
+                        ([str],),
+                    'from_date':
+                        (date,),
+                    'date_format':
+                        (str,),
+                    'format':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organisation_uuids': 'organisationUuids',
+                    'from_date': 'from_date',
+                    'date_format': 'date_format',
+                    'format': 'format',
+                },
+                'location_map': {
+                    'organisation_uuids': 'path',
+                    'from_date': 'query',
+                    'date_format': 'query',
+                    'format': 'query',
+                },
+                'collection_format_map': {
+                    'organisation_uuids': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/csv',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_campaign_group_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/data/campaign-group-facebook-ad-custom-conversion-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids}',
+                'operation_id': 'get_campaign_group_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organisation_uuids',
+                    'from_date',
+                    'date_format',
+                    'format',
+                ],
+                'required': [
+                    'organisation_uuids',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'date_format',
+                    'format',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('date_format',): {
+
+                        "YYYY-MM-DD": "YYYY-MM-DD",
+                        "YYYYMMDD": "YYYYMMDD"
+                    },
+                    ('format',): {
+
+                        "CSV": "csv",
+                        "JSON": "json"
+                    },
+                },
+                'openapi_types': {
+                    'organisation_uuids':
+                        ([str],),
+                    'from_date':
+                        (date,),
+                    'date_format':
+                        (str,),
+                    'format':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organisation_uuids': 'organisationUuids',
+                    'from_date': 'from_date',
+                    'date_format': 'date_format',
+                    'format': 'format',
+                },
+                'location_map': {
+                    'organisation_uuids': 'path',
+                    'from_date': 'query',
+                    'date_format': 'query',
+                    'format': 'query',
+                },
+                'collection_format_map': {
+                    'organisation_uuids': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/csv',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_campaign_group_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/data/campaign-group-facebook-ad-extended-report-per-organisation-per-account-per-campaign-per-ad-group-per-day/{organisationUuids}',
+                'operation_id': 'get_campaign_group_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organisation_uuids',
+                    'from_date',
+                    'date_format',
+                    'format',
+                ],
+                'required': [
+                    'organisation_uuids',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'date_format',
+                    'format',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('date_format',): {
+
+                        "YYYY-MM-DD": "YYYY-MM-DD",
+                        "YYYYMMDD": "YYYYMMDD"
+                    },
+                    ('format',): {
+
+                        "CSV": "csv",
+                        "JSON": "json"
+                    },
+                },
+                'openapi_types': {
+                    'organisation_uuids':
+                        ([str],),
+                    'from_date':
+                        (date,),
+                    'date_format':
+                        (str,),
+                    'format':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organisation_uuids': 'organisationUuids',
+                    'from_date': 'from_date',
+                    'date_format': 'date_format',
+                    'format': 'format',
+                },
+                'location_map': {
+                    'organisation_uuids': 'path',
+                    'from_date': 'query',
+                    'date_format': 'query',
+                    'format': 'query',
+                },
+                'collection_format_map': {
+                    'organisation_uuids': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/csv',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_campaign_group_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_per_day_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/data/campaign-group-facebook-ad-extended-report-per-organisation-per-account-per-campaign-per-ad-per-day/{organisationUuids}',
+                'operation_id': 'get_campaign_group_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_per_day',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organisation_uuids',
+                    'from_date',
+                    'date_format',
+                    'format',
+                ],
+                'required': [
+                    'organisation_uuids',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'date_format',
+                    'format',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('date_format',): {
+
+                        "YYYY-MM-DD": "YYYY-MM-DD",
+                        "YYYYMMDD": "YYYYMMDD"
+                    },
+                    ('format',): {
+
+                        "CSV": "csv",
+                        "JSON": "json"
+                    },
+                },
+                'openapi_types': {
+                    'organisation_uuids':
+                        ([str],),
+                    'from_date':
+                        (date,),
+                    'date_format':
+                        (str,),
+                    'format':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organisation_uuids': 'organisationUuids',
+                    'from_date': 'from_date',
+                    'date_format': 'date_format',
+                    'format': 'format',
+                },
+                'location_map': {
+                    'organisation_uuids': 'path',
+                    'from_date': 'query',
+                    'date_format': 'query',
+                    'format': 'query',
+                },
+                'collection_format_map': {
+                    'organisation_uuids': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/csv',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_campaign_group_facebook_ad_extended_report_per_organisation_per_campaign_per_day_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/data/campaign-group-facebook-ad-extended-report-per-organisation-per-campaign-per-day/{organisationUuids}',
+                'operation_id': 'get_campaign_group_facebook_ad_extended_report_per_organisation_per_campaign_per_day',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organisation_uuids',
+                    'from_date',
+                    'date_format',
+                    'format',
+                ],
+                'required': [
+                    'organisation_uuids',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'date_format',
+                    'format',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('date_format',): {
+
+                        "YYYY-MM-DD": "YYYY-MM-DD",
+                        "YYYYMMDD": "YYYYMMDD"
+                    },
+                    ('format',): {
+
+                        "CSV": "csv",
+                        "JSON": "json"
+                    },
+                },
+                'openapi_types': {
+                    'organisation_uuids':
+                        ([str],),
+                    'from_date':
+                        (date,),
+                    'date_format':
+                        (str,),
+                    'format':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organisation_uuids': 'organisationUuids',
+                    'from_date': 'from_date',
+                    'date_format': 'date_format',
+                    'format': 'format',
+                },
+                'location_map': {
+                    'organisation_uuids': 'path',
+                    'from_date': 'query',
+                    'date_format': 'query',
+                    'format': 'query',
+                },
+                'collection_format_map': {
+                    'organisation_uuids': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/csv',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_campaign_group_facebook_ad_report_per_organisation_per_campaign_per_day_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/data/campaign-group-facebook-ad-report-per-organisation-per-campaign-per-day/{organisationUuids}',
+                'operation_id': 'get_campaign_group_facebook_ad_report_per_organisation_per_campaign_per_day',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organisation_uuids',
+                    'from_date',
+                    'date_format',
+                    'format',
+                ],
+                'required': [
+                    'organisation_uuids',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'date_format',
+                    'format',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('date_format',): {
+
+                        "YYYY-MM-DD": "YYYY-MM-DD",
+                        "YYYYMMDD": "YYYYMMDD"
+                    },
+                    ('format',): {
+
+                        "CSV": "csv",
+                        "JSON": "json"
+                    },
+                },
+                'openapi_types': {
+                    'organisation_uuids':
+                        ([str],),
+                    'from_date':
+                        (date,),
+                    'date_format':
+                        (str,),
+                    'format':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organisation_uuids': 'organisationUuids',
+                    'from_date': 'from_date',
+                    'date_format': 'date_format',
+                    'format': 'format',
+                },
+                'location_map': {
+                    'organisation_uuids': 'path',
+                    'from_date': 'query',
+                    'date_format': 'query',
+                    'format': 'query',
+                },
+                'collection_format_map': {
+                    'organisation_uuids': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/csv',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_campaign_group_goal_report_per_organisation_per_day_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/data/campaign-group-goal-report-per-organisation-per-day/{organisationUuids}',
+                'operation_id': 'get_campaign_group_goal_report_per_organisation_per_day',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organisation_uuids',
+                    'from_date',
+                    'date_format',
+                    'format',
+                ],
+                'required': [
+                    'organisation_uuids',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'date_format',
+                    'format',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('date_format',): {
+
+                        "YYYY-MM-DD": "YYYY-MM-DD",
+                        "YYYYMMDD": "YYYYMMDD"
+                    },
+                    ('format',): {
+
+                        "CSV": "csv",
+                        "JSON": "json"
+                    },
+                },
+                'openapi_types': {
+                    'organisation_uuids':
+                        ([str],),
+                    'from_date':
+                        (date,),
+                    'date_format':
+                        (str,),
+                    'format':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organisation_uuids': 'organisationUuids',
+                    'from_date': 'from_date',
+                    'date_format': 'date_format',
+                    'format': 'format',
+                },
+                'location_map': {
+                    'organisation_uuids': 'path',
+                    'from_date': 'query',
+                    'date_format': 'query',
+                    'format': 'query',
+                },
+                'collection_format_map': {
+                    'organisation_uuids': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/csv',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_campaign_group_google_ads_report_per_organisation_per_campaign_per_day_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/data/campaign-group-google-ads-report-per-organisation-per-campaign-per-day/{organisationUuids}',
+                'operation_id': 'get_campaign_group_google_ads_report_per_organisation_per_campaign_per_day',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organisation_uuids',
+                    'from_date',
+                    'date_format',
+                    'format',
+                ],
+                'required': [
+                    'organisation_uuids',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'date_format',
+                    'format',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('date_format',): {
+
+                        "YYYY-MM-DD": "YYYY-MM-DD",
+                        "YYYYMMDD": "YYYYMMDD"
+                    },
+                    ('format',): {
+
+                        "CSV": "csv",
+                        "JSON": "json"
+                    },
+                },
+                'openapi_types': {
+                    'organisation_uuids':
+                        ([str],),
+                    'from_date':
+                        (date,),
+                    'date_format':
+                        (str,),
+                    'format':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organisation_uuids': 'organisationUuids',
+                    'from_date': 'from_date',
+                    'date_format': 'date_format',
+                    'format': 'format',
+                },
+                'location_map': {
+                    'organisation_uuids': 'path',
+                    'from_date': 'query',
+                    'date_format': 'query',
+                    'format': 'query',
+                },
+                'collection_format_map': {
+                    'organisation_uuids': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/csv',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_campaign_group_linked_in_ads_extended_report_per_organisation_per_account_per_campaign_per_day_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/data/campaign-group-linkedin-ads-extended-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids}',
+                'operation_id': 'get_campaign_group_linked_in_ads_extended_report_per_organisation_per_account_per_campaign_per_day',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organisation_uuids',
+                    'from_date',
+                    'date_format',
+                    'format',
+                ],
+                'required': [
+                    'organisation_uuids',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'date_format',
+                    'format',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('date_format',): {
+
+                        "YYYY-MM-DD": "YYYY-MM-DD",
+                        "YYYYMMDD": "YYYYMMDD"
+                    },
+                    ('format',): {
+
+                        "CSV": "csv",
+                        "JSON": "json"
+                    },
+                },
+                'openapi_types': {
+                    'organisation_uuids':
+                        ([str],),
+                    'from_date':
+                        (date,),
+                    'date_format':
+                        (str,),
+                    'format':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organisation_uuids': 'organisationUuids',
+                    'from_date': 'from_date',
+                    'date_format': 'date_format',
+                    'format': 'format',
+                },
+                'location_map': {
+                    'organisation_uuids': 'path',
+                    'from_date': 'query',
+                    'date_format': 'query',
+                    'format': 'query',
+                },
+                'collection_format_map': {
+                    'organisation_uuids': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/csv',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_campaign_group_report_per_organisation_per_day_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/data/campaign-group-report-per-organisation-per-day/{organisationUuids}',
+                'operation_id': 'get_campaign_group_report_per_organisation_per_day',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organisation_uuids',
+                    'from_date',
+                    'date_format',
+                    'format',
+                ],
+                'required': [
+                    'organisation_uuids',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'date_format',
+                    'format',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('date_format',): {
+
+                        "YYYY-MM-DD": "YYYY-MM-DD",
+                        "YYYYMMDD": "YYYYMMDD"
+                    },
+                    ('format',): {
+
+                        "CSV": "csv",
+                        "JSON": "json"
+                    },
+                },
+                'openapi_types': {
+                    'organisation_uuids':
+                        ([str],),
+                    'from_date':
+                        (date,),
+                    'date_format':
+                        (str,),
+                    'format':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organisation_uuids': 'organisationUuids',
+                    'from_date': 'from_date',
+                    'date_format': 'date_format',
+                    'format': 'format',
+                },
+                'location_map': {
+                    'organisation_uuids': 'path',
+                    'from_date': 'query',
+                    'date_format': 'query',
+                    'format': 'query',
+                },
+                'collection_format_map': {
+                    'organisation_uuids': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/csv',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_campaign_group_snapchat_ads_extended_report_per_organisation_per_account_per_campaign_per_day_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/data/campaign-group-snapchat-ads-extended-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids}',
+                'operation_id': 'get_campaign_group_snapchat_ads_extended_report_per_organisation_per_account_per_campaign_per_day',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organisation_uuids',
+                    'from_date',
+                    'date_format',
+                    'format',
+                ],
+                'required': [
+                    'organisation_uuids',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'date_format',
+                    'format',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('date_format',): {
+
+                        "YYYY-MM-DD": "YYYY-MM-DD",
+                        "YYYYMMDD": "YYYYMMDD"
+                    },
+                    ('format',): {
+
+                        "CSV": "csv",
+                        "JSON": "json"
+                    },
+                },
+                'openapi_types': {
+                    'organisation_uuids':
+                        ([str],),
+                    'from_date':
+                        (date,),
+                    'date_format':
+                        (str,),
+                    'format':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organisation_uuids': 'organisationUuids',
+                    'from_date': 'from_date',
+                    'date_format': 'date_format',
+                    'format': 'format',
+                },
+                'location_map': {
+                    'organisation_uuids': 'path',
+                    'from_date': 'query',
+                    'date_format': 'query',
+                    'format': 'query',
+                },
+                'collection_format_map': {
+                    'organisation_uuids': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/csv',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_campaign_group_twitter_ads_extended_report_per_organisation_per_account_per_campaign_per_day_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/data/campaign-group-twitter-ads-extended-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids}',
+                'operation_id': 'get_campaign_group_twitter_ads_extended_report_per_organisation_per_account_per_campaign_per_day',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organisation_uuids',
+                    'from_date',
+                    'date_format',
+                    'format',
+                ],
+                'required': [
+                    'organisation_uuids',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'date_format',
+                    'format',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('date_format',): {
+
+                        "YYYY-MM-DD": "YYYY-MM-DD",
+                        "YYYYMMDD": "YYYYMMDD"
+                    },
+                    ('format',): {
+
+                        "CSV": "csv",
+                        "JSON": "json"
+                    },
+                },
+                'openapi_types': {
+                    'organisation_uuids':
+                        ([str],),
+                    'from_date':
+                        (date,),
+                    'date_format':
+                        (str,),
+                    'format':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organisation_uuids': 'organisationUuids',
+                    'from_date': 'from_date',
+                    'date_format': 'date_format',
+                    'format': 'format',
+                },
+                'location_map': {
+                    'organisation_uuids': 'path',
+                    'from_date': 'query',
+                    'date_format': 'query',
+                    'format': 'query',
+                },
+                'collection_format_map': {
+                    'organisation_uuids': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/csv',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_campaign_group_video_report_per_organisation_per_campaign_per_day_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/data/campaign-group-video-report-per-organisation-per-campaign-per-day/{organisationUuids}',
+                'operation_id': 'get_campaign_group_video_report_per_organisation_per_campaign_per_day',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organisation_uuids',
+                    'from_date',
+                    'date_format',
+                    'format',
+                ],
+                'required': [
+                    'organisation_uuids',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'date_format',
+                    'format',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('date_format',): {
+
+                        "YYYY-MM-DD": "YYYY-MM-DD",
+                        "YYYYMMDD": "YYYYMMDD"
+                    },
+                    ('format',): {
+
+                        "CSV": "csv",
+                        "JSON": "json"
+                    },
+                },
+                'openapi_types': {
+                    'organisation_uuids':
+                        ([str],),
+                    'from_date':
+                        (date,),
+                    'date_format':
+                        (str,),
+                    'format':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organisation_uuids': 'organisationUuids',
+                    'from_date': 'from_date',
+                    'date_format': 'date_format',
+                    'format': 'format',
+                },
+                'location_map': {
+                    'organisation_uuids': 'path',
+                    'from_date': 'query',
+                    'date_format': 'query',
+                    'format': 'query',
+                },
+                'collection_format_map': {
+                    'organisation_uuids': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/csv',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_campaign_group_video_report_per_organisation_per_day_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/data/campaign-group-video-report-per-organisation-per-day/{organisationUuids}',
+                'operation_id': 'get_campaign_group_video_report_per_organisation_per_day',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organisation_uuids',
+                    'from_date',
+                    'date_format',
+                    'format',
+                ],
+                'required': [
+                    'organisation_uuids',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'date_format',
+                    'format',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('date_format',): {
+
+                        "YYYY-MM-DD": "YYYY-MM-DD",
+                        "YYYYMMDD": "YYYYMMDD"
+                    },
+                    ('format',): {
+
+                        "CSV": "csv",
+                        "JSON": "json"
+                    },
+                },
+                'openapi_types': {
+                    'organisation_uuids':
+                        ([str],),
+                    'from_date':
+                        (date,),
+                    'date_format':
+                        (str,),
+                    'format':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organisation_uuids': 'organisationUuids',
+                    'from_date': 'from_date',
+                    'date_format': 'date_format',
+                    'format': 'format',
+                },
+                'location_map': {
+                    'organisation_uuids': 'path',
+                    'from_date': 'query',
+                    'date_format': 'query',
+                    'format': 'query',
+                },
+                'collection_format_map': {
+                    'organisation_uuids': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/csv',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
+    def get_campaign_group_ad_report_per_organisation_per_campaign_per_day(
+        self,
+        organisation_uuids,
+        **kwargs
+    ):
         """Return campaign group ad report per organisation per campaign per day  # noqa: E501
 
         Campaign group ad report per organisation per campaign per day  # noqa: E501
@@ -47,156 +1890,66 @@ class CampaignGroupApi(object):
         >>> thread = api.get_campaign_group_ad_report_per_organisation_per_campaign_per_day(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: str
+        Args:
+            organisation_uuids ([str]): Organisation uuids
+
+        Keyword Args:
+            from_date (date): From date. [optional]
+            date_format (str): Outputted date format. [optional]
+            format (str): Output format (use csv for large result sets). [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_campaign_group_ad_report_per_organisation_per_campaign_per_day_with_http_info(organisation_uuids, **kwargs)  # noqa: E501
-
-    def get_campaign_group_ad_report_per_organisation_per_campaign_per_day_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
-        """Return campaign group ad report per organisation per campaign per day  # noqa: E501
-
-        Campaign group ad report per organisation per campaign per day  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_campaign_group_ad_report_per_organisation_per_campaign_per_day_with_http_info(organisation_uuids, async_req=True)
-        >>> result = thread.get()
-
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'organisation_uuids',
-            'from_date',
-            'date_format',
-            'format'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
         )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['organisation_uuids'] = \
+            organisation_uuids
+        return self.get_campaign_group_ad_report_per_organisation_per_campaign_per_day_endpoint.call_with_http_info(**kwargs)
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_campaign_group_ad_report_per_organisation_per_campaign_per_day" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'organisation_uuids' is set
-        if self.api_client.client_side_validation and ('organisation_uuids' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organisation_uuids'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organisation_uuids` when calling `get_campaign_group_ad_report_per_organisation_per_campaign_per_day`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'organisation_uuids' in local_var_params:
-            path_params['organisationUuids'] = local_var_params['organisation_uuids']  # noqa: E501
-            collection_formats['organisationUuids'] = 'csv'  # noqa: E501
-
-        query_params = []
-        if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
-            query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
-        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
-            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
-        if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
-            query_params.append(('format', local_var_params['format']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/csv', 'application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-        
-        response_types_map = {
-            200: "str",
-            400: None,
-            404: None,
-        }
-
-        return self.api_client.call_api(
-            '/data/campaign-group-ad-report-per-organisation-per-campaign-per-day/{organisationUuids}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def get_campaign_group_ad_report_per_organisation_per_campaign_per_week(self, organisation_uuids, **kwargs):  # noqa: E501
+    def get_campaign_group_ad_report_per_organisation_per_campaign_per_week(
+        self,
+        organisation_uuids,
+        **kwargs
+    ):
         """Return campaign group ad report per organisation per campaign per week  # noqa: E501
 
         Campaign group ad report per organisation per campaign per week  # noqa: E501
@@ -206,156 +1959,66 @@ class CampaignGroupApi(object):
         >>> thread = api.get_campaign_group_ad_report_per_organisation_per_campaign_per_week(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: str
+        Args:
+            organisation_uuids ([str]): Organisation uuids
+
+        Keyword Args:
+            from_date (date): From date. [optional]
+            date_format (str): Outputted date format. [optional]
+            format (str): Output format (use csv for large result sets). [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_campaign_group_ad_report_per_organisation_per_campaign_per_week_with_http_info(organisation_uuids, **kwargs)  # noqa: E501
-
-    def get_campaign_group_ad_report_per_organisation_per_campaign_per_week_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
-        """Return campaign group ad report per organisation per campaign per week  # noqa: E501
-
-        Campaign group ad report per organisation per campaign per week  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_campaign_group_ad_report_per_organisation_per_campaign_per_week_with_http_info(organisation_uuids, async_req=True)
-        >>> result = thread.get()
-
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'organisation_uuids',
-            'from_date',
-            'date_format',
-            'format'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
         )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['organisation_uuids'] = \
+            organisation_uuids
+        return self.get_campaign_group_ad_report_per_organisation_per_campaign_per_week_endpoint.call_with_http_info(**kwargs)
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_campaign_group_ad_report_per_organisation_per_campaign_per_week" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'organisation_uuids' is set
-        if self.api_client.client_side_validation and ('organisation_uuids' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organisation_uuids'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organisation_uuids` when calling `get_campaign_group_ad_report_per_organisation_per_campaign_per_week`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'organisation_uuids' in local_var_params:
-            path_params['organisationUuids'] = local_var_params['organisation_uuids']  # noqa: E501
-            collection_formats['organisationUuids'] = 'csv'  # noqa: E501
-
-        query_params = []
-        if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
-            query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
-        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
-            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
-        if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
-            query_params.append(('format', local_var_params['format']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/csv', 'application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-        
-        response_types_map = {
-            200: "str",
-            400: None,
-            404: None,
-        }
-
-        return self.api_client.call_api(
-            '/data/campaign-group-ad-report-per-organisation-per-campaign-per-week/{organisationUuids}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def get_campaign_group_ad_report_per_organisation_per_day(self, organisation_uuids, **kwargs):  # noqa: E501
+    def get_campaign_group_ad_report_per_organisation_per_day(
+        self,
+        organisation_uuids,
+        **kwargs
+    ):
         """Return campaign group ad report per organisation per day  # noqa: E501
 
         Campaign group ad report per organisation per day  # noqa: E501
@@ -365,156 +2028,66 @@ class CampaignGroupApi(object):
         >>> thread = api.get_campaign_group_ad_report_per_organisation_per_day(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: str
+        Args:
+            organisation_uuids ([str]): Organisation uuids
+
+        Keyword Args:
+            from_date (date): From date. [optional]
+            date_format (str): Outputted date format. [optional]
+            format (str): Output format (use csv for large result sets). [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_campaign_group_ad_report_per_organisation_per_day_with_http_info(organisation_uuids, **kwargs)  # noqa: E501
-
-    def get_campaign_group_ad_report_per_organisation_per_day_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
-        """Return campaign group ad report per organisation per day  # noqa: E501
-
-        Campaign group ad report per organisation per day  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_campaign_group_ad_report_per_organisation_per_day_with_http_info(organisation_uuids, async_req=True)
-        >>> result = thread.get()
-
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'organisation_uuids',
-            'from_date',
-            'date_format',
-            'format'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
         )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['organisation_uuids'] = \
+            organisation_uuids
+        return self.get_campaign_group_ad_report_per_organisation_per_day_endpoint.call_with_http_info(**kwargs)
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_campaign_group_ad_report_per_organisation_per_day" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'organisation_uuids' is set
-        if self.api_client.client_side_validation and ('organisation_uuids' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organisation_uuids'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organisation_uuids` when calling `get_campaign_group_ad_report_per_organisation_per_day`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'organisation_uuids' in local_var_params:
-            path_params['organisationUuids'] = local_var_params['organisation_uuids']  # noqa: E501
-            collection_formats['organisationUuids'] = 'csv'  # noqa: E501
-
-        query_params = []
-        if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
-            query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
-        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
-            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
-        if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
-            query_params.append(('format', local_var_params['format']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/csv', 'application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-        
-        response_types_map = {
-            200: "str",
-            400: None,
-            404: None,
-        }
-
-        return self.api_client.call_api(
-            '/data/campaign-group-ad-report-per-organisation-per-day/{organisationUuids}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def get_campaign_group_adform_report_per_organisation_per_campaign_per_day(self, organisation_uuids, **kwargs):  # noqa: E501
+    def get_campaign_group_adform_report_per_organisation_per_campaign_per_day(
+        self,
+        organisation_uuids,
+        **kwargs
+    ):
         """Return campaign group adform report per organisation per campaign per day  # noqa: E501
 
         Campaign group adform report per organisation per campaign per day  # noqa: E501
@@ -524,156 +2097,66 @@ class CampaignGroupApi(object):
         >>> thread = api.get_campaign_group_adform_report_per_organisation_per_campaign_per_day(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: str
+        Args:
+            organisation_uuids ([str]): Organisation uuids
+
+        Keyword Args:
+            from_date (date): From date. [optional]
+            date_format (str): Outputted date format. [optional]
+            format (str): Output format (use csv for large result sets). [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_campaign_group_adform_report_per_organisation_per_campaign_per_day_with_http_info(organisation_uuids, **kwargs)  # noqa: E501
-
-    def get_campaign_group_adform_report_per_organisation_per_campaign_per_day_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
-        """Return campaign group adform report per organisation per campaign per day  # noqa: E501
-
-        Campaign group adform report per organisation per campaign per day  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_campaign_group_adform_report_per_organisation_per_campaign_per_day_with_http_info(organisation_uuids, async_req=True)
-        >>> result = thread.get()
-
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'organisation_uuids',
-            'from_date',
-            'date_format',
-            'format'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
         )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['organisation_uuids'] = \
+            organisation_uuids
+        return self.get_campaign_group_adform_report_per_organisation_per_campaign_per_day_endpoint.call_with_http_info(**kwargs)
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_campaign_group_adform_report_per_organisation_per_campaign_per_day" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'organisation_uuids' is set
-        if self.api_client.client_side_validation and ('organisation_uuids' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organisation_uuids'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organisation_uuids` when calling `get_campaign_group_adform_report_per_organisation_per_campaign_per_day`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'organisation_uuids' in local_var_params:
-            path_params['organisationUuids'] = local_var_params['organisation_uuids']  # noqa: E501
-            collection_formats['organisationUuids'] = 'csv'  # noqa: E501
-
-        query_params = []
-        if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
-            query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
-        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
-            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
-        if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
-            query_params.append(('format', local_var_params['format']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/csv', 'application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-        
-        response_types_map = {
-            200: "str",
-            400: None,
-            404: None,
-        }
-
-        return self.api_client.call_api(
-            '/data/campaign-group-adform-report-per-organisation-per-campaign-per-day/{organisationUuids}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def get_campaign_group_adform_report_per_organisation_per_campaign_per_line_item_per_day(self, organisation_uuids, **kwargs):  # noqa: E501
+    def get_campaign_group_adform_report_per_organisation_per_campaign_per_line_item_per_day(
+        self,
+        organisation_uuids,
+        **kwargs
+    ):
         """Return campaign group adform report per organisation per campaign per line-item per day  # noqa: E501
 
         Campaign group adform report per organisation per campaign per line-item per day  # noqa: E501
@@ -683,156 +2166,66 @@ class CampaignGroupApi(object):
         >>> thread = api.get_campaign_group_adform_report_per_organisation_per_campaign_per_line_item_per_day(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: str
+        Args:
+            organisation_uuids ([str]): Organisation uuids
+
+        Keyword Args:
+            from_date (date): From date. [optional]
+            date_format (str): Outputted date format. [optional]
+            format (str): Output format (use csv for large result sets). [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_campaign_group_adform_report_per_organisation_per_campaign_per_line_item_per_day_with_http_info(organisation_uuids, **kwargs)  # noqa: E501
-
-    def get_campaign_group_adform_report_per_organisation_per_campaign_per_line_item_per_day_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
-        """Return campaign group adform report per organisation per campaign per line-item per day  # noqa: E501
-
-        Campaign group adform report per organisation per campaign per line-item per day  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_campaign_group_adform_report_per_organisation_per_campaign_per_line_item_per_day_with_http_info(organisation_uuids, async_req=True)
-        >>> result = thread.get()
-
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'organisation_uuids',
-            'from_date',
-            'date_format',
-            'format'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
         )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['organisation_uuids'] = \
+            organisation_uuids
+        return self.get_campaign_group_adform_report_per_organisation_per_campaign_per_line_item_per_day_endpoint.call_with_http_info(**kwargs)
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_campaign_group_adform_report_per_organisation_per_campaign_per_line_item_per_day" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'organisation_uuids' is set
-        if self.api_client.client_side_validation and ('organisation_uuids' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organisation_uuids'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organisation_uuids` when calling `get_campaign_group_adform_report_per_organisation_per_campaign_per_line_item_per_day`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'organisation_uuids' in local_var_params:
-            path_params['organisationUuids'] = local_var_params['organisation_uuids']  # noqa: E501
-            collection_formats['organisationUuids'] = 'csv'  # noqa: E501
-
-        query_params = []
-        if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
-            query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
-        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
-            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
-        if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
-            query_params.append(('format', local_var_params['format']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/csv', 'application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-        
-        response_types_map = {
-            200: "str",
-            400: None,
-            404: None,
-        }
-
-        return self.api_client.call_api(
-            '/data/campaign-group-adform-report-per-organisation-per-campaign-per-line-item-per-day/{organisationUuids}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def get_campaign_group_analytics_report_per_organisation_per_day(self, organisation_uuids, **kwargs):  # noqa: E501
+    def get_campaign_group_analytics_report_per_organisation_per_day(
+        self,
+        organisation_uuids,
+        **kwargs
+    ):
         """Return campaign group analytics report per organisation per day  # noqa: E501
 
         Campaign group analytics report per organisation per day  # noqa: E501
@@ -842,156 +2235,66 @@ class CampaignGroupApi(object):
         >>> thread = api.get_campaign_group_analytics_report_per_organisation_per_day(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: str
+        Args:
+            organisation_uuids ([str]): Organisation uuids
+
+        Keyword Args:
+            from_date (date): From date. [optional]
+            date_format (str): Outputted date format. [optional]
+            format (str): Output format (use csv for large result sets). [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_campaign_group_analytics_report_per_organisation_per_day_with_http_info(organisation_uuids, **kwargs)  # noqa: E501
-
-    def get_campaign_group_analytics_report_per_organisation_per_day_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
-        """Return campaign group analytics report per organisation per day  # noqa: E501
-
-        Campaign group analytics report per organisation per day  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_campaign_group_analytics_report_per_organisation_per_day_with_http_info(organisation_uuids, async_req=True)
-        >>> result = thread.get()
-
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'organisation_uuids',
-            'from_date',
-            'date_format',
-            'format'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
         )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['organisation_uuids'] = \
+            organisation_uuids
+        return self.get_campaign_group_analytics_report_per_organisation_per_day_endpoint.call_with_http_info(**kwargs)
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_campaign_group_analytics_report_per_organisation_per_day" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'organisation_uuids' is set
-        if self.api_client.client_side_validation and ('organisation_uuids' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organisation_uuids'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organisation_uuids` when calling `get_campaign_group_analytics_report_per_organisation_per_day`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'organisation_uuids' in local_var_params:
-            path_params['organisationUuids'] = local_var_params['organisation_uuids']  # noqa: E501
-            collection_formats['organisationUuids'] = 'csv'  # noqa: E501
-
-        query_params = []
-        if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
-            query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
-        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
-            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
-        if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
-            query_params.append(('format', local_var_params['format']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/csv', 'application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-        
-        response_types_map = {
-            200: "str",
-            400: None,
-            404: None,
-        }
-
-        return self.api_client.call_api(
-            '/data/campaign-group-analytics-report-per-organisation-per-day/{organisationUuids}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def get_campaign_group_bing_ads_extended_report_per_organisation_per_account_per_campaign_per_day(self, organisation_uuids, **kwargs):  # noqa: E501
+    def get_campaign_group_bing_ads_extended_report_per_organisation_per_account_per_campaign_per_day(
+        self,
+        organisation_uuids,
+        **kwargs
+    ):
         """Return campaign group bing ads extended report per organisation per account per campaign per day  # noqa: E501
 
         Campaign group bing ads extended report per organisation per account per campaign per day  # noqa: E501
@@ -1001,156 +2304,66 @@ class CampaignGroupApi(object):
         >>> thread = api.get_campaign_group_bing_ads_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: str
+        Args:
+            organisation_uuids ([str]): Organisation uuids
+
+        Keyword Args:
+            from_date (date): From date. [optional]
+            date_format (str): Outputted date format. [optional]
+            format (str): Output format (use csv for large result sets). [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_campaign_group_bing_ads_extended_report_per_organisation_per_account_per_campaign_per_day_with_http_info(organisation_uuids, **kwargs)  # noqa: E501
-
-    def get_campaign_group_bing_ads_extended_report_per_organisation_per_account_per_campaign_per_day_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
-        """Return campaign group bing ads extended report per organisation per account per campaign per day  # noqa: E501
-
-        Campaign group bing ads extended report per organisation per account per campaign per day  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_campaign_group_bing_ads_extended_report_per_organisation_per_account_per_campaign_per_day_with_http_info(organisation_uuids, async_req=True)
-        >>> result = thread.get()
-
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'organisation_uuids',
-            'from_date',
-            'date_format',
-            'format'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
         )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['organisation_uuids'] = \
+            organisation_uuids
+        return self.get_campaign_group_bing_ads_extended_report_per_organisation_per_account_per_campaign_per_day_endpoint.call_with_http_info(**kwargs)
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_campaign_group_bing_ads_extended_report_per_organisation_per_account_per_campaign_per_day" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'organisation_uuids' is set
-        if self.api_client.client_side_validation and ('organisation_uuids' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organisation_uuids'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organisation_uuids` when calling `get_campaign_group_bing_ads_extended_report_per_organisation_per_account_per_campaign_per_day`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'organisation_uuids' in local_var_params:
-            path_params['organisationUuids'] = local_var_params['organisation_uuids']  # noqa: E501
-            collection_formats['organisationUuids'] = 'csv'  # noqa: E501
-
-        query_params = []
-        if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
-            query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
-        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
-            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
-        if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
-            query_params.append(('format', local_var_params['format']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/csv', 'application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-        
-        response_types_map = {
-            200: "str",
-            400: None,
-            404: None,
-        }
-
-        return self.api_client.call_api(
-            '/data/campaign-group-bing-ads-extended-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def get_campaign_group_double_click_bid_manager_report_per_organisation_per_account_per_campaign_per_creative_per_day(self, organisation_uuids, **kwargs):  # noqa: E501
+    def get_campaign_group_double_click_bid_manager_report_per_organisation_per_account_per_campaign_per_creative_per_day(
+        self,
+        organisation_uuids,
+        **kwargs
+    ):
         """Return campaign group doubleclick bid manager report per organisation per account per campaign per creative per day  # noqa: E501
 
         Campaign group doubleclick bid manager report per organisation per account per campaign per creative per day  # noqa: E501
@@ -1160,156 +2373,66 @@ class CampaignGroupApi(object):
         >>> thread = api.get_campaign_group_double_click_bid_manager_report_per_organisation_per_account_per_campaign_per_creative_per_day(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: str
+        Args:
+            organisation_uuids ([str]): Organisation uuids
+
+        Keyword Args:
+            from_date (date): From date. [optional]
+            date_format (str): Outputted date format. [optional]
+            format (str): Output format (use csv for large result sets). [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_campaign_group_double_click_bid_manager_report_per_organisation_per_account_per_campaign_per_creative_per_day_with_http_info(organisation_uuids, **kwargs)  # noqa: E501
-
-    def get_campaign_group_double_click_bid_manager_report_per_organisation_per_account_per_campaign_per_creative_per_day_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
-        """Return campaign group doubleclick bid manager report per organisation per account per campaign per creative per day  # noqa: E501
-
-        Campaign group doubleclick bid manager report per organisation per account per campaign per creative per day  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_campaign_group_double_click_bid_manager_report_per_organisation_per_account_per_campaign_per_creative_per_day_with_http_info(organisation_uuids, async_req=True)
-        >>> result = thread.get()
-
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'organisation_uuids',
-            'from_date',
-            'date_format',
-            'format'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
         )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['organisation_uuids'] = \
+            organisation_uuids
+        return self.get_campaign_group_double_click_bid_manager_report_per_organisation_per_account_per_campaign_per_creative_per_day_endpoint.call_with_http_info(**kwargs)
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_campaign_group_double_click_bid_manager_report_per_organisation_per_account_per_campaign_per_creative_per_day" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'organisation_uuids' is set
-        if self.api_client.client_side_validation and ('organisation_uuids' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organisation_uuids'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organisation_uuids` when calling `get_campaign_group_double_click_bid_manager_report_per_organisation_per_account_per_campaign_per_creative_per_day`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'organisation_uuids' in local_var_params:
-            path_params['organisationUuids'] = local_var_params['organisation_uuids']  # noqa: E501
-            collection_formats['organisationUuids'] = 'csv'  # noqa: E501
-
-        query_params = []
-        if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
-            query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
-        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
-            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
-        if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
-            query_params.append(('format', local_var_params['format']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/csv', 'application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-        
-        response_types_map = {
-            200: "str",
-            400: None,
-            404: None,
-        }
-
-        return self.api_client.call_api(
-            '/data/campaign-group-doubleclick-bid-manager-report-per-organisation-per-account-per-campaign-per-creative-per-day/{organisationUuids}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def get_campaign_group_double_click_bid_manager_report_per_organisation_per_account_per_campaign_per_day(self, organisation_uuids, **kwargs):  # noqa: E501
+    def get_campaign_group_double_click_bid_manager_report_per_organisation_per_account_per_campaign_per_day(
+        self,
+        organisation_uuids,
+        **kwargs
+    ):
         """Return campaign group doubleclick bid manager report per organisation per account per campaign per day  # noqa: E501
 
         Campaign group doubleclick bid manager report per organisation per account per campaign per day  # noqa: E501
@@ -1319,156 +2442,66 @@ class CampaignGroupApi(object):
         >>> thread = api.get_campaign_group_double_click_bid_manager_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: str
+        Args:
+            organisation_uuids ([str]): Organisation uuids
+
+        Keyword Args:
+            from_date (date): From date. [optional]
+            date_format (str): Outputted date format. [optional]
+            format (str): Output format (use csv for large result sets). [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_campaign_group_double_click_bid_manager_report_per_organisation_per_account_per_campaign_per_day_with_http_info(organisation_uuids, **kwargs)  # noqa: E501
-
-    def get_campaign_group_double_click_bid_manager_report_per_organisation_per_account_per_campaign_per_day_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
-        """Return campaign group doubleclick bid manager report per organisation per account per campaign per day  # noqa: E501
-
-        Campaign group doubleclick bid manager report per organisation per account per campaign per day  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_campaign_group_double_click_bid_manager_report_per_organisation_per_account_per_campaign_per_day_with_http_info(organisation_uuids, async_req=True)
-        >>> result = thread.get()
-
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'organisation_uuids',
-            'from_date',
-            'date_format',
-            'format'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
         )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['organisation_uuids'] = \
+            organisation_uuids
+        return self.get_campaign_group_double_click_bid_manager_report_per_organisation_per_account_per_campaign_per_day_endpoint.call_with_http_info(**kwargs)
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_campaign_group_double_click_bid_manager_report_per_organisation_per_account_per_campaign_per_day" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'organisation_uuids' is set
-        if self.api_client.client_side_validation and ('organisation_uuids' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organisation_uuids'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organisation_uuids` when calling `get_campaign_group_double_click_bid_manager_report_per_organisation_per_account_per_campaign_per_day`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'organisation_uuids' in local_var_params:
-            path_params['organisationUuids'] = local_var_params['organisation_uuids']  # noqa: E501
-            collection_formats['organisationUuids'] = 'csv'  # noqa: E501
-
-        query_params = []
-        if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
-            query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
-        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
-            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
-        if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
-            query_params.append(('format', local_var_params['format']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/csv', 'application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-        
-        response_types_map = {
-            200: "str",
-            400: None,
-            404: None,
-        }
-
-        return self.api_client.call_api(
-            '/data/campaign-group-doubleclick-bid-manager-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def get_campaign_group_double_click_campaign_manager_report_per_organisation_per_account_per_campaign_per_day(self, organisation_uuids, **kwargs):  # noqa: E501
+    def get_campaign_group_double_click_campaign_manager_report_per_organisation_per_account_per_campaign_per_day(
+        self,
+        organisation_uuids,
+        **kwargs
+    ):
         """Return campaign group doubleclick campaign manager report per organisation per account per campaign per day  # noqa: E501
 
         Campaign group doubleclick campaign manager report per organisation per account per campaign per day  # noqa: E501
@@ -1478,156 +2511,66 @@ class CampaignGroupApi(object):
         >>> thread = api.get_campaign_group_double_click_campaign_manager_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: str
+        Args:
+            organisation_uuids ([str]): Organisation uuids
+
+        Keyword Args:
+            from_date (date): From date. [optional]
+            date_format (str): Outputted date format. [optional]
+            format (str): Output format (use csv for large result sets). [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_campaign_group_double_click_campaign_manager_report_per_organisation_per_account_per_campaign_per_day_with_http_info(organisation_uuids, **kwargs)  # noqa: E501
-
-    def get_campaign_group_double_click_campaign_manager_report_per_organisation_per_account_per_campaign_per_day_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
-        """Return campaign group doubleclick campaign manager report per organisation per account per campaign per day  # noqa: E501
-
-        Campaign group doubleclick campaign manager report per organisation per account per campaign per day  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_campaign_group_double_click_campaign_manager_report_per_organisation_per_account_per_campaign_per_day_with_http_info(organisation_uuids, async_req=True)
-        >>> result = thread.get()
-
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'organisation_uuids',
-            'from_date',
-            'date_format',
-            'format'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
         )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['organisation_uuids'] = \
+            organisation_uuids
+        return self.get_campaign_group_double_click_campaign_manager_report_per_organisation_per_account_per_campaign_per_day_endpoint.call_with_http_info(**kwargs)
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_campaign_group_double_click_campaign_manager_report_per_organisation_per_account_per_campaign_per_day" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'organisation_uuids' is set
-        if self.api_client.client_side_validation and ('organisation_uuids' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organisation_uuids'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organisation_uuids` when calling `get_campaign_group_double_click_campaign_manager_report_per_organisation_per_account_per_campaign_per_day`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'organisation_uuids' in local_var_params:
-            path_params['organisationUuids'] = local_var_params['organisation_uuids']  # noqa: E501
-            collection_formats['organisationUuids'] = 'csv'  # noqa: E501
-
-        query_params = []
-        if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
-            query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
-        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
-            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
-        if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
-            query_params.append(('format', local_var_params['format']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/csv', 'application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-        
-        response_types_map = {
-            200: "str",
-            400: None,
-            404: None,
-        }
-
-        return self.api_client.call_api(
-            '/data/campaign-group-doubleclick-campaign-manager-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def get_campaign_group_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day(self, organisation_uuids, **kwargs):  # noqa: E501
+    def get_campaign_group_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day(
+        self,
+        organisation_uuids,
+        **kwargs
+    ):
         """Return campaign group facebook ad custom conversion report per organisation per account per campaign per day  # noqa: E501
 
         Campaign group facebook ad custom conversion report per organisation per account per campaign per day  # noqa: E501
@@ -1637,156 +2580,66 @@ class CampaignGroupApi(object):
         >>> thread = api.get_campaign_group_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: str
+        Args:
+            organisation_uuids ([str]): Organisation uuids
+
+        Keyword Args:
+            from_date (date): From date. [optional]
+            date_format (str): Outputted date format. [optional]
+            format (str): Output format (use csv for large result sets). [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_campaign_group_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day_with_http_info(organisation_uuids, **kwargs)  # noqa: E501
-
-    def get_campaign_group_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
-        """Return campaign group facebook ad custom conversion report per organisation per account per campaign per day  # noqa: E501
-
-        Campaign group facebook ad custom conversion report per organisation per account per campaign per day  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_campaign_group_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day_with_http_info(organisation_uuids, async_req=True)
-        >>> result = thread.get()
-
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'organisation_uuids',
-            'from_date',
-            'date_format',
-            'format'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
         )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['organisation_uuids'] = \
+            organisation_uuids
+        return self.get_campaign_group_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day_endpoint.call_with_http_info(**kwargs)
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_campaign_group_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'organisation_uuids' is set
-        if self.api_client.client_side_validation and ('organisation_uuids' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organisation_uuids'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organisation_uuids` when calling `get_campaign_group_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'organisation_uuids' in local_var_params:
-            path_params['organisationUuids'] = local_var_params['organisation_uuids']  # noqa: E501
-            collection_formats['organisationUuids'] = 'csv'  # noqa: E501
-
-        query_params = []
-        if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
-            query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
-        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
-            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
-        if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
-            query_params.append(('format', local_var_params['format']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/csv', 'application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-        
-        response_types_map = {
-            200: "str",
-            400: None,
-            404: None,
-        }
-
-        return self.api_client.call_api(
-            '/data/campaign-group-facebook-ad-custom-conversion-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def get_campaign_group_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day(self, organisation_uuids, **kwargs):  # noqa: E501
+    def get_campaign_group_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day(
+        self,
+        organisation_uuids,
+        **kwargs
+    ):
         """Return campaign group facebook ad extended report per organisation per account per campaign per ad group per day  # noqa: E501
 
         Campaign group facebook ad extended report per organisation per account per campaign per ad group per day  # noqa: E501
@@ -1796,156 +2649,66 @@ class CampaignGroupApi(object):
         >>> thread = api.get_campaign_group_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: str
+        Args:
+            organisation_uuids ([str]): Organisation uuids
+
+        Keyword Args:
+            from_date (date): From date. [optional]
+            date_format (str): Outputted date format. [optional]
+            format (str): Output format (use csv for large result sets). [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_campaign_group_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day_with_http_info(organisation_uuids, **kwargs)  # noqa: E501
-
-    def get_campaign_group_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
-        """Return campaign group facebook ad extended report per organisation per account per campaign per ad group per day  # noqa: E501
-
-        Campaign group facebook ad extended report per organisation per account per campaign per ad group per day  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_campaign_group_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day_with_http_info(organisation_uuids, async_req=True)
-        >>> result = thread.get()
-
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'organisation_uuids',
-            'from_date',
-            'date_format',
-            'format'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
         )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['organisation_uuids'] = \
+            organisation_uuids
+        return self.get_campaign_group_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day_endpoint.call_with_http_info(**kwargs)
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_campaign_group_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'organisation_uuids' is set
-        if self.api_client.client_side_validation and ('organisation_uuids' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organisation_uuids'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organisation_uuids` when calling `get_campaign_group_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'organisation_uuids' in local_var_params:
-            path_params['organisationUuids'] = local_var_params['organisation_uuids']  # noqa: E501
-            collection_formats['organisationUuids'] = 'csv'  # noqa: E501
-
-        query_params = []
-        if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
-            query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
-        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
-            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
-        if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
-            query_params.append(('format', local_var_params['format']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/csv', 'application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-        
-        response_types_map = {
-            200: "str",
-            400: None,
-            404: None,
-        }
-
-        return self.api_client.call_api(
-            '/data/campaign-group-facebook-ad-extended-report-per-organisation-per-account-per-campaign-per-ad-group-per-day/{organisationUuids}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def get_campaign_group_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_per_day(self, organisation_uuids, **kwargs):  # noqa: E501
+    def get_campaign_group_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_per_day(
+        self,
+        organisation_uuids,
+        **kwargs
+    ):
         """Return campaign group facebook ad extended report per organisation per account per campaign per ad per day  # noqa: E501
 
         Campaign group facebook ad extended report per organisation per account per campaign per ad per day  # noqa: E501
@@ -1955,156 +2718,66 @@ class CampaignGroupApi(object):
         >>> thread = api.get_campaign_group_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_per_day(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: str
+        Args:
+            organisation_uuids ([str]): Organisation uuids
+
+        Keyword Args:
+            from_date (date): From date. [optional]
+            date_format (str): Outputted date format. [optional]
+            format (str): Output format (use csv for large result sets). [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_campaign_group_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_per_day_with_http_info(organisation_uuids, **kwargs)  # noqa: E501
-
-    def get_campaign_group_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_per_day_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
-        """Return campaign group facebook ad extended report per organisation per account per campaign per ad per day  # noqa: E501
-
-        Campaign group facebook ad extended report per organisation per account per campaign per ad per day  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_campaign_group_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_per_day_with_http_info(organisation_uuids, async_req=True)
-        >>> result = thread.get()
-
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'organisation_uuids',
-            'from_date',
-            'date_format',
-            'format'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
         )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['organisation_uuids'] = \
+            organisation_uuids
+        return self.get_campaign_group_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_per_day_endpoint.call_with_http_info(**kwargs)
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_campaign_group_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_per_day" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'organisation_uuids' is set
-        if self.api_client.client_side_validation and ('organisation_uuids' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organisation_uuids'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organisation_uuids` when calling `get_campaign_group_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_per_day`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'organisation_uuids' in local_var_params:
-            path_params['organisationUuids'] = local_var_params['organisation_uuids']  # noqa: E501
-            collection_formats['organisationUuids'] = 'csv'  # noqa: E501
-
-        query_params = []
-        if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
-            query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
-        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
-            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
-        if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
-            query_params.append(('format', local_var_params['format']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/csv', 'application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-        
-        response_types_map = {
-            200: "str",
-            400: None,
-            404: None,
-        }
-
-        return self.api_client.call_api(
-            '/data/campaign-group-facebook-ad-extended-report-per-organisation-per-account-per-campaign-per-ad-per-day/{organisationUuids}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def get_campaign_group_facebook_ad_extended_report_per_organisation_per_campaign_per_day(self, organisation_uuids, **kwargs):  # noqa: E501
+    def get_campaign_group_facebook_ad_extended_report_per_organisation_per_campaign_per_day(
+        self,
+        organisation_uuids,
+        **kwargs
+    ):
         """Return campaign group facebook ad extended report per organisation per campaign per day  # noqa: E501
 
         Campaign group facebook ad extended report per organisation per campaign per day  # noqa: E501
@@ -2114,156 +2787,66 @@ class CampaignGroupApi(object):
         >>> thread = api.get_campaign_group_facebook_ad_extended_report_per_organisation_per_campaign_per_day(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: str
+        Args:
+            organisation_uuids ([str]): Organisation uuids
+
+        Keyword Args:
+            from_date (date): From date. [optional]
+            date_format (str): Outputted date format. [optional]
+            format (str): Output format (use csv for large result sets). [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_campaign_group_facebook_ad_extended_report_per_organisation_per_campaign_per_day_with_http_info(organisation_uuids, **kwargs)  # noqa: E501
-
-    def get_campaign_group_facebook_ad_extended_report_per_organisation_per_campaign_per_day_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
-        """Return campaign group facebook ad extended report per organisation per campaign per day  # noqa: E501
-
-        Campaign group facebook ad extended report per organisation per campaign per day  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_campaign_group_facebook_ad_extended_report_per_organisation_per_campaign_per_day_with_http_info(organisation_uuids, async_req=True)
-        >>> result = thread.get()
-
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'organisation_uuids',
-            'from_date',
-            'date_format',
-            'format'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
         )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['organisation_uuids'] = \
+            organisation_uuids
+        return self.get_campaign_group_facebook_ad_extended_report_per_organisation_per_campaign_per_day_endpoint.call_with_http_info(**kwargs)
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_campaign_group_facebook_ad_extended_report_per_organisation_per_campaign_per_day" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'organisation_uuids' is set
-        if self.api_client.client_side_validation and ('organisation_uuids' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organisation_uuids'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organisation_uuids` when calling `get_campaign_group_facebook_ad_extended_report_per_organisation_per_campaign_per_day`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'organisation_uuids' in local_var_params:
-            path_params['organisationUuids'] = local_var_params['organisation_uuids']  # noqa: E501
-            collection_formats['organisationUuids'] = 'csv'  # noqa: E501
-
-        query_params = []
-        if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
-            query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
-        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
-            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
-        if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
-            query_params.append(('format', local_var_params['format']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/csv', 'application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-        
-        response_types_map = {
-            200: "str",
-            400: None,
-            404: None,
-        }
-
-        return self.api_client.call_api(
-            '/data/campaign-group-facebook-ad-extended-report-per-organisation-per-campaign-per-day/{organisationUuids}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def get_campaign_group_facebook_ad_report_per_organisation_per_campaign_per_day(self, organisation_uuids, **kwargs):  # noqa: E501
+    def get_campaign_group_facebook_ad_report_per_organisation_per_campaign_per_day(
+        self,
+        organisation_uuids,
+        **kwargs
+    ):
         """Return campaign group facebook ad report per organisation per campaign per day  # noqa: E501
 
         Campaign group facebook ad report per organisation per campaign per day  # noqa: E501
@@ -2273,156 +2856,135 @@ class CampaignGroupApi(object):
         >>> thread = api.get_campaign_group_facebook_ad_report_per_organisation_per_campaign_per_day(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: str
+        Args:
+            organisation_uuids ([str]): Organisation uuids
+
+        Keyword Args:
+            from_date (date): From date. [optional]
+            date_format (str): Outputted date format. [optional]
+            format (str): Output format (use csv for large result sets). [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_campaign_group_facebook_ad_report_per_organisation_per_campaign_per_day_with_http_info(organisation_uuids, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['organisation_uuids'] = \
+            organisation_uuids
+        return self.get_campaign_group_facebook_ad_report_per_organisation_per_campaign_per_day_endpoint.call_with_http_info(**kwargs)
 
-    def get_campaign_group_facebook_ad_report_per_organisation_per_campaign_per_day_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
-        """Return campaign group facebook ad report per organisation per campaign per day  # noqa: E501
+    def get_campaign_group_goal_report_per_organisation_per_day(
+        self,
+        organisation_uuids,
+        **kwargs
+    ):
+        """Return campaign group goal report per organisation per day  # noqa: E501
 
-        Campaign group facebook ad report per organisation per campaign per day  # noqa: E501
+        Campaign group goal report per organisation per day  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_campaign_group_facebook_ad_report_per_organisation_per_campaign_per_day_with_http_info(organisation_uuids, async_req=True)
+        >>> thread = api.get_campaign_group_goal_report_per_organisation_per_day(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
+        Args:
+            organisation_uuids ([str]): Organisation uuids
+
+        Keyword Args:
+            from_date (date): From date. [optional]
+            date_format (str): Outputted date format. [optional]
+            format (str): Output format (use csv for large result sets). [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
         """
-
-        local_var_params = locals()
-
-        all_params = [
-            'organisation_uuids',
-            'from_date',
-            'date_format',
-            'format'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
         )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['organisation_uuids'] = \
+            organisation_uuids
+        return self.get_campaign_group_goal_report_per_organisation_per_day_endpoint.call_with_http_info(**kwargs)
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_campaign_group_facebook_ad_report_per_organisation_per_campaign_per_day" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'organisation_uuids' is set
-        if self.api_client.client_side_validation and ('organisation_uuids' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organisation_uuids'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organisation_uuids` when calling `get_campaign_group_facebook_ad_report_per_organisation_per_campaign_per_day`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'organisation_uuids' in local_var_params:
-            path_params['organisationUuids'] = local_var_params['organisation_uuids']  # noqa: E501
-            collection_formats['organisationUuids'] = 'csv'  # noqa: E501
-
-        query_params = []
-        if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
-            query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
-        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
-            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
-        if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
-            query_params.append(('format', local_var_params['format']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/csv', 'application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-        
-        response_types_map = {
-            200: "str",
-            400: None,
-            404: None,
-        }
-
-        return self.api_client.call_api(
-            '/data/campaign-group-facebook-ad-report-per-organisation-per-campaign-per-day/{organisationUuids}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def get_campaign_group_google_ads_report_per_organisation_per_campaign_per_day(self, organisation_uuids, **kwargs):  # noqa: E501
+    def get_campaign_group_google_ads_report_per_organisation_per_campaign_per_day(
+        self,
+        organisation_uuids,
+        **kwargs
+    ):
         """Return campaign group google ads report per organisation per campaign per day  # noqa: E501
 
         Campaign group google ads report per organisation per campaign per day  # noqa: E501
@@ -2432,156 +2994,66 @@ class CampaignGroupApi(object):
         >>> thread = api.get_campaign_group_google_ads_report_per_organisation_per_campaign_per_day(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: str
+        Args:
+            organisation_uuids ([str]): Organisation uuids
+
+        Keyword Args:
+            from_date (date): From date. [optional]
+            date_format (str): Outputted date format. [optional]
+            format (str): Output format (use csv for large result sets). [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_campaign_group_google_ads_report_per_organisation_per_campaign_per_day_with_http_info(organisation_uuids, **kwargs)  # noqa: E501
-
-    def get_campaign_group_google_ads_report_per_organisation_per_campaign_per_day_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
-        """Return campaign group google ads report per organisation per campaign per day  # noqa: E501
-
-        Campaign group google ads report per organisation per campaign per day  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_campaign_group_google_ads_report_per_organisation_per_campaign_per_day_with_http_info(organisation_uuids, async_req=True)
-        >>> result = thread.get()
-
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'organisation_uuids',
-            'from_date',
-            'date_format',
-            'format'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
         )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['organisation_uuids'] = \
+            organisation_uuids
+        return self.get_campaign_group_google_ads_report_per_organisation_per_campaign_per_day_endpoint.call_with_http_info(**kwargs)
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_campaign_group_google_ads_report_per_organisation_per_campaign_per_day" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'organisation_uuids' is set
-        if self.api_client.client_side_validation and ('organisation_uuids' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organisation_uuids'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organisation_uuids` when calling `get_campaign_group_google_ads_report_per_organisation_per_campaign_per_day`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'organisation_uuids' in local_var_params:
-            path_params['organisationUuids'] = local_var_params['organisation_uuids']  # noqa: E501
-            collection_formats['organisationUuids'] = 'csv'  # noqa: E501
-
-        query_params = []
-        if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
-            query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
-        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
-            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
-        if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
-            query_params.append(('format', local_var_params['format']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/csv', 'application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-        
-        response_types_map = {
-            200: "str",
-            400: None,
-            404: None,
-        }
-
-        return self.api_client.call_api(
-            '/data/campaign-group-google-ads-report-per-organisation-per-campaign-per-day/{organisationUuids}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def get_campaign_group_linked_in_ads_extended_report_per_organisation_per_account_per_campaign_per_day(self, organisation_uuids, **kwargs):  # noqa: E501
+    def get_campaign_group_linked_in_ads_extended_report_per_organisation_per_account_per_campaign_per_day(
+        self,
+        organisation_uuids,
+        **kwargs
+    ):
         """Return campaign group linkedin ads extended report per organisation per account per campaign per day  # noqa: E501
 
         Campaign group linkedin ads extended report per organisation per account per campaign per day  # noqa: E501
@@ -2591,156 +3063,66 @@ class CampaignGroupApi(object):
         >>> thread = api.get_campaign_group_linked_in_ads_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: str
+        Args:
+            organisation_uuids ([str]): Organisation uuids
+
+        Keyword Args:
+            from_date (date): From date. [optional]
+            date_format (str): Outputted date format. [optional]
+            format (str): Output format (use csv for large result sets). [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_campaign_group_linked_in_ads_extended_report_per_organisation_per_account_per_campaign_per_day_with_http_info(organisation_uuids, **kwargs)  # noqa: E501
-
-    def get_campaign_group_linked_in_ads_extended_report_per_organisation_per_account_per_campaign_per_day_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
-        """Return campaign group linkedin ads extended report per organisation per account per campaign per day  # noqa: E501
-
-        Campaign group linkedin ads extended report per organisation per account per campaign per day  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_campaign_group_linked_in_ads_extended_report_per_organisation_per_account_per_campaign_per_day_with_http_info(organisation_uuids, async_req=True)
-        >>> result = thread.get()
-
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'organisation_uuids',
-            'from_date',
-            'date_format',
-            'format'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
         )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['organisation_uuids'] = \
+            organisation_uuids
+        return self.get_campaign_group_linked_in_ads_extended_report_per_organisation_per_account_per_campaign_per_day_endpoint.call_with_http_info(**kwargs)
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_campaign_group_linked_in_ads_extended_report_per_organisation_per_account_per_campaign_per_day" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'organisation_uuids' is set
-        if self.api_client.client_side_validation and ('organisation_uuids' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organisation_uuids'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organisation_uuids` when calling `get_campaign_group_linked_in_ads_extended_report_per_organisation_per_account_per_campaign_per_day`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'organisation_uuids' in local_var_params:
-            path_params['organisationUuids'] = local_var_params['organisation_uuids']  # noqa: E501
-            collection_formats['organisationUuids'] = 'csv'  # noqa: E501
-
-        query_params = []
-        if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
-            query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
-        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
-            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
-        if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
-            query_params.append(('format', local_var_params['format']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/csv', 'application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-        
-        response_types_map = {
-            200: "str",
-            400: None,
-            404: None,
-        }
-
-        return self.api_client.call_api(
-            '/data/campaign-group-linkedin-ads-extended-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def get_campaign_group_report_per_organisation_per_day(self, organisation_uuids, **kwargs):  # noqa: E501
+    def get_campaign_group_report_per_organisation_per_day(
+        self,
+        organisation_uuids,
+        **kwargs
+    ):
         """Return campaign group report per organisation per day  # noqa: E501
 
         Campaign group report per organisation per day  # noqa: E501
@@ -2750,156 +3132,66 @@ class CampaignGroupApi(object):
         >>> thread = api.get_campaign_group_report_per_organisation_per_day(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: str
+        Args:
+            organisation_uuids ([str]): Organisation uuids
+
+        Keyword Args:
+            from_date (date): From date. [optional]
+            date_format (str): Outputted date format. [optional]
+            format (str): Output format (use csv for large result sets). [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_campaign_group_report_per_organisation_per_day_with_http_info(organisation_uuids, **kwargs)  # noqa: E501
-
-    def get_campaign_group_report_per_organisation_per_day_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
-        """Return campaign group report per organisation per day  # noqa: E501
-
-        Campaign group report per organisation per day  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_campaign_group_report_per_organisation_per_day_with_http_info(organisation_uuids, async_req=True)
-        >>> result = thread.get()
-
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'organisation_uuids',
-            'from_date',
-            'date_format',
-            'format'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
         )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['organisation_uuids'] = \
+            organisation_uuids
+        return self.get_campaign_group_report_per_organisation_per_day_endpoint.call_with_http_info(**kwargs)
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_campaign_group_report_per_organisation_per_day" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'organisation_uuids' is set
-        if self.api_client.client_side_validation and ('organisation_uuids' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organisation_uuids'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organisation_uuids` when calling `get_campaign_group_report_per_organisation_per_day`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'organisation_uuids' in local_var_params:
-            path_params['organisationUuids'] = local_var_params['organisation_uuids']  # noqa: E501
-            collection_formats['organisationUuids'] = 'csv'  # noqa: E501
-
-        query_params = []
-        if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
-            query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
-        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
-            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
-        if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
-            query_params.append(('format', local_var_params['format']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/csv', 'application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-        
-        response_types_map = {
-            200: "str",
-            400: None,
-            404: None,
-        }
-
-        return self.api_client.call_api(
-            '/data/campaign-group-report-per-organisation-per-day/{organisationUuids}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def get_campaign_group_snapchat_ads_extended_report_per_organisation_per_account_per_campaign_per_day(self, organisation_uuids, **kwargs):  # noqa: E501
+    def get_campaign_group_snapchat_ads_extended_report_per_organisation_per_account_per_campaign_per_day(
+        self,
+        organisation_uuids,
+        **kwargs
+    ):
         """Return campaign group snapchat ads extended report per organisation per account per campaign per day  # noqa: E501
 
         Campaign group snapchat ads extended report per organisation per account per campaign per day  # noqa: E501
@@ -2909,156 +3201,66 @@ class CampaignGroupApi(object):
         >>> thread = api.get_campaign_group_snapchat_ads_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: str
+        Args:
+            organisation_uuids ([str]): Organisation uuids
+
+        Keyword Args:
+            from_date (date): From date. [optional]
+            date_format (str): Outputted date format. [optional]
+            format (str): Output format (use csv for large result sets). [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_campaign_group_snapchat_ads_extended_report_per_organisation_per_account_per_campaign_per_day_with_http_info(organisation_uuids, **kwargs)  # noqa: E501
-
-    def get_campaign_group_snapchat_ads_extended_report_per_organisation_per_account_per_campaign_per_day_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
-        """Return campaign group snapchat ads extended report per organisation per account per campaign per day  # noqa: E501
-
-        Campaign group snapchat ads extended report per organisation per account per campaign per day  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_campaign_group_snapchat_ads_extended_report_per_organisation_per_account_per_campaign_per_day_with_http_info(organisation_uuids, async_req=True)
-        >>> result = thread.get()
-
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'organisation_uuids',
-            'from_date',
-            'date_format',
-            'format'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
         )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['organisation_uuids'] = \
+            organisation_uuids
+        return self.get_campaign_group_snapchat_ads_extended_report_per_organisation_per_account_per_campaign_per_day_endpoint.call_with_http_info(**kwargs)
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_campaign_group_snapchat_ads_extended_report_per_organisation_per_account_per_campaign_per_day" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'organisation_uuids' is set
-        if self.api_client.client_side_validation and ('organisation_uuids' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organisation_uuids'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organisation_uuids` when calling `get_campaign_group_snapchat_ads_extended_report_per_organisation_per_account_per_campaign_per_day`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'organisation_uuids' in local_var_params:
-            path_params['organisationUuids'] = local_var_params['organisation_uuids']  # noqa: E501
-            collection_formats['organisationUuids'] = 'csv'  # noqa: E501
-
-        query_params = []
-        if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
-            query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
-        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
-            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
-        if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
-            query_params.append(('format', local_var_params['format']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/csv', 'application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-        
-        response_types_map = {
-            200: "str",
-            400: None,
-            404: None,
-        }
-
-        return self.api_client.call_api(
-            '/data/campaign-group-snapchat-ads-extended-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def get_campaign_group_twitter_ads_extended_report_per_organisation_per_account_per_campaign_per_day(self, organisation_uuids, **kwargs):  # noqa: E501
+    def get_campaign_group_twitter_ads_extended_report_per_organisation_per_account_per_campaign_per_day(
+        self,
+        organisation_uuids,
+        **kwargs
+    ):
         """Return campaign group twitter ads extended report per organisation per account per campaign per day  # noqa: E501
 
         Campaign group twitter ads extended report per organisation per account per campaign per day  # noqa: E501
@@ -3068,156 +3270,66 @@ class CampaignGroupApi(object):
         >>> thread = api.get_campaign_group_twitter_ads_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: str
+        Args:
+            organisation_uuids ([str]): Organisation uuids
+
+        Keyword Args:
+            from_date (date): From date. [optional]
+            date_format (str): Outputted date format. [optional]
+            format (str): Output format (use csv for large result sets). [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_campaign_group_twitter_ads_extended_report_per_organisation_per_account_per_campaign_per_day_with_http_info(organisation_uuids, **kwargs)  # noqa: E501
-
-    def get_campaign_group_twitter_ads_extended_report_per_organisation_per_account_per_campaign_per_day_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
-        """Return campaign group twitter ads extended report per organisation per account per campaign per day  # noqa: E501
-
-        Campaign group twitter ads extended report per organisation per account per campaign per day  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_campaign_group_twitter_ads_extended_report_per_organisation_per_account_per_campaign_per_day_with_http_info(organisation_uuids, async_req=True)
-        >>> result = thread.get()
-
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'organisation_uuids',
-            'from_date',
-            'date_format',
-            'format'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
         )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['organisation_uuids'] = \
+            organisation_uuids
+        return self.get_campaign_group_twitter_ads_extended_report_per_organisation_per_account_per_campaign_per_day_endpoint.call_with_http_info(**kwargs)
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_campaign_group_twitter_ads_extended_report_per_organisation_per_account_per_campaign_per_day" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'organisation_uuids' is set
-        if self.api_client.client_side_validation and ('organisation_uuids' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organisation_uuids'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organisation_uuids` when calling `get_campaign_group_twitter_ads_extended_report_per_organisation_per_account_per_campaign_per_day`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'organisation_uuids' in local_var_params:
-            path_params['organisationUuids'] = local_var_params['organisation_uuids']  # noqa: E501
-            collection_formats['organisationUuids'] = 'csv'  # noqa: E501
-
-        query_params = []
-        if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
-            query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
-        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
-            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
-        if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
-            query_params.append(('format', local_var_params['format']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/csv', 'application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-        
-        response_types_map = {
-            200: "str",
-            400: None,
-            404: None,
-        }
-
-        return self.api_client.call_api(
-            '/data/campaign-group-twitter-ads-extended-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def get_campaign_group_video_report_per_organisation_per_campaign_per_day(self, organisation_uuids, **kwargs):  # noqa: E501
+    def get_campaign_group_video_report_per_organisation_per_campaign_per_day(
+        self,
+        organisation_uuids,
+        **kwargs
+    ):
         """Return campaign group video report per organisation per campaign per day  # noqa: E501
 
         Campaign group video report per organisation per campaign per day  # noqa: E501
@@ -3227,156 +3339,66 @@ class CampaignGroupApi(object):
         >>> thread = api.get_campaign_group_video_report_per_organisation_per_campaign_per_day(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: str
+        Args:
+            organisation_uuids ([str]): Organisation uuids
+
+        Keyword Args:
+            from_date (date): From date. [optional]
+            date_format (str): Outputted date format. [optional]
+            format (str): Output format (use csv for large result sets). [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_campaign_group_video_report_per_organisation_per_campaign_per_day_with_http_info(organisation_uuids, **kwargs)  # noqa: E501
-
-    def get_campaign_group_video_report_per_organisation_per_campaign_per_day_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
-        """Return campaign group video report per organisation per campaign per day  # noqa: E501
-
-        Campaign group video report per organisation per campaign per day  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_campaign_group_video_report_per_organisation_per_campaign_per_day_with_http_info(organisation_uuids, async_req=True)
-        >>> result = thread.get()
-
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'organisation_uuids',
-            'from_date',
-            'date_format',
-            'format'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
         )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['organisation_uuids'] = \
+            organisation_uuids
+        return self.get_campaign_group_video_report_per_organisation_per_campaign_per_day_endpoint.call_with_http_info(**kwargs)
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_campaign_group_video_report_per_organisation_per_campaign_per_day" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'organisation_uuids' is set
-        if self.api_client.client_side_validation and ('organisation_uuids' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organisation_uuids'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organisation_uuids` when calling `get_campaign_group_video_report_per_organisation_per_campaign_per_day`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'organisation_uuids' in local_var_params:
-            path_params['organisationUuids'] = local_var_params['organisation_uuids']  # noqa: E501
-            collection_formats['organisationUuids'] = 'csv'  # noqa: E501
-
-        query_params = []
-        if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
-            query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
-        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
-            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
-        if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
-            query_params.append(('format', local_var_params['format']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/csv', 'application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-        
-        response_types_map = {
-            200: "str",
-            400: None,
-            404: None,
-        }
-
-        return self.api_client.call_api(
-            '/data/campaign-group-video-report-per-organisation-per-campaign-per-day/{organisationUuids}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def get_campaign_group_video_report_per_organisation_per_day(self, organisation_uuids, **kwargs):  # noqa: E501
+    def get_campaign_group_video_report_per_organisation_per_day(
+        self,
+        organisation_uuids,
+        **kwargs
+    ):
         """Return campaign group video report per organisation per day  # noqa: E501
 
         Campaign group video report per organisation per day  # noqa: E501
@@ -3386,151 +3408,58 @@ class CampaignGroupApi(object):
         >>> thread = api.get_campaign_group_video_report_per_organisation_per_day(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: str
+        Args:
+            organisation_uuids ([str]): Organisation uuids
+
+        Keyword Args:
+            from_date (date): From date. [optional]
+            date_format (str): Outputted date format. [optional]
+            format (str): Output format (use csv for large result sets). [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_campaign_group_video_report_per_organisation_per_day_with_http_info(organisation_uuids, **kwargs)  # noqa: E501
-
-    def get_campaign_group_video_report_per_organisation_per_day_with_http_info(self, organisation_uuids, **kwargs):  # noqa: E501
-        """Return campaign group video report per organisation per day  # noqa: E501
-
-        Campaign group video report per organisation per day  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_campaign_group_video_report_per_organisation_per_day_with_http_info(organisation_uuids, async_req=True)
-        >>> result = thread.get()
-
-        :param organisation_uuids: Organisation uuids (required)
-        :type organisation_uuids: list[str]
-        :param from_date: From date
-        :type from_date: date
-        :param date_format: Outputted date format
-        :type date_format: str
-        :param format: Output format (use csv for large result sets)
-        :type format: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'organisation_uuids',
-            'from_date',
-            'date_format',
-            'format'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
         )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['organisation_uuids'] = \
+            organisation_uuids
+        return self.get_campaign_group_video_report_per_organisation_per_day_endpoint.call_with_http_info(**kwargs)
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_campaign_group_video_report_per_organisation_per_day" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'organisation_uuids' is set
-        if self.api_client.client_side_validation and ('organisation_uuids' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organisation_uuids'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organisation_uuids` when calling `get_campaign_group_video_report_per_organisation_per_day`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'organisation_uuids' in local_var_params:
-            path_params['organisationUuids'] = local_var_params['organisation_uuids']  # noqa: E501
-            collection_formats['organisationUuids'] = 'csv'  # noqa: E501
-
-        query_params = []
-        if 'from_date' in local_var_params and local_var_params['from_date'] is not None:  # noqa: E501
-            query_params.append(('from_date', local_var_params['from_date']))  # noqa: E501
-        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
-            query_params.append(('date_format', local_var_params['date_format']))  # noqa: E501
-        if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
-            query_params.append(('format', local_var_params['format']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/csv', 'application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-        
-        response_types_map = {
-            200: "str",
-            400: None,
-            404: None,
-        }
-
-        return self.api_client.call_api(
-            '/data/campaign-group-video-report-per-organisation-per-day/{organisationUuids}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))

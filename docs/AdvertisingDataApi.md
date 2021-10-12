@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 
 # **get_ad_account_report_per_organisation_per_day**
-> str get_ad_account_report_per_organisation_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+> str get_ad_account_report_per_organisation_per_day(organisation_uuids)
 
 Return ad account report per organisation per day
 
@@ -32,11 +32,11 @@ Ad account report per organisation per day
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
-from __future__ import print_function
 import time
 import cervinodata_api
-from cervinodata_api.rest import ApiException
+from cervinodata_api.api import advertising_data_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -57,28 +57,41 @@ configuration = cervinodata_api.Configuration(
 # Enter a context with an instance of the API client
 with cervinodata_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cervinodata_api.AdvertisingDataApi(api_client)
-    organisation_uuids = ['organisation_uuids_example'] # list[str] | Organisation uuids
-from_date = '2013-10-20' # date | From date (optional)
-date_format = 'date_format_example' # str | Outputted date format (optional)
-format = 'format_example' # str | Output format (use csv for large result sets) (optional)
+    api_instance = advertising_data_api.AdvertisingDataApi(api_client)
+    organisation_uuids = [
+        "organisationUuids_example",
+    ] # [str] | Organisation uuids
+    from_date = dateutil_parser('1970-01-01').date() # date | From date (optional)
+    date_format = "YYYY-MM-DD" # str | Outputted date format (optional)
+    format = "csv" # str | Output format (use csv for large result sets) (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Return ad account report per organisation per day
+        api_response = api_instance.get_ad_account_report_per_organisation_per_day(organisation_uuids)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_ad_account_report_per_organisation_per_day: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Return ad account report per organisation per day
         api_response = api_instance.get_ad_account_report_per_organisation_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
         pprint(api_response)
-    except ApiException as e:
+    except cervinodata_api.ApiException as e:
         print("Exception when calling AdvertisingDataApi->get_ad_account_report_per_organisation_per_day: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organisation_uuids** | [**list[str]**](str.md)| Organisation uuids | 
- **from_date** | **date**| From date | [optional] 
- **date_format** | **str**| Outputted date format | [optional] 
- **format** | **str**| Output format (use csv for large result sets) | [optional] 
+ **organisation_uuids** | **[str]**| Organisation uuids |
+ **from_date** | **date**| From date | [optional]
+ **date_format** | **str**| Outputted date format | [optional]
+ **format** | **str**| Output format (use csv for large result sets) | [optional]
 
 ### Return type
 
@@ -93,7 +106,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/csv, application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -103,7 +118,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_ad_accounts**
-> str get_ad_accounts(organisation_uuid, format=format)
+> str get_ad_accounts(organisation_uuid)
 
 Return ad accounts by organisation
 
@@ -112,11 +127,11 @@ Ad accounts by organisation
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
-from __future__ import print_function
 import time
 import cervinodata_api
-from cervinodata_api.rest import ApiException
+from cervinodata_api.api import advertising_data_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -137,24 +152,35 @@ configuration = cervinodata_api.Configuration(
 # Enter a context with an instance of the API client
 with cervinodata_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cervinodata_api.AdvertisingDataApi(api_client)
-    organisation_uuid = 'organisation_uuid_example' # str | Organisation uuid
-format = 'format_example' # str | Output format (optional)
+    api_instance = advertising_data_api.AdvertisingDataApi(api_client)
+    organisation_uuid = "organisationUuid_example" # str | Organisation uuid
+    format = "csv" # str | Output format (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Return ad accounts by organisation
+        api_response = api_instance.get_ad_accounts(organisation_uuid)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_ad_accounts: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Return ad accounts by organisation
         api_response = api_instance.get_ad_accounts(organisation_uuid, format=format)
         pprint(api_response)
-    except ApiException as e:
+    except cervinodata_api.ApiException as e:
         print("Exception when calling AdvertisingDataApi->get_ad_accounts: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organisation_uuid** | **str**| Organisation uuid | 
- **format** | **str**| Output format | [optional] 
+ **organisation_uuid** | **str**| Organisation uuid |
+ **format** | **str**| Output format | [optional]
 
 ### Return type
 
@@ -169,7 +195,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/csv, application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -179,7 +207,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_ad_campaign_report_per_day**
-> str get_ad_campaign_report_per_day(organisation_uuid, from_date=from_date, date_format=date_format, format=format)
+> str get_ad_campaign_report_per_day(organisation_uuid)
 
 Return ad campaign report per day by organisation
 
@@ -188,11 +216,11 @@ Ad campaign report per day by organisation
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
-from __future__ import print_function
 import time
 import cervinodata_api
-from cervinodata_api.rest import ApiException
+from cervinodata_api.api import advertising_data_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -213,28 +241,39 @@ configuration = cervinodata_api.Configuration(
 # Enter a context with an instance of the API client
 with cervinodata_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cervinodata_api.AdvertisingDataApi(api_client)
-    organisation_uuid = 'organisation_uuid_example' # str | Organisation uuid
-from_date = '2013-10-20' # date | From date (optional)
-date_format = 'date_format_example' # str | Outputted date format (optional)
-format = 'format_example' # str | Output format (use csv for large result sets) (optional)
+    api_instance = advertising_data_api.AdvertisingDataApi(api_client)
+    organisation_uuid = "organisationUuid_example" # str | Organisation uuid
+    from_date = dateutil_parser('1970-01-01').date() # date | From date (optional)
+    date_format = "YYYY-MM-DD" # str | Outputted date format (optional)
+    format = "csv" # str | Output format (use csv for large result sets) (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Return ad campaign report per day by organisation
+        api_response = api_instance.get_ad_campaign_report_per_day(organisation_uuid)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_ad_campaign_report_per_day: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Return ad campaign report per day by organisation
         api_response = api_instance.get_ad_campaign_report_per_day(organisation_uuid, from_date=from_date, date_format=date_format, format=format)
         pprint(api_response)
-    except ApiException as e:
+    except cervinodata_api.ApiException as e:
         print("Exception when calling AdvertisingDataApi->get_ad_campaign_report_per_day: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organisation_uuid** | **str**| Organisation uuid | 
- **from_date** | **date**| From date | [optional] 
- **date_format** | **str**| Outputted date format | [optional] 
- **format** | **str**| Output format (use csv for large result sets) | [optional] 
+ **organisation_uuid** | **str**| Organisation uuid |
+ **from_date** | **date**| From date | [optional]
+ **date_format** | **str**| Outputted date format | [optional]
+ **format** | **str**| Output format (use csv for large result sets) | [optional]
 
 ### Return type
 
@@ -249,7 +288,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/csv, application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -259,7 +300,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_ad_campaign_report_per_organisation_per_account_per_campaign_per_device_per_day**
-> str get_ad_campaign_report_per_organisation_per_account_per_campaign_per_device_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+> str get_ad_campaign_report_per_organisation_per_account_per_campaign_per_device_per_day(organisation_uuids)
 
 Return ad campaign report per organisation per account per campaign per device per day
 
@@ -268,11 +309,11 @@ Ad campaign report per organisation per account per campaign per device per day
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
-from __future__ import print_function
 import time
 import cervinodata_api
-from cervinodata_api.rest import ApiException
+from cervinodata_api.api import advertising_data_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -293,28 +334,41 @@ configuration = cervinodata_api.Configuration(
 # Enter a context with an instance of the API client
 with cervinodata_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cervinodata_api.AdvertisingDataApi(api_client)
-    organisation_uuids = ['organisation_uuids_example'] # list[str] | Organisation uuids
-from_date = '2013-10-20' # date | From date (optional)
-date_format = 'date_format_example' # str | Outputted date format (optional)
-format = 'format_example' # str | Output format (use csv for large result sets) (optional)
+    api_instance = advertising_data_api.AdvertisingDataApi(api_client)
+    organisation_uuids = [
+        "organisationUuids_example",
+    ] # [str] | Organisation uuids
+    from_date = dateutil_parser('1970-01-01').date() # date | From date (optional)
+    date_format = "YYYY-MM-DD" # str | Outputted date format (optional)
+    format = "csv" # str | Output format (use csv for large result sets) (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Return ad campaign report per organisation per account per campaign per device per day
+        api_response = api_instance.get_ad_campaign_report_per_organisation_per_account_per_campaign_per_device_per_day(organisation_uuids)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_ad_campaign_report_per_organisation_per_account_per_campaign_per_device_per_day: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Return ad campaign report per organisation per account per campaign per device per day
         api_response = api_instance.get_ad_campaign_report_per_organisation_per_account_per_campaign_per_device_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
         pprint(api_response)
-    except ApiException as e:
+    except cervinodata_api.ApiException as e:
         print("Exception when calling AdvertisingDataApi->get_ad_campaign_report_per_organisation_per_account_per_campaign_per_device_per_day: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organisation_uuids** | [**list[str]**](str.md)| Organisation uuids | 
- **from_date** | **date**| From date | [optional] 
- **date_format** | **str**| Outputted date format | [optional] 
- **format** | **str**| Output format (use csv for large result sets) | [optional] 
+ **organisation_uuids** | **[str]**| Organisation uuids |
+ **from_date** | **date**| From date | [optional]
+ **date_format** | **str**| Outputted date format | [optional]
+ **format** | **str**| Output format (use csv for large result sets) | [optional]
 
 ### Return type
 
@@ -329,7 +383,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/csv, application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -339,7 +395,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_ad_campaign_report_per_organisation_per_account_per_day**
-> str get_ad_campaign_report_per_organisation_per_account_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+> str get_ad_campaign_report_per_organisation_per_account_per_day(organisation_uuids)
 
 Return ad campaign report per organisation per account per day
 
@@ -348,11 +404,11 @@ Ad campaign report per organisation per account per day
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
-from __future__ import print_function
 import time
 import cervinodata_api
-from cervinodata_api.rest import ApiException
+from cervinodata_api.api import advertising_data_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -373,28 +429,41 @@ configuration = cervinodata_api.Configuration(
 # Enter a context with an instance of the API client
 with cervinodata_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cervinodata_api.AdvertisingDataApi(api_client)
-    organisation_uuids = ['organisation_uuids_example'] # list[str] | Organisation uuids
-from_date = '2013-10-20' # date | From date (optional)
-date_format = 'date_format_example' # str | Outputted date format (optional)
-format = 'format_example' # str | Output format (use csv for large result sets) (optional)
+    api_instance = advertising_data_api.AdvertisingDataApi(api_client)
+    organisation_uuids = [
+        "organisationUuids_example",
+    ] # [str] | Organisation uuids
+    from_date = dateutil_parser('1970-01-01').date() # date | From date (optional)
+    date_format = "YYYY-MM-DD" # str | Outputted date format (optional)
+    format = "csv" # str | Output format (use csv for large result sets) (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Return ad campaign report per organisation per account per day
+        api_response = api_instance.get_ad_campaign_report_per_organisation_per_account_per_day(organisation_uuids)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_ad_campaign_report_per_organisation_per_account_per_day: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Return ad campaign report per organisation per account per day
         api_response = api_instance.get_ad_campaign_report_per_organisation_per_account_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
         pprint(api_response)
-    except ApiException as e:
+    except cervinodata_api.ApiException as e:
         print("Exception when calling AdvertisingDataApi->get_ad_campaign_report_per_organisation_per_account_per_day: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organisation_uuids** | [**list[str]**](str.md)| Organisation uuids | 
- **from_date** | **date**| From date | [optional] 
- **date_format** | **str**| Outputted date format | [optional] 
- **format** | **str**| Output format (use csv for large result sets) | [optional] 
+ **organisation_uuids** | **[str]**| Organisation uuids |
+ **from_date** | **date**| From date | [optional]
+ **date_format** | **str**| Outputted date format | [optional]
+ **format** | **str**| Output format (use csv for large result sets) | [optional]
 
 ### Return type
 
@@ -409,7 +478,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/csv, application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -419,7 +490,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_ad_campaigns**
-> str get_ad_campaigns(organisation_uuid, from_date=from_date, format=format)
+> str get_ad_campaigns(organisation_uuid)
 
 Return ad campaigns by organisation
 
@@ -428,11 +499,11 @@ Ad campaigns by organisation
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
-from __future__ import print_function
 import time
 import cervinodata_api
-from cervinodata_api.rest import ApiException
+from cervinodata_api.api import advertising_data_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -453,26 +524,37 @@ configuration = cervinodata_api.Configuration(
 # Enter a context with an instance of the API client
 with cervinodata_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cervinodata_api.AdvertisingDataApi(api_client)
-    organisation_uuid = 'organisation_uuid_example' # str | Organisation uuid
-from_date = '2013-10-20' # date | From date (optional)
-format = 'format_example' # str | Output format (optional)
+    api_instance = advertising_data_api.AdvertisingDataApi(api_client)
+    organisation_uuid = "organisationUuid_example" # str | Organisation uuid
+    from_date = dateutil_parser('1970-01-01').date() # date | From date (optional)
+    format = "csv" # str | Output format (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Return ad campaigns by organisation
+        api_response = api_instance.get_ad_campaigns(organisation_uuid)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_ad_campaigns: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Return ad campaigns by organisation
         api_response = api_instance.get_ad_campaigns(organisation_uuid, from_date=from_date, format=format)
         pprint(api_response)
-    except ApiException as e:
+    except cervinodata_api.ApiException as e:
         print("Exception when calling AdvertisingDataApi->get_ad_campaigns: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organisation_uuid** | **str**| Organisation uuid | 
- **from_date** | **date**| From date | [optional] 
- **format** | **str**| Output format | [optional] 
+ **organisation_uuid** | **str**| Organisation uuid |
+ **from_date** | **date**| From date | [optional]
+ **format** | **str**| Output format | [optional]
 
 ### Return type
 
@@ -487,7 +569,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/csv, application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -497,7 +581,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_bing_ads_extended_report_per_organisation_per_account_per_campaign_per_day**
-> str get_bing_ads_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+> str get_bing_ads_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids)
 
 Return bing ads extended report per organisation per account per campaign per day
 
@@ -506,11 +590,11 @@ Bing ads extended report per organisation per account per campaign per day
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
-from __future__ import print_function
 import time
 import cervinodata_api
-from cervinodata_api.rest import ApiException
+from cervinodata_api.api import advertising_data_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -531,28 +615,41 @@ configuration = cervinodata_api.Configuration(
 # Enter a context with an instance of the API client
 with cervinodata_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cervinodata_api.AdvertisingDataApi(api_client)
-    organisation_uuids = ['organisation_uuids_example'] # list[str] | Organisation uuids
-from_date = '2013-10-20' # date | From date (optional)
-date_format = 'date_format_example' # str | Outputted date format (optional)
-format = 'format_example' # str | Output format (use csv for large result sets) (optional)
+    api_instance = advertising_data_api.AdvertisingDataApi(api_client)
+    organisation_uuids = [
+        "organisationUuids_example",
+    ] # [str] | Organisation uuids
+    from_date = dateutil_parser('1970-01-01').date() # date | From date (optional)
+    date_format = "YYYY-MM-DD" # str | Outputted date format (optional)
+    format = "csv" # str | Output format (use csv for large result sets) (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Return bing ads extended report per organisation per account per campaign per day
+        api_response = api_instance.get_bing_ads_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_bing_ads_extended_report_per_organisation_per_account_per_campaign_per_day: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Return bing ads extended report per organisation per account per campaign per day
         api_response = api_instance.get_bing_ads_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
         pprint(api_response)
-    except ApiException as e:
+    except cervinodata_api.ApiException as e:
         print("Exception when calling AdvertisingDataApi->get_bing_ads_extended_report_per_organisation_per_account_per_campaign_per_day: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organisation_uuids** | [**list[str]**](str.md)| Organisation uuids | 
- **from_date** | **date**| From date | [optional] 
- **date_format** | **str**| Outputted date format | [optional] 
- **format** | **str**| Output format (use csv for large result sets) | [optional] 
+ **organisation_uuids** | **[str]**| Organisation uuids |
+ **from_date** | **date**| From date | [optional]
+ **date_format** | **str**| Outputted date format | [optional]
+ **format** | **str**| Output format (use csv for large result sets) | [optional]
 
 ### Return type
 
@@ -567,7 +664,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/csv, application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -577,7 +676,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day**
-> str get_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+> str get_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids)
 
 Return facebook ad custom conversion report per organisation per account per campaign per day
 
@@ -586,11 +685,11 @@ Facebook ad custom conversion report per organisation per account per campaign p
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
-from __future__ import print_function
 import time
 import cervinodata_api
-from cervinodata_api.rest import ApiException
+from cervinodata_api.api import advertising_data_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -611,28 +710,41 @@ configuration = cervinodata_api.Configuration(
 # Enter a context with an instance of the API client
 with cervinodata_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cervinodata_api.AdvertisingDataApi(api_client)
-    organisation_uuids = ['organisation_uuids_example'] # list[str] | Organisation uuids
-from_date = '2013-10-20' # date | From date (optional)
-date_format = 'date_format_example' # str | Outputted date format (optional)
-format = 'format_example' # str | Output format (use csv for large result sets) (optional)
+    api_instance = advertising_data_api.AdvertisingDataApi(api_client)
+    organisation_uuids = [
+        "organisationUuids_example",
+    ] # [str] | Organisation uuids
+    from_date = dateutil_parser('1970-01-01').date() # date | From date (optional)
+    date_format = "YYYY-MM-DD" # str | Outputted date format (optional)
+    format = "csv" # str | Output format (use csv for large result sets) (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Return facebook ad custom conversion report per organisation per account per campaign per day
+        api_response = api_instance.get_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Return facebook ad custom conversion report per organisation per account per campaign per day
         api_response = api_instance.get_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
         pprint(api_response)
-    except ApiException as e:
+    except cervinodata_api.ApiException as e:
         print("Exception when calling AdvertisingDataApi->get_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organisation_uuids** | [**list[str]**](str.md)| Organisation uuids | 
- **from_date** | **date**| From date | [optional] 
- **date_format** | **str**| Outputted date format | [optional] 
- **format** | **str**| Output format (use csv for large result sets) | [optional] 
+ **organisation_uuids** | **[str]**| Organisation uuids |
+ **from_date** | **date**| From date | [optional]
+ **date_format** | **str**| Outputted date format | [optional]
+ **format** | **str**| Output format (use csv for large result sets) | [optional]
 
 ### Return type
 
@@ -647,7 +759,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/csv, application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -657,7 +771,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day**
-> str get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+> str get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day(organisation_uuids)
 
 Return facebook ad extended report per organisation per account per campaign per ad group per day
 
@@ -666,11 +780,11 @@ Facebook ad extended report per organisation per account per campaign per ad gro
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
-from __future__ import print_function
 import time
 import cervinodata_api
-from cervinodata_api.rest import ApiException
+from cervinodata_api.api import advertising_data_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -691,28 +805,41 @@ configuration = cervinodata_api.Configuration(
 # Enter a context with an instance of the API client
 with cervinodata_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cervinodata_api.AdvertisingDataApi(api_client)
-    organisation_uuids = ['organisation_uuids_example'] # list[str] | Organisation uuids
-from_date = '2013-10-20' # date | From date (optional)
-date_format = 'date_format_example' # str | Outputted date format (optional)
-format = 'format_example' # str | Output format (use csv for large result sets) (optional)
+    api_instance = advertising_data_api.AdvertisingDataApi(api_client)
+    organisation_uuids = [
+        "organisationUuids_example",
+    ] # [str] | Organisation uuids
+    from_date = dateutil_parser('1970-01-01').date() # date | From date (optional)
+    date_format = "YYYY-MM-DD" # str | Outputted date format (optional)
+    format = "csv" # str | Output format (use csv for large result sets) (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Return facebook ad extended report per organisation per account per campaign per ad group per day
+        api_response = api_instance.get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day(organisation_uuids)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Return facebook ad extended report per organisation per account per campaign per ad group per day
         api_response = api_instance.get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
         pprint(api_response)
-    except ApiException as e:
+    except cervinodata_api.ApiException as e:
         print("Exception when calling AdvertisingDataApi->get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organisation_uuids** | [**list[str]**](str.md)| Organisation uuids | 
- **from_date** | **date**| From date | [optional] 
- **date_format** | **str**| Outputted date format | [optional] 
- **format** | **str**| Output format (use csv for large result sets) | [optional] 
+ **organisation_uuids** | **[str]**| Organisation uuids |
+ **from_date** | **date**| From date | [optional]
+ **date_format** | **str**| Outputted date format | [optional]
+ **format** | **str**| Output format (use csv for large result sets) | [optional]
 
 ### Return type
 
@@ -727,7 +854,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/csv, application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -737,7 +866,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_per_day**
-> str get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+> str get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_per_day(organisation_uuids)
 
 Return facebook ad extended report per organisation per account per campaign per ad per day
 
@@ -746,11 +875,11 @@ Facebook ad extended report per organisation per account per campaign per ad per
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
-from __future__ import print_function
 import time
 import cervinodata_api
-from cervinodata_api.rest import ApiException
+from cervinodata_api.api import advertising_data_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -771,28 +900,41 @@ configuration = cervinodata_api.Configuration(
 # Enter a context with an instance of the API client
 with cervinodata_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cervinodata_api.AdvertisingDataApi(api_client)
-    organisation_uuids = ['organisation_uuids_example'] # list[str] | Organisation uuids
-from_date = '2013-10-20' # date | From date (optional)
-date_format = 'date_format_example' # str | Outputted date format (optional)
-format = 'format_example' # str | Output format (use csv for large result sets) (optional)
+    api_instance = advertising_data_api.AdvertisingDataApi(api_client)
+    organisation_uuids = [
+        "organisationUuids_example",
+    ] # [str] | Organisation uuids
+    from_date = dateutil_parser('1970-01-01').date() # date | From date (optional)
+    date_format = "YYYY-MM-DD" # str | Outputted date format (optional)
+    format = "csv" # str | Output format (use csv for large result sets) (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Return facebook ad extended report per organisation per account per campaign per ad per day
+        api_response = api_instance.get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_per_day(organisation_uuids)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_per_day: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Return facebook ad extended report per organisation per account per campaign per ad per day
         api_response = api_instance.get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
         pprint(api_response)
-    except ApiException as e:
+    except cervinodata_api.ApiException as e:
         print("Exception when calling AdvertisingDataApi->get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_per_day: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organisation_uuids** | [**list[str]**](str.md)| Organisation uuids | 
- **from_date** | **date**| From date | [optional] 
- **date_format** | **str**| Outputted date format | [optional] 
- **format** | **str**| Output format (use csv for large result sets) | [optional] 
+ **organisation_uuids** | **[str]**| Organisation uuids |
+ **from_date** | **date**| From date | [optional]
+ **date_format** | **str**| Outputted date format | [optional]
+ **format** | **str**| Output format (use csv for large result sets) | [optional]
 
 ### Return type
 
@@ -807,7 +949,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/csv, application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -817,7 +961,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_day**
-> str get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+> str get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids)
 
 Return facebook ad extended report per organisation per account per campaign per day
 
@@ -826,11 +970,11 @@ Facebook ad extended report per organisation per account per campaign per day
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
-from __future__ import print_function
 import time
 import cervinodata_api
-from cervinodata_api.rest import ApiException
+from cervinodata_api.api import advertising_data_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -851,28 +995,41 @@ configuration = cervinodata_api.Configuration(
 # Enter a context with an instance of the API client
 with cervinodata_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cervinodata_api.AdvertisingDataApi(api_client)
-    organisation_uuids = ['organisation_uuids_example'] # list[str] | Organisation uuids
-from_date = '2013-10-20' # date | From date (optional)
-date_format = 'date_format_example' # str | Outputted date format (optional)
-format = 'format_example' # str | Output format (use csv for large result sets) (optional)
+    api_instance = advertising_data_api.AdvertisingDataApi(api_client)
+    organisation_uuids = [
+        "organisationUuids_example",
+    ] # [str] | Organisation uuids
+    from_date = dateutil_parser('1970-01-01').date() # date | From date (optional)
+    date_format = "YYYY-MM-DD" # str | Outputted date format (optional)
+    format = "csv" # str | Output format (use csv for large result sets) (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Return facebook ad extended report per organisation per account per campaign per day
+        api_response = api_instance.get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_day: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Return facebook ad extended report per organisation per account per campaign per day
         api_response = api_instance.get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
         pprint(api_response)
-    except ApiException as e:
+    except cervinodata_api.ApiException as e:
         print("Exception when calling AdvertisingDataApi->get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_day: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organisation_uuids** | [**list[str]**](str.md)| Organisation uuids | 
- **from_date** | **date**| From date | [optional] 
- **date_format** | **str**| Outputted date format | [optional] 
- **format** | **str**| Output format (use csv for large result sets) | [optional] 
+ **organisation_uuids** | **[str]**| Organisation uuids |
+ **from_date** | **date**| From date | [optional]
+ **date_format** | **str**| Outputted date format | [optional]
+ **format** | **str**| Output format (use csv for large result sets) | [optional]
 
 ### Return type
 
@@ -887,7 +1044,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/csv, application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -897,7 +1056,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_device_per_day**
-> str get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_device_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+> str get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_device_per_day(organisation_uuids)
 
 Return facebook ad extended report per organisation per account per campaign per device per day
 
@@ -906,11 +1065,11 @@ Facebook ad extended report per organisation per account per campaign per device
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
-from __future__ import print_function
 import time
 import cervinodata_api
-from cervinodata_api.rest import ApiException
+from cervinodata_api.api import advertising_data_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -931,28 +1090,41 @@ configuration = cervinodata_api.Configuration(
 # Enter a context with an instance of the API client
 with cervinodata_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cervinodata_api.AdvertisingDataApi(api_client)
-    organisation_uuids = ['organisation_uuids_example'] # list[str] | Organisation uuids
-from_date = '2013-10-20' # date | From date (optional)
-date_format = 'date_format_example' # str | Outputted date format (optional)
-format = 'format_example' # str | Output format (use csv for large result sets) (optional)
+    api_instance = advertising_data_api.AdvertisingDataApi(api_client)
+    organisation_uuids = [
+        "organisationUuids_example",
+    ] # [str] | Organisation uuids
+    from_date = dateutil_parser('1970-01-01').date() # date | From date (optional)
+    date_format = "YYYY-MM-DD" # str | Outputted date format (optional)
+    format = "csv" # str | Output format (use csv for large result sets) (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Return facebook ad extended report per organisation per account per campaign per device per day
+        api_response = api_instance.get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_device_per_day(organisation_uuids)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_device_per_day: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Return facebook ad extended report per organisation per account per campaign per device per day
         api_response = api_instance.get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_device_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
         pprint(api_response)
-    except ApiException as e:
+    except cervinodata_api.ApiException as e:
         print("Exception when calling AdvertisingDataApi->get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_device_per_day: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organisation_uuids** | [**list[str]**](str.md)| Organisation uuids | 
- **from_date** | **date**| From date | [optional] 
- **date_format** | **str**| Outputted date format | [optional] 
- **format** | **str**| Output format (use csv for large result sets) | [optional] 
+ **organisation_uuids** | **[str]**| Organisation uuids |
+ **from_date** | **date**| From date | [optional]
+ **date_format** | **str**| Outputted date format | [optional]
+ **format** | **str**| Output format (use csv for large result sets) | [optional]
 
 ### Return type
 
@@ -967,7 +1139,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/csv, application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -977,7 +1151,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_google_ads_report_per_organisation_per_account_per_campaign_per_device_per_day**
-> str get_google_ads_report_per_organisation_per_account_per_campaign_per_device_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+> str get_google_ads_report_per_organisation_per_account_per_campaign_per_device_per_day(organisation_uuids)
 
 Return google ads report per organisation per account per campaign per device per day
 
@@ -986,11 +1160,11 @@ Campaign group google ads report per organisation per account per campaign per d
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
-from __future__ import print_function
 import time
 import cervinodata_api
-from cervinodata_api.rest import ApiException
+from cervinodata_api.api import advertising_data_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1011,28 +1185,41 @@ configuration = cervinodata_api.Configuration(
 # Enter a context with an instance of the API client
 with cervinodata_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cervinodata_api.AdvertisingDataApi(api_client)
-    organisation_uuids = ['organisation_uuids_example'] # list[str] | Organisation uuids
-from_date = '2013-10-20' # date | From date (optional)
-date_format = 'date_format_example' # str | Outputted date format (optional)
-format = 'format_example' # str | Output format (use csv for large result sets) (optional)
+    api_instance = advertising_data_api.AdvertisingDataApi(api_client)
+    organisation_uuids = [
+        "organisationUuids_example",
+    ] # [str] | Organisation uuids
+    from_date = dateutil_parser('1970-01-01').date() # date | From date (optional)
+    date_format = "YYYY-MM-DD" # str | Outputted date format (optional)
+    format = "csv" # str | Output format (use csv for large result sets) (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Return google ads report per organisation per account per campaign per device per day
+        api_response = api_instance.get_google_ads_report_per_organisation_per_account_per_campaign_per_device_per_day(organisation_uuids)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_google_ads_report_per_organisation_per_account_per_campaign_per_device_per_day: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Return google ads report per organisation per account per campaign per device per day
         api_response = api_instance.get_google_ads_report_per_organisation_per_account_per_campaign_per_device_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
         pprint(api_response)
-    except ApiException as e:
+    except cervinodata_api.ApiException as e:
         print("Exception when calling AdvertisingDataApi->get_google_ads_report_per_organisation_per_account_per_campaign_per_device_per_day: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organisation_uuids** | [**list[str]**](str.md)| Organisation uuids | 
- **from_date** | **date**| From date | [optional] 
- **date_format** | **str**| Outputted date format | [optional] 
- **format** | **str**| Output format (use csv for large result sets) | [optional] 
+ **organisation_uuids** | **[str]**| Organisation uuids |
+ **from_date** | **date**| From date | [optional]
+ **date_format** | **str**| Outputted date format | [optional]
+ **format** | **str**| Output format (use csv for large result sets) | [optional]
 
 ### Return type
 
@@ -1047,7 +1234,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/csv, application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -1057,7 +1246,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_linked_in_ads_extended_report_per_organisation_per_account_per_campaign_per_day**
-> str get_linked_in_ads_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+> str get_linked_in_ads_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids)
 
 Return linkedin ads extended report per organisation per account per campaign per day
 
@@ -1066,11 +1255,11 @@ Linkedin ads extended report per organisation per account per campaign per day
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
-from __future__ import print_function
 import time
 import cervinodata_api
-from cervinodata_api.rest import ApiException
+from cervinodata_api.api import advertising_data_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1091,28 +1280,41 @@ configuration = cervinodata_api.Configuration(
 # Enter a context with an instance of the API client
 with cervinodata_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cervinodata_api.AdvertisingDataApi(api_client)
-    organisation_uuids = ['organisation_uuids_example'] # list[str] | Organisation uuids
-from_date = '2013-10-20' # date | From date (optional)
-date_format = 'date_format_example' # str | Outputted date format (optional)
-format = 'format_example' # str | Output format (use csv for large result sets) (optional)
+    api_instance = advertising_data_api.AdvertisingDataApi(api_client)
+    organisation_uuids = [
+        "organisationUuids_example",
+    ] # [str] | Organisation uuids
+    from_date = dateutil_parser('1970-01-01').date() # date | From date (optional)
+    date_format = "YYYY-MM-DD" # str | Outputted date format (optional)
+    format = "csv" # str | Output format (use csv for large result sets) (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Return linkedin ads extended report per organisation per account per campaign per day
+        api_response = api_instance.get_linked_in_ads_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_linked_in_ads_extended_report_per_organisation_per_account_per_campaign_per_day: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Return linkedin ads extended report per organisation per account per campaign per day
         api_response = api_instance.get_linked_in_ads_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
         pprint(api_response)
-    except ApiException as e:
+    except cervinodata_api.ApiException as e:
         print("Exception when calling AdvertisingDataApi->get_linked_in_ads_extended_report_per_organisation_per_account_per_campaign_per_day: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organisation_uuids** | [**list[str]**](str.md)| Organisation uuids | 
- **from_date** | **date**| From date | [optional] 
- **date_format** | **str**| Outputted date format | [optional] 
- **format** | **str**| Output format (use csv for large result sets) | [optional] 
+ **organisation_uuids** | **[str]**| Organisation uuids |
+ **from_date** | **date**| From date | [optional]
+ **date_format** | **str**| Outputted date format | [optional]
+ **format** | **str**| Output format (use csv for large result sets) | [optional]
 
 ### Return type
 
@@ -1127,7 +1329,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/csv, application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -1137,7 +1341,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_snapchat_ads_extended_report_per_organisation_per_account_per_campaign_per_day**
-> str get_snapchat_ads_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+> str get_snapchat_ads_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids)
 
 Return snapchat ads extended report per organisation per account per campaign per day
 
@@ -1146,11 +1350,11 @@ Snapchat ads extended report per organisation per account per campaign per day
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
-from __future__ import print_function
 import time
 import cervinodata_api
-from cervinodata_api.rest import ApiException
+from cervinodata_api.api import advertising_data_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1171,28 +1375,41 @@ configuration = cervinodata_api.Configuration(
 # Enter a context with an instance of the API client
 with cervinodata_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cervinodata_api.AdvertisingDataApi(api_client)
-    organisation_uuids = ['organisation_uuids_example'] # list[str] | Organisation uuids
-from_date = '2013-10-20' # date | From date (optional)
-date_format = 'date_format_example' # str | Outputted date format (optional)
-format = 'format_example' # str | Output format (use csv for large result sets) (optional)
+    api_instance = advertising_data_api.AdvertisingDataApi(api_client)
+    organisation_uuids = [
+        "organisationUuids_example",
+    ] # [str] | Organisation uuids
+    from_date = dateutil_parser('1970-01-01').date() # date | From date (optional)
+    date_format = "YYYY-MM-DD" # str | Outputted date format (optional)
+    format = "csv" # str | Output format (use csv for large result sets) (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Return snapchat ads extended report per organisation per account per campaign per day
+        api_response = api_instance.get_snapchat_ads_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_snapchat_ads_extended_report_per_organisation_per_account_per_campaign_per_day: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Return snapchat ads extended report per organisation per account per campaign per day
         api_response = api_instance.get_snapchat_ads_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
         pprint(api_response)
-    except ApiException as e:
+    except cervinodata_api.ApiException as e:
         print("Exception when calling AdvertisingDataApi->get_snapchat_ads_extended_report_per_organisation_per_account_per_campaign_per_day: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organisation_uuids** | [**list[str]**](str.md)| Organisation uuids | 
- **from_date** | **date**| From date | [optional] 
- **date_format** | **str**| Outputted date format | [optional] 
- **format** | **str**| Output format (use csv for large result sets) | [optional] 
+ **organisation_uuids** | **[str]**| Organisation uuids |
+ **from_date** | **date**| From date | [optional]
+ **date_format** | **str**| Outputted date format | [optional]
+ **format** | **str**| Output format (use csv for large result sets) | [optional]
 
 ### Return type
 
@@ -1207,7 +1424,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/csv, application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -1217,7 +1436,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_twitter_ads_extended_report_per_organisation_per_account_per_campaign_per_day**
-> str get_twitter_ads_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+> str get_twitter_ads_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids)
 
 Return twitter ads extended report per organisation per account per campaign per day
 
@@ -1226,11 +1445,11 @@ Twitter ads extended report per organisation per account per campaign per day
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
-from __future__ import print_function
 import time
 import cervinodata_api
-from cervinodata_api.rest import ApiException
+from cervinodata_api.api import advertising_data_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -1251,28 +1470,41 @@ configuration = cervinodata_api.Configuration(
 # Enter a context with an instance of the API client
 with cervinodata_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cervinodata_api.AdvertisingDataApi(api_client)
-    organisation_uuids = ['organisation_uuids_example'] # list[str] | Organisation uuids
-from_date = '2013-10-20' # date | From date (optional)
-date_format = 'date_format_example' # str | Outputted date format (optional)
-format = 'format_example' # str | Output format (use csv for large result sets) (optional)
+    api_instance = advertising_data_api.AdvertisingDataApi(api_client)
+    organisation_uuids = [
+        "organisationUuids_example",
+    ] # [str] | Organisation uuids
+    from_date = dateutil_parser('1970-01-01').date() # date | From date (optional)
+    date_format = "YYYY-MM-DD" # str | Outputted date format (optional)
+    format = "csv" # str | Output format (use csv for large result sets) (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Return twitter ads extended report per organisation per account per campaign per day
+        api_response = api_instance.get_twitter_ads_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_twitter_ads_extended_report_per_organisation_per_account_per_campaign_per_day: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Return twitter ads extended report per organisation per account per campaign per day
         api_response = api_instance.get_twitter_ads_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
         pprint(api_response)
-    except ApiException as e:
+    except cervinodata_api.ApiException as e:
         print("Exception when calling AdvertisingDataApi->get_twitter_ads_extended_report_per_organisation_per_account_per_campaign_per_day: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organisation_uuids** | [**list[str]**](str.md)| Organisation uuids | 
- **from_date** | **date**| From date | [optional] 
- **date_format** | **str**| Outputted date format | [optional] 
- **format** | **str**| Output format (use csv for large result sets) | [optional] 
+ **organisation_uuids** | **[str]**| Organisation uuids |
+ **from_date** | **date**| From date | [optional]
+ **date_format** | **str**| Outputted date format | [optional]
+ **format** | **str**| Output format (use csv for large result sets) | [optional]
 
 ### Return type
 
@@ -1287,7 +1519,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/csv, application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |

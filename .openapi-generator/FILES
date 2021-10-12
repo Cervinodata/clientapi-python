@@ -11,8 +11,11 @@ cervinodata_api/api/analytics_data_goals_api.py
 cervinodata_api/api/campaign_group_api.py
 cervinodata_api/api/generic_data_api.py
 cervinodata_api/api_client.py
+cervinodata_api/apis/__init__.py
 cervinodata_api/configuration.py
 cervinodata_api/exceptions.py
+cervinodata_api/model/__init__.py
+cervinodata_api/model_utils.py
 cervinodata_api/models/__init__.py
 cervinodata_api/rest.py
 docs/AdvertisingDataApi.md

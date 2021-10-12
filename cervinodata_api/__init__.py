@@ -1,5 +1,3 @@
-# coding: utf-8
-
 # flake8: noqa
 
 """
@@ -13,26 +11,18 @@
 """
 
 
-from __future__ import absolute_import
-
 __version__ = "0.1.0"
-
-# import apis into sdk package
-from cervinodata_api.api.advertising_data_api import AdvertisingDataApi
-from cervinodata_api.api.analytics_data_api import AnalyticsDataApi
-from cervinodata_api.api.analytics_data_default_metrics_api import AnalyticsDataDefaultMetricsApi
-from cervinodata_api.api.analytics_data_goals_api import AnalyticsDataGoalsApi
-from cervinodata_api.api.campaign_group_api import CampaignGroupApi
-from cervinodata_api.api.generic_data_api import GenericDataApi
 
 # import ApiClient
 from cervinodata_api.api_client import ApiClient
+
+# import Configuration
 from cervinodata_api.configuration import Configuration
+
+# import exceptions
 from cervinodata_api.exceptions import OpenApiException
+from cervinodata_api.exceptions import ApiAttributeError
 from cervinodata_api.exceptions import ApiTypeError
 from cervinodata_api.exceptions import ApiValueError
 from cervinodata_api.exceptions import ApiKeyError
-from cervinodata_api.exceptions import ApiAttributeError
 from cervinodata_api.exceptions import ApiException
-# import models into sdk package
-

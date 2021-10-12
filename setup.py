@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Cervinodata API documentation
 
@@ -22,7 +20,10 @@ VERSION = "0.1.0"
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil"]
+REQUIRES = [
+  "urllib3 >= 1.25.3",
+  "python-dateutil",
+]
 
 setup(
     name=NAME,
@@ -32,6 +33,7 @@ setup(
     author_email="support@cervinodata.com",
     url="https://github.com/Cervinodata/clientapi-python",
     keywords=["OpenAPI", "OpenAPI-Generator", "Cervinodata API documentation"],
+    python_requires=">=3.6",
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,

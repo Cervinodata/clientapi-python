@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_campaign_groups**
-> list[object] get_campaign_groups()
+> [bool, date, datetime, dict, float, int, list, str, none_type] get_campaign_groups()
 
 Return campaign groups
 
@@ -18,11 +18,11 @@ campaign groups
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
-from __future__ import print_function
 import time
 import cervinodata_api
-from cervinodata_api.rest import ApiException
+from cervinodata_api.api import generic_data_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -43,22 +43,24 @@ configuration = cervinodata_api.Configuration(
 # Enter a context with an instance of the API client
 with cervinodata_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cervinodata_api.GenericDataApi(api_client)
-    
+    api_instance = generic_data_api.GenericDataApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         # Return campaign groups
         api_response = api_instance.get_campaign_groups()
         pprint(api_response)
-    except ApiException as e:
+    except cervinodata_api.ApiException as e:
         print("Exception when calling GenericDataApi->get_campaign_groups: %s\n" % e)
 ```
+
 
 ### Parameters
 This endpoint does not need any parameter.
 
 ### Return type
 
-**list[object]**
+**[bool, date, datetime, dict, float, int, list, str, none_type]**
 
 ### Authorization
 
@@ -69,7 +71,9 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -77,7 +81,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_organisations**
-> str get_organisations(format=format)
+> str get_organisations()
 
 Return organisations
 
@@ -86,11 +90,11 @@ organisations
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
-from __future__ import print_function
 import time
 import cervinodata_api
-from cervinodata_api.rest import ApiException
+from cervinodata_api.api import generic_data_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -111,22 +115,25 @@ configuration = cervinodata_api.Configuration(
 # Enter a context with an instance of the API client
 with cervinodata_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cervinodata_api.GenericDataApi(api_client)
-    format = 'format_example' # str | Output format (optional)
+    api_instance = generic_data_api.GenericDataApi(api_client)
+    format = "csv" # str | Output format (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Return organisations
         api_response = api_instance.get_organisations(format=format)
         pprint(api_response)
-    except ApiException as e:
+    except cervinodata_api.ApiException as e:
         print("Exception when calling GenericDataApi->get_organisations: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **format** | **str**| Output format | [optional] 
+ **format** | **str**| Output format | [optional]
 
 ### Return type
 
@@ -141,7 +148,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/csv, application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |

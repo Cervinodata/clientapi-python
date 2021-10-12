@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **get_views**
-> str get_views(organisation_uuid, format=format)
+> str get_views(organisation_uuid)
 
 Return views by organisation
 
@@ -17,11 +17,11 @@ Views by organisation
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
-from __future__ import print_function
 import time
 import cervinodata_api
-from cervinodata_api.rest import ApiException
+from cervinodata_api.api import analytics_data_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -42,24 +42,35 @@ configuration = cervinodata_api.Configuration(
 # Enter a context with an instance of the API client
 with cervinodata_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cervinodata_api.AnalyticsDataApi(api_client)
-    organisation_uuid = 'organisation_uuid_example' # str | Organisation uuid
-format = 'format_example' # str | Output format (optional)
+    api_instance = analytics_data_api.AnalyticsDataApi(api_client)
+    organisation_uuid = "organisationUuid_example" # str | Organisation uuid
+    format = "csv" # str | Output format (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Return views by organisation
+        api_response = api_instance.get_views(organisation_uuid)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AnalyticsDataApi->get_views: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Return views by organisation
         api_response = api_instance.get_views(organisation_uuid, format=format)
         pprint(api_response)
-    except ApiException as e:
+    except cervinodata_api.ApiException as e:
         print("Exception when calling AnalyticsDataApi->get_views: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organisation_uuid** | **str**| Organisation uuid | 
- **format** | **str**| Output format | [optional] 
+ **organisation_uuid** | **str**| Organisation uuid |
+ **format** | **str**| Output format | [optional]
 
 ### Return type
 
@@ -74,7 +85,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/csv, application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
