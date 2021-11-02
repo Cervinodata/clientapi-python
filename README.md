@@ -37,9 +37,9 @@ Python >= 3.6
 If the python package is hosted on a repository, you can install directly using:
 
 ```sh
-pip install git+https://github.com/cervinodata/clientapi-python.git
+pip install git+https://github.com/cervinodata/python.git
 ```
-(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/cervinodata/clientapi-python.git`)
+(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/cervinodata/python.git`)
 
 Then import the package:
 ```python
@@ -118,6 +118,7 @@ Class | Method | HTTP request | Description
 *AdvertisingDataApi* | [**get_ad_campaign_report_per_organisation_per_account_per_campaign_per_device_per_day**](docs/AdvertisingDataApi.md#get_ad_campaign_report_per_organisation_per_account_per_campaign_per_device_per_day) | **GET** /data/ad-campaign-report-per-organisation-per-account-per-campaign-per-device-per-day/{organisationUuids} | Return ad campaign report per organisation per account per campaign per device per day
 *AdvertisingDataApi* | [**get_ad_campaign_report_per_organisation_per_account_per_day**](docs/AdvertisingDataApi.md#get_ad_campaign_report_per_organisation_per_account_per_day) | **GET** /data/ad-campaign-report-per-organisation-per-account-per-day/{organisationUuids} | Return ad campaign report per organisation per account per day
 *AdvertisingDataApi* | [**get_ad_campaigns**](docs/AdvertisingDataApi.md#get_ad_campaigns) | **GET** /data/ad-campaigns/{organisationUuid} | Return ad campaigns by organisation
+*AdvertisingDataApi* | [**get_ad_groups**](docs/AdvertisingDataApi.md#get_ad_groups) | **GET** /data/ad-groups/{organisationUuid} | Return ad groups by organisation
 *AdvertisingDataApi* | [**get_bing_ads_extended_report_per_organisation_per_account_per_campaign_per_day**](docs/AdvertisingDataApi.md#get_bing_ads_extended_report_per_organisation_per_account_per_campaign_per_day) | **GET** /data/bing-ads-extended-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids} | Return bing ads extended report per organisation per account per campaign per day
 *AdvertisingDataApi* | [**get_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day**](docs/AdvertisingDataApi.md#get_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day) | **GET** /data/facebook-ad-custom-conversion-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids} | Return facebook ad custom conversion report per organisation per account per campaign per day
 *AdvertisingDataApi* | [**get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day**](docs/AdvertisingDataApi.md#get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day) | **GET** /data/facebook-ad-extended-report-per-organisation-per-account-per-campaign-per-ad-group-per-day/{organisationUuids} | Return facebook ad extended report per organisation per account per campaign per ad group per day
