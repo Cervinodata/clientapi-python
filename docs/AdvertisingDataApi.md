@@ -14,14 +14,17 @@ Method | HTTP request | Description
 [**get_bing_ads_extended_report_per_organisation_per_account_per_campaign_per_day**](AdvertisingDataApi.md#get_bing_ads_extended_report_per_organisation_per_account_per_campaign_per_day) | **GET** /data/bing-ads-extended-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids} | Return bing ads extended report per organisation per account per campaign per day
 [**get_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day**](AdvertisingDataApi.md#get_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day) | **GET** /data/facebook-ad-custom-conversion-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids} | Return facebook ad custom conversion report per organisation per account per campaign per day
 [**get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day**](AdvertisingDataApi.md#get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day) | **GET** /data/facebook-ad-extended-report-per-organisation-per-account-per-campaign-per-ad-group-per-day/{organisationUuids} | Return facebook ad extended report per organisation per account per campaign per ad group per day
+[**get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day_plus**](AdvertisingDataApi.md#get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day_plus) | **GET** /data/facebook-ad-extended-report-per-organisation-per-account-per-campaign-per-ad-group-per-day-plus/{organisationUuids} | Return facebook ad extended report per organisation per account per campaign per ad group per day plus
 [**get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_per_day**](AdvertisingDataApi.md#get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_per_day) | **GET** /data/facebook-ad-extended-report-per-organisation-per-account-per-campaign-per-ad-per-day/{organisationUuids} | Return facebook ad extended report per organisation per account per campaign per ad per day
 [**get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_day**](AdvertisingDataApi.md#get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_day) | **GET** /data/facebook-ad-extended-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids} | Return facebook ad extended report per organisation per account per campaign per day
+[**get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_day_plus**](AdvertisingDataApi.md#get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_day_plus) | **GET** /data/facebook-ad-extended-report-per-organisation-per-account-per-campaign-per-day-plus/{organisationUuids} | Return facebook ad extended report per organisation per account per campaign per day plus
 [**get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_device_per_day**](AdvertisingDataApi.md#get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_device_per_day) | **GET** /data/facebook-ad-extended-report-per-organisation-per-account-per-campaign-per-device-per-day/{organisationUuids} | Return facebook ad extended report per organisation per account per campaign per device per day
 [**get_google_ads_report_per_organisation_per_account_per_campaign_per_device_per_day**](AdvertisingDataApi.md#get_google_ads_report_per_organisation_per_account_per_campaign_per_device_per_day) | **GET** /data/google-ads-report-per-organisation-per-account-per-campaign-per-device-per-day/{organisationUuids} | Return google ads report per organisation per account per campaign per device per day
 [**get_hashed_ad_campaign_report_per_organisation_per_account_per_day**](AdvertisingDataApi.md#get_hashed_ad_campaign_report_per_organisation_per_account_per_day) | **GET** /data/hashed-ad-campaign-report-per-organisation-per-account-per-day/{organisationUuids} | Return hashed ad campaign report per organisation per account per day
 [**get_linked_in_ads_extended_report_per_organisation_per_account_per_campaign_per_day**](AdvertisingDataApi.md#get_linked_in_ads_extended_report_per_organisation_per_account_per_campaign_per_day) | **GET** /data/linkedin-ads-extended-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids} | Return linkedin ads extended report per organisation per account per campaign per day
 [**get_pinterest_ads_extended_report_per_organisation_per_account_per_campaign_per_day**](AdvertisingDataApi.md#get_pinterest_ads_extended_report_per_organisation_per_account_per_campaign_per_day) | **GET** /data/pinterest-ads-extended-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids} | Return pinterest ads extended report per organisation per account per campaign per day
 [**get_snapchat_ads_extended_report_per_organisation_per_account_per_campaign_per_day**](AdvertisingDataApi.md#get_snapchat_ads_extended_report_per_organisation_per_account_per_campaign_per_day) | **GET** /data/snapchat-ads-extended-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids} | Return snapchat ads extended report per organisation per account per campaign per day
+[**get_tik_tok_ads_extended_report_per_organisation_per_account_per_campaign_per_day**](AdvertisingDataApi.md#get_tik_tok_ads_extended_report_per_organisation_per_account_per_campaign_per_day) | **GET** /data/tiktok-ads-extended-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids} | Return tiktok ads extended report per organisation per account per campaign per day
 [**get_twitter_ads_extended_report_per_organisation_per_account_per_campaign_per_day**](AdvertisingDataApi.md#get_twitter_ads_extended_report_per_organisation_per_account_per_campaign_per_day) | **GET** /data/twitter-ads-extended-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids} | Return twitter ads extended report per organisation per account per campaign per day
 
 
@@ -959,6 +962,101 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day_plus**
+> str get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day_plus(organisation_uuids)
+
+Return facebook ad extended report per organisation per account per campaign per ad group per day plus
+
+Facebook ad extended report per organisation per account per campaign per ad group per day plus
+
+### Example
+
+* Bearer Authentication (bearerAuth):
+
+```python
+import time
+import cervinodata_api
+from cervinodata_api.api import advertising_data_api
+from pprint import pprint
+# Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cervinodata_api.Configuration(
+    host = "https://app.cervinodata.com/api/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: bearerAuth
+configuration = cervinodata_api.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with cervinodata_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = advertising_data_api.AdvertisingDataApi(api_client)
+    organisation_uuids = [
+        "organisationUuids_example",
+    ] # [str] | Organisation uuids
+    from_date = dateutil_parser('1970-01-01').date() # date | From date (optional)
+    date_format = "YYYY-MM-DD" # str | Outputted date format (optional)
+    format = "csv" # str | Output format (use csv for large result sets) (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Return facebook ad extended report per organisation per account per campaign per ad group per day plus
+        api_response = api_instance.get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day_plus(organisation_uuids)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day_plus: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Return facebook ad extended report per organisation per account per campaign per ad group per day plus
+        api_response = api_instance.get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day_plus(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day_plus: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organisation_uuids** | **[str]**| Organisation uuids |
+ **from_date** | **date**| From date | [optional]
+ **date_format** | **str**| Outputted date format | [optional]
+ **format** | **str**| Output format (use csv for large result sets) | [optional]
+
+### Return type
+
+**str**
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/csv, application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | successful operation |  -  |
+**400** | Invalid Organisation uuids supplied |  -  |
+**404** | Organisation uuids not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_per_day**
 > str get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_per_day(organisation_uuids)
 
@@ -1113,6 +1211,101 @@ with cervinodata_api.ApiClient(configuration) as api_client:
         pprint(api_response)
     except cervinodata_api.ApiException as e:
         print("Exception when calling AdvertisingDataApi->get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_day: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organisation_uuids** | **[str]**| Organisation uuids |
+ **from_date** | **date**| From date | [optional]
+ **date_format** | **str**| Outputted date format | [optional]
+ **format** | **str**| Output format (use csv for large result sets) | [optional]
+
+### Return type
+
+**str**
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/csv, application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | successful operation |  -  |
+**400** | Invalid Organisation uuids supplied |  -  |
+**404** | Organisation uuids not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_day_plus**
+> str get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_day_plus(organisation_uuids)
+
+Return facebook ad extended report per organisation per account per campaign per day plus
+
+Facebook ad extended report per organisation per account per campaign per day plus
+
+### Example
+
+* Bearer Authentication (bearerAuth):
+
+```python
+import time
+import cervinodata_api
+from cervinodata_api.api import advertising_data_api
+from pprint import pprint
+# Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cervinodata_api.Configuration(
+    host = "https://app.cervinodata.com/api/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: bearerAuth
+configuration = cervinodata_api.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with cervinodata_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = advertising_data_api.AdvertisingDataApi(api_client)
+    organisation_uuids = [
+        "organisationUuids_example",
+    ] # [str] | Organisation uuids
+    from_date = dateutil_parser('1970-01-01').date() # date | From date (optional)
+    date_format = "YYYY-MM-DD" # str | Outputted date format (optional)
+    format = "csv" # str | Output format (use csv for large result sets) (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Return facebook ad extended report per organisation per account per campaign per day plus
+        api_response = api_instance.get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_day_plus(organisation_uuids)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_day_plus: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Return facebook ad extended report per organisation per account per campaign per day plus
+        api_response = api_instance.get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_day_plus(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_day_plus: %s\n" % e)
 ```
 
 
@@ -1683,6 +1876,101 @@ with cervinodata_api.ApiClient(configuration) as api_client:
         pprint(api_response)
     except cervinodata_api.ApiException as e:
         print("Exception when calling AdvertisingDataApi->get_snapchat_ads_extended_report_per_organisation_per_account_per_campaign_per_day: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organisation_uuids** | **[str]**| Organisation uuids |
+ **from_date** | **date**| From date | [optional]
+ **date_format** | **str**| Outputted date format | [optional]
+ **format** | **str**| Output format (use csv for large result sets) | [optional]
+
+### Return type
+
+**str**
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/csv, application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | successful operation |  -  |
+**400** | Invalid Organisation uuids supplied |  -  |
+**404** | Organisation uuids not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_tik_tok_ads_extended_report_per_organisation_per_account_per_campaign_per_day**
+> str get_tik_tok_ads_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids)
+
+Return tiktok ads extended report per organisation per account per campaign per day
+
+TikTok ads extended report per organisation per account per campaign per day
+
+### Example
+
+* Bearer Authentication (bearerAuth):
+
+```python
+import time
+import cervinodata_api
+from cervinodata_api.api import advertising_data_api
+from pprint import pprint
+# Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cervinodata_api.Configuration(
+    host = "https://app.cervinodata.com/api/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: bearerAuth
+configuration = cervinodata_api.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with cervinodata_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = advertising_data_api.AdvertisingDataApi(api_client)
+    organisation_uuids = [
+        "organisationUuids_example",
+    ] # [str] | Organisation uuids
+    from_date = dateutil_parser('1970-01-01').date() # date | From date (optional)
+    date_format = "YYYY-MM-DD" # str | Outputted date format (optional)
+    format = "csv" # str | Output format (use csv for large result sets) (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Return tiktok ads extended report per organisation per account per campaign per day
+        api_response = api_instance.get_tik_tok_ads_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_tik_tok_ads_extended_report_per_organisation_per_account_per_campaign_per_day: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Return tiktok ads extended report per organisation per account per campaign per day
+        api_response = api_instance.get_tik_tok_ads_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_tik_tok_ads_extended_report_per_organisation_per_account_per_campaign_per_day: %s\n" % e)
 ```
 
 
