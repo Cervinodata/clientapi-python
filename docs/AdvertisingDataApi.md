@@ -11,6 +11,9 @@ Method | HTTP request | Description
 [**get_ad_campaign_report_per_organisation_per_account_per_day**](AdvertisingDataApi.md#get_ad_campaign_report_per_organisation_per_account_per_day) | **GET** /data/ad-campaign-report-per-organisation-per-account-per-day/{organisationUuids} | Return ad campaign report per organisation per account per day
 [**get_ad_campaigns**](AdvertisingDataApi.md#get_ad_campaigns) | **GET** /data/ad-campaigns/{organisationUuid} | Return ad campaigns by organisation
 [**get_ad_groups**](AdvertisingDataApi.md#get_ad_groups) | **GET** /data/ad-groups/{organisationUuid} | Return ad groups by organisation
+[**get_adform_extended_report_per_organisation_per_campaign_per_creative_per_day**](AdvertisingDataApi.md#get_adform_extended_report_per_organisation_per_campaign_per_creative_per_day) | **GET** /data/adform-extended-report-per-organisation-per-campaign-per-creative-per-day/{organisationUuids} | Return adform extended report per organisation per campaign per creative per day
+[**get_adform_extended_report_per_organisation_per_campaign_per_day**](AdvertisingDataApi.md#get_adform_extended_report_per_organisation_per_campaign_per_day) | **GET** /data/adform-extended-report-per-organisation-per-campaign-per-day/{organisationUuids} | Return adform extended report per organisation per campaign per day
+[**get_adform_extended_report_per_organisation_per_campaign_per_line_item_per_day**](AdvertisingDataApi.md#get_adform_extended_report_per_organisation_per_campaign_per_line_item_per_day) | **GET** /data/adform-extended-report-per-organisation-per-campaign-per-line-item-per-day/{organisationUuids} | Return adform extended report per organisation per campaign per line item per day
 [**get_bing_ads_extended_report_per_organisation_per_account_per_campaign_per_day**](AdvertisingDataApi.md#get_bing_ads_extended_report_per_organisation_per_account_per_campaign_per_day) | **GET** /data/bing-ads-extended-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids} | Return bing ads extended report per organisation per account per campaign per day
 [**get_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day**](AdvertisingDataApi.md#get_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day) | **GET** /data/facebook-ad-custom-conversion-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids} | Return facebook ad custom conversion report per organisation per account per campaign per day
 [**get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day**](AdvertisingDataApi.md#get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day) | **GET** /data/facebook-ad-extended-report-per-organisation-per-account-per-campaign-per-ad-group-per-day/{organisationUuids} | Return facebook ad extended report per organisation per account per campaign per ad group per day
@@ -674,6 +677,291 @@ Name | Type | Description  | Notes
 **200** | successful operation |  -  |
 **400** | Invalid Organisation uuid supplied |  -  |
 **404** | Organisation uuid not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_adform_extended_report_per_organisation_per_campaign_per_creative_per_day**
+> str get_adform_extended_report_per_organisation_per_campaign_per_creative_per_day(organisation_uuids)
+
+Return adform extended report per organisation per campaign per creative per day
+
+Adform extended report per organisation per campaign per creative per day
+
+### Example
+
+* Bearer Authentication (bearerAuth):
+
+```python
+import time
+import cervinodata_api
+from cervinodata_api.api import advertising_data_api
+from pprint import pprint
+# Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cervinodata_api.Configuration(
+    host = "https://app.cervinodata.com/api/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: bearerAuth
+configuration = cervinodata_api.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with cervinodata_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = advertising_data_api.AdvertisingDataApi(api_client)
+    organisation_uuids = [
+        "organisationUuids_example",
+    ] # [str] | Organisation uuids
+    from_date = dateutil_parser('1970-01-01').date() # date | From date (optional)
+    date_format = "YYYY-MM-DD" # str | Outputted date format (optional)
+    format = "csv" # str | Output format (use csv for large result sets) (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Return adform extended report per organisation per campaign per creative per day
+        api_response = api_instance.get_adform_extended_report_per_organisation_per_campaign_per_creative_per_day(organisation_uuids)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_adform_extended_report_per_organisation_per_campaign_per_creative_per_day: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Return adform extended report per organisation per campaign per creative per day
+        api_response = api_instance.get_adform_extended_report_per_organisation_per_campaign_per_creative_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_adform_extended_report_per_organisation_per_campaign_per_creative_per_day: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organisation_uuids** | **[str]**| Organisation uuids |
+ **from_date** | **date**| From date | [optional]
+ **date_format** | **str**| Outputted date format | [optional]
+ **format** | **str**| Output format (use csv for large result sets) | [optional]
+
+### Return type
+
+**str**
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/csv, application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | successful operation |  -  |
+**400** | Invalid Organisation uuids supplied |  -  |
+**404** | Organisation uuids not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_adform_extended_report_per_organisation_per_campaign_per_day**
+> str get_adform_extended_report_per_organisation_per_campaign_per_day(organisation_uuids)
+
+Return adform extended report per organisation per campaign per day
+
+Adform extended report per organisation per campaign per day
+
+### Example
+
+* Bearer Authentication (bearerAuth):
+
+```python
+import time
+import cervinodata_api
+from cervinodata_api.api import advertising_data_api
+from pprint import pprint
+# Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cervinodata_api.Configuration(
+    host = "https://app.cervinodata.com/api/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: bearerAuth
+configuration = cervinodata_api.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with cervinodata_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = advertising_data_api.AdvertisingDataApi(api_client)
+    organisation_uuids = [
+        "organisationUuids_example",
+    ] # [str] | Organisation uuids
+    from_date = dateutil_parser('1970-01-01').date() # date | From date (optional)
+    date_format = "YYYY-MM-DD" # str | Outputted date format (optional)
+    format = "csv" # str | Output format (use csv for large result sets) (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Return adform extended report per organisation per campaign per day
+        api_response = api_instance.get_adform_extended_report_per_organisation_per_campaign_per_day(organisation_uuids)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_adform_extended_report_per_organisation_per_campaign_per_day: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Return adform extended report per organisation per campaign per day
+        api_response = api_instance.get_adform_extended_report_per_organisation_per_campaign_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_adform_extended_report_per_organisation_per_campaign_per_day: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organisation_uuids** | **[str]**| Organisation uuids |
+ **from_date** | **date**| From date | [optional]
+ **date_format** | **str**| Outputted date format | [optional]
+ **format** | **str**| Output format (use csv for large result sets) | [optional]
+
+### Return type
+
+**str**
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/csv, application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | successful operation |  -  |
+**400** | Invalid Organisation uuids supplied |  -  |
+**404** | Organisation uuids not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_adform_extended_report_per_organisation_per_campaign_per_line_item_per_day**
+> str get_adform_extended_report_per_organisation_per_campaign_per_line_item_per_day(organisation_uuids)
+
+Return adform extended report per organisation per campaign per line item per day
+
+Adform extended report per organisation per campaign per line item per day
+
+### Example
+
+* Bearer Authentication (bearerAuth):
+
+```python
+import time
+import cervinodata_api
+from cervinodata_api.api import advertising_data_api
+from pprint import pprint
+# Defining the host is optional and defaults to https://app.cervinodata.com/api/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cervinodata_api.Configuration(
+    host = "https://app.cervinodata.com/api/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: bearerAuth
+configuration = cervinodata_api.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with cervinodata_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = advertising_data_api.AdvertisingDataApi(api_client)
+    organisation_uuids = [
+        "organisationUuids_example",
+    ] # [str] | Organisation uuids
+    from_date = dateutil_parser('1970-01-01').date() # date | From date (optional)
+    date_format = "YYYY-MM-DD" # str | Outputted date format (optional)
+    format = "csv" # str | Output format (use csv for large result sets) (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Return adform extended report per organisation per campaign per line item per day
+        api_response = api_instance.get_adform_extended_report_per_organisation_per_campaign_per_line_item_per_day(organisation_uuids)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_adform_extended_report_per_organisation_per_campaign_per_line_item_per_day: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Return adform extended report per organisation per campaign per line item per day
+        api_response = api_instance.get_adform_extended_report_per_organisation_per_campaign_per_line_item_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+        pprint(api_response)
+    except cervinodata_api.ApiException as e:
+        print("Exception when calling AdvertisingDataApi->get_adform_extended_report_per_organisation_per_campaign_per_line_item_per_day: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organisation_uuids** | **[str]**| Organisation uuids |
+ **from_date** | **date**| From date | [optional]
+ **date_format** | **str**| Outputted date format | [optional]
+ **format** | **str**| Output format (use csv for large result sets) | [optional]
+
+### Return type
+
+**str**
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/csv, application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | successful operation |  -  |
+**400** | Invalid Organisation uuids supplied |  -  |
+**404** | Organisation uuids not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
