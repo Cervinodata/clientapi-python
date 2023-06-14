@@ -275,14 +275,14 @@ class CampaignGroupApi(object):
             },
             api_client=api_client
         )
-        self.get_campaign_group_adform_extended_report_per_organisation_per_campaign_per_day_endpoint = _Endpoint(
+        self.get_campaign_group_adform_extended_report_per_organisation_per_account_per_campaign_per_day_endpoint = _Endpoint(
             settings={
                 'response_type': (str,),
                 'auth': [
                     'bearerAuth'
                 ],
-                'endpoint_path': '/data/campaign-group-adform-extended-report-per-organisation-per-campaign-per-day/{organisationUuids}',
-                'operation_id': 'get_campaign_group_adform_extended_report_per_organisation_per_campaign_per_day',
+                'endpoint_path': '/data/campaign-group-adform-extended-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids}',
+                'operation_id': 'get_campaign_group_adform_extended_report_per_organisation_per_account_per_campaign_per_day',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -2403,18 +2403,18 @@ class CampaignGroupApi(object):
             organisation_uuids
         return self.get_campaign_group_ad_report_per_organisation_per_day_endpoint.call_with_http_info(**kwargs)
 
-    def get_campaign_group_adform_extended_report_per_organisation_per_campaign_per_day(
+    def get_campaign_group_adform_extended_report_per_organisation_per_account_per_campaign_per_day(
         self,
         organisation_uuids,
         **kwargs
     ):
-        """Return campaign group adform extended report per organisation per campaign per day  # noqa: E501
+        """Return campaign group adform extended report per organisation per account per campaign per day  # noqa: E501
 
-        Campaign group adform extended report per organisation per campaign per day  # noqa: E501
+        Campaign group adform extended report per organisation per account per campaign per day  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_campaign_group_adform_extended_report_per_organisation_per_campaign_per_day(organisation_uuids, async_req=True)
+        >>> thread = api.get_campaign_group_adform_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -2470,7 +2470,7 @@ class CampaignGroupApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['organisation_uuids'] = \
             organisation_uuids
-        return self.get_campaign_group_adform_extended_report_per_organisation_per_campaign_per_day_endpoint.call_with_http_info(**kwargs)
+        return self.get_campaign_group_adform_extended_report_per_organisation_per_account_per_campaign_per_day_endpoint.call_with_http_info(**kwargs)
 
     def get_campaign_group_adform_report_per_organisation_per_campaign_per_day(
         self,

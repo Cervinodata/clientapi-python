@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**get_campaign_group_ad_report_per_organisation_per_campaign_per_day**](CampaignGroupApi.md#get_campaign_group_ad_report_per_organisation_per_campaign_per_day) | **GET** /data/campaign-group-ad-report-per-organisation-per-campaign-per-day/{organisationUuids} | Return campaign group ad report per organisation per campaign per day
 [**get_campaign_group_ad_report_per_organisation_per_campaign_per_week**](CampaignGroupApi.md#get_campaign_group_ad_report_per_organisation_per_campaign_per_week) | **GET** /data/campaign-group-ad-report-per-organisation-per-campaign-per-week/{organisationUuids} | Return campaign group ad report per organisation per campaign per week
 [**get_campaign_group_ad_report_per_organisation_per_day**](CampaignGroupApi.md#get_campaign_group_ad_report_per_organisation_per_day) | **GET** /data/campaign-group-ad-report-per-organisation-per-day/{organisationUuids} | Return campaign group ad report per organisation per day
-[**get_campaign_group_adform_extended_report_per_organisation_per_campaign_per_day**](CampaignGroupApi.md#get_campaign_group_adform_extended_report_per_organisation_per_campaign_per_day) | **GET** /data/campaign-group-adform-extended-report-per-organisation-per-campaign-per-day/{organisationUuids} | Return campaign group adform extended report per organisation per campaign per day
+[**get_campaign_group_adform_extended_report_per_organisation_per_account_per_campaign_per_day**](CampaignGroupApi.md#get_campaign_group_adform_extended_report_per_organisation_per_account_per_campaign_per_day) | **GET** /data/campaign-group-adform-extended-report-per-organisation-per-account-per-campaign-per-day/{organisationUuids} | Return campaign group adform extended report per organisation per account per campaign per day
 [**get_campaign_group_adform_report_per_organisation_per_campaign_per_day**](CampaignGroupApi.md#get_campaign_group_adform_report_per_organisation_per_campaign_per_day) | **GET** /data/campaign-group-adform-report-per-organisation-per-campaign-per-day/{organisationUuids} | Return campaign group adform report per organisation per campaign per day
 [**get_campaign_group_adform_report_per_organisation_per_campaign_per_line_item_per_day**](CampaignGroupApi.md#get_campaign_group_adform_report_per_organisation_per_campaign_per_line_item_per_day) | **GET** /data/campaign-group-adform-report-per-organisation-per-campaign-per-line-item-per-day/{organisationUuids} | Return campaign group adform report per organisation per campaign per line-item per day
 [**get_campaign_group_analytics_report_per_organisation_per_day**](CampaignGroupApi.md#get_campaign_group_analytics_report_per_organisation_per_day) | **GET** /data/campaign-group-analytics-report-per-organisation-per-day/{organisationUuids} | Return campaign group analytics report per organisation per day
@@ -318,12 +318,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_campaign_group_adform_extended_report_per_organisation_per_campaign_per_day**
-> str get_campaign_group_adform_extended_report_per_organisation_per_campaign_per_day(organisation_uuids)
+# **get_campaign_group_adform_extended_report_per_organisation_per_account_per_campaign_per_day**
+> str get_campaign_group_adform_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids)
 
-Return campaign group adform extended report per organisation per campaign per day
+Return campaign group adform extended report per organisation per account per campaign per day
 
-Campaign group adform extended report per organisation per campaign per day
+Campaign group adform extended report per organisation per account per campaign per day
 
 ### Example
 
@@ -363,20 +363,20 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Return campaign group adform extended report per organisation per campaign per day
-        api_response = api_instance.get_campaign_group_adform_extended_report_per_organisation_per_campaign_per_day(organisation_uuids)
+        # Return campaign group adform extended report per organisation per account per campaign per day
+        api_response = api_instance.get_campaign_group_adform_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids)
         pprint(api_response)
     except cervinodata_api.ApiException as e:
-        print("Exception when calling CampaignGroupApi->get_campaign_group_adform_extended_report_per_organisation_per_campaign_per_day: %s\n" % e)
+        print("Exception when calling CampaignGroupApi->get_campaign_group_adform_extended_report_per_organisation_per_account_per_campaign_per_day: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Return campaign group adform extended report per organisation per campaign per day
-        api_response = api_instance.get_campaign_group_adform_extended_report_per_organisation_per_campaign_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
+        # Return campaign group adform extended report per organisation per account per campaign per day
+        api_response = api_instance.get_campaign_group_adform_extended_report_per_organisation_per_account_per_campaign_per_day(organisation_uuids, from_date=from_date, date_format=date_format, format=format)
         pprint(api_response)
     except cervinodata_api.ApiException as e:
-        print("Exception when calling CampaignGroupApi->get_campaign_group_adform_extended_report_per_organisation_per_campaign_per_day: %s\n" % e)
+        print("Exception when calling CampaignGroupApi->get_campaign_group_adform_extended_report_per_organisation_per_account_per_campaign_per_day: %s\n" % e)
 ```
 
 
