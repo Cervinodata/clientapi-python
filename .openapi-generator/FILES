@@ -37,7 +37,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_analytics_data_product_metrics_api.py
-test/test_analytics_data_transaction_metrics_api.py
-test/test_product_data_api.py
 tox.ini
