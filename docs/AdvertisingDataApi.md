@@ -83,6 +83,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -164,6 +165,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -243,6 +245,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling AdvertisingDataApi->get_ad_campaign_report_per_day: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -328,6 +331,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -409,6 +413,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling AdvertisingDataApi->get_ad_campaign_report_per_organisation_per_account_per_day: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -493,6 +498,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -572,6 +578,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling AdvertisingDataApi->get_ad_groups: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -654,6 +661,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling AdvertisingDataApi->get_adform_extended_report_per_organisation_per_account_per_campaign_per_creative_per_day: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -739,6 +747,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -820,6 +829,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling AdvertisingDataApi->get_adform_extended_report_per_organisation_per_account_per_campaign_per_line_item_per_day: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -905,6 +915,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -986,6 +997,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling AdvertisingDataApi->get_facebook_ad_custom_conversion_report_per_organisation_per_account_per_campaign_per_day: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -1071,6 +1083,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -1152,6 +1165,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling AdvertisingDataApi->get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_ad_group_per_day_plus: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -1237,6 +1251,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -1318,6 +1333,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling AdvertisingDataApi->get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_day: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -1403,6 +1419,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -1484,6 +1501,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling AdvertisingDataApi->get_facebook_ad_extended_report_per_organisation_per_account_per_campaign_per_device_per_day: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -1569,6 +1587,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -1650,6 +1669,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling AdvertisingDataApi->get_hashed_ad_campaign_report_per_organisation_per_account_per_day: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -1735,6 +1755,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -1816,6 +1837,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling AdvertisingDataApi->get_pinterest_ads_extended_report_per_organisation_per_account_per_campaign_per_day: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -1901,6 +1923,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -1984,6 +2007,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -2065,6 +2089,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling AdvertisingDataApi->get_twitter_ads_extended_report_per_organisation_per_account_per_campaign_per_day: %s\n" % e)
 ```
+
 
 
 ### Parameters

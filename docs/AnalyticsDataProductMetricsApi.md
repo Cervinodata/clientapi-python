@@ -57,6 +57,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -132,6 +133,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling AnalyticsDataProductMetricsApi->get_ga4_report_per_product_sku_per_organisation_per_property_per_week: %s\n" % e)
 ```
+
 
 
 ### Parameters

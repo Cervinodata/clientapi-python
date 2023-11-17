@@ -62,6 +62,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -143,6 +144,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling AnalyticsDataGoalsApi->get_analytics_goal_report_per_channel_group_per_day: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -228,6 +230,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -309,6 +312,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling AnalyticsDataGoalsApi->get_analytics_goal_report_per_source_medium_per_day: %s\n" % e)
 ```
+
 
 
 ### Parameters

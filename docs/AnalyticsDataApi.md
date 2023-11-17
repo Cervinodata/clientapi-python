@@ -60,6 +60,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -135,6 +136,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling AnalyticsDataApi->get_ga4_report_per_channel_group_per_organisation_per_property_per_month: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -214,6 +216,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -289,6 +292,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling AnalyticsDataApi->get_ga4_report_per_channel_group_per_source_medium_per_organisation_per_property_per_month: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -367,6 +371,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling AnalyticsDataApi->get_views: %s\n" % e)
 ```
+
 
 
 ### Parameters
