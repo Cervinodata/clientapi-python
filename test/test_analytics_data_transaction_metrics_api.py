@@ -1,6 +1,5 @@
 # coding: utf-8
 
-# flake8: noqa
 """
     Cervinodata API documentation
 
@@ -14,4 +13,36 @@
 """
 
 
-# import models into model package
+import unittest
+
+import cervinodata_api
+from cervinodata_api.api.analytics_data_transaction_metrics_api import AnalyticsDataTransactionMetricsApi  # noqa: E501
+from cervinodata_api.rest import ApiException
+
+
+class TestAnalyticsDataTransactionMetricsApi(unittest.TestCase):
+    """AnalyticsDataTransactionMetricsApi unit test stubs"""
+
+    def setUp(self):
+        self.api = cervinodata_api.api.analytics_data_transaction_metrics_api.AnalyticsDataTransactionMetricsApi()  # noqa: E501
+
+    def tearDown(self):
+        pass
+
+    def test_get_ga4_report_per_campaign_per_organisation_per_property(self):
+        """Test case for get_ga4_report_per_campaign_per_organisation_per_property
+
+        Return GA4 report per campaign per organisation per property  # noqa: E501
+        """
+        pass
+
+    def test_get_ga4_report_per_campaign_per_organisation_per_property_per_month(self):
+        """Test case for get_ga4_report_per_campaign_per_organisation_per_property_per_month
+
+        Return GA4 report per campaign per organisation per property per month  # noqa: E501
+        """
+        pass
+
+
+if __name__ == '__main__':
+    unittest.main()
