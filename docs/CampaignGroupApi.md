@@ -43,6 +43,7 @@ Campaign group ad report per organisation per campaign per day
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -88,6 +89,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -109,6 +111,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -127,6 +130,7 @@ Campaign group ad report per organisation per campaign per week
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -172,6 +176,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -193,6 +198,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -211,6 +217,7 @@ Campaign group ad report per organisation per day
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -256,6 +263,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -277,6 +285,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -295,6 +304,7 @@ Campaign group adform extended report per organisation per account per campaign 
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -340,6 +350,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -361,6 +372,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -379,6 +391,7 @@ Campaign group adform report per organisation per campaign per day
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -424,6 +437,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -445,6 +459,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -463,6 +478,7 @@ Campaign group adform report per organisation per campaign per line-item per day
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -508,6 +524,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -529,6 +546,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -547,6 +565,7 @@ Campaign group analytics report per organisation per day
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -592,6 +611,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -613,6 +633,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -631,6 +652,7 @@ Campaign group bing ads extended report per organisation per account per campaig
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -676,6 +698,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -697,6 +720,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -715,6 +739,7 @@ Campaign group doubleclick bid manager report per organisation per account per c
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -760,6 +785,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -781,6 +807,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -799,6 +826,7 @@ Campaign group doubleclick bid manager report per organisation per account per c
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -844,6 +872,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -865,6 +894,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -883,6 +913,7 @@ Campaign group doubleclick campaign manager report per organisation per account 
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -928,6 +959,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -949,6 +981,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -967,6 +1000,7 @@ Campaign group facebook ad custom conversion report per organisation per account
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -1012,6 +1046,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -1033,6 +1068,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -1051,6 +1087,7 @@ Campaign group facebook ad extended report per organisation per account per camp
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -1096,6 +1133,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -1117,6 +1155,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -1135,6 +1174,7 @@ Campaign group facebook ad extended report per organisation per account per camp
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -1180,6 +1220,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -1201,6 +1242,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -1219,6 +1261,7 @@ Campaign group facebook ad extended report per organisation per campaign per day
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -1264,6 +1307,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -1285,6 +1329,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -1303,6 +1348,7 @@ Campaign group facebook ad report per organisation per campaign per day
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -1348,6 +1394,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -1369,6 +1416,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -1387,6 +1435,7 @@ Campaign group goal report per organisation per day
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -1432,6 +1481,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -1453,6 +1503,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -1471,6 +1522,7 @@ Campaign group google ads extended report per organisation per account per campa
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -1516,6 +1568,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -1537,6 +1590,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -1555,6 +1609,7 @@ Campaign group google ads report per organisation per campaign per day
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -1600,6 +1655,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -1621,6 +1677,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -1639,6 +1696,7 @@ Campaign group linkedin ads extended report per organisation per account per cam
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -1684,6 +1742,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -1705,6 +1764,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -1723,6 +1783,7 @@ Campaign group pinterest ads extended report per organisation per account per ca
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -1768,6 +1829,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -1789,6 +1851,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -1807,6 +1870,7 @@ Campaign group report per organisation per day
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -1852,6 +1916,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -1873,6 +1938,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -1891,6 +1957,7 @@ Campaign group snapchat ads extended report per organisation per account per cam
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -1936,6 +2003,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -1957,6 +2025,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -1975,6 +2044,7 @@ Campaign group tiktok ads extended report per organisation per account per campa
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -2020,6 +2090,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -2041,6 +2112,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -2059,6 +2131,7 @@ Campaign group twitter ads extended report per organisation per account per camp
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -2104,6 +2177,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -2125,6 +2199,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -2143,6 +2218,7 @@ Campaign group video report per organisation per campaign per day
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -2188,6 +2264,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -2209,6 +2286,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -2227,6 +2305,7 @@ Campaign group video report per organisation per day
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -2272,6 +2351,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -2293,6 +2373,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |

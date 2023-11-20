@@ -18,6 +18,7 @@ GA4 report per campaign per organisation per property
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -60,6 +61,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -78,6 +80,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -96,6 +99,7 @@ GA4 report per campaign per organisation per property per month
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -138,6 +142,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -156,6 +161,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |

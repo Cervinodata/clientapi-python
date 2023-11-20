@@ -18,6 +18,7 @@ campaign groups
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -58,6 +59,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -74,6 +76,7 @@ This endpoint does not need any parameter.
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -90,6 +93,7 @@ organisations
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -132,6 +136,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **format** | **str**| Output format | [optional] 
@@ -150,6 +155,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |

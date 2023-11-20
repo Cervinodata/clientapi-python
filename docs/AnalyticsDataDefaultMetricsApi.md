@@ -22,6 +22,7 @@ Analytics report per campaign per day by organisation
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -67,6 +68,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuid** | **str**| Organisation uuid | 
@@ -88,6 +90,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -106,6 +109,7 @@ Analytics report per channel group per day by organisation
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -151,6 +155,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuid** | **str**| Organisation uuid | 
@@ -172,6 +177,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -190,6 +196,7 @@ Analytics report per device per channel group per organisation per view per day
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -235,6 +242,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -256,6 +264,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -274,6 +283,7 @@ Analytics report per device per day by organisation
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -319,6 +329,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuid** | **str**| Organisation uuid | 
@@ -340,6 +351,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -358,6 +370,7 @@ Analytics report per source medium per day by organisation
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -403,6 +416,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuid** | **str**| Organisation uuid | 
@@ -424,6 +438,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
@@ -442,6 +457,7 @@ GA4 report per device per channel group per organisation per property per day
 ### Example
 
 * Bearer Authentication (bearerAuth):
+
 ```python
 import time
 import os
@@ -487,6 +503,7 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuids** | [**List[str]**](str.md)| Organisation uuids | 
@@ -508,6 +525,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | successful operation |  -  |
