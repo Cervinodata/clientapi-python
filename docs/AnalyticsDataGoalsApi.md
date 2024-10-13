@@ -22,8 +22,6 @@ Analytics goal report per campaign per day by organisation
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -109,8 +107,6 @@ Analytics goal report per channel group per day by organisation
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -196,8 +192,6 @@ Analytics goal report per device per day by organisation
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -283,8 +277,6 @@ Analytics goal report per source medium per day by organisation
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint

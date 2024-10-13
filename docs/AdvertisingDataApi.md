@@ -43,8 +43,6 @@ Ad account report per organisation per day
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -130,8 +128,6 @@ Ad accounts by organisation
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -213,8 +209,6 @@ Ad campaign report per day by organisation
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -300,8 +294,6 @@ Ad campaign report per organisation per account per campaign per device per day
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -387,8 +379,6 @@ Ad campaign report per organisation per account per day
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -474,8 +464,6 @@ Ad campaigns by organisation
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -559,8 +547,6 @@ Ad groups by organisation
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -644,8 +630,6 @@ Adform extended report per organisation per account per campaign per creative pe
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -731,8 +715,6 @@ Adform extended report per organisation per account per campaign per day
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -818,8 +800,6 @@ Adform extended report per organisation per account per campaign per line item p
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -905,8 +885,6 @@ Bing ads extended report per organisation per account per campaign per day
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -992,8 +970,6 @@ Facebook ad custom conversion report per organisation per account per campaign p
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -1079,8 +1055,6 @@ Facebook ad extended report per organisation per account per campaign per ad gro
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -1166,8 +1140,6 @@ Facebook ad extended report per organisation per account per campaign per ad gro
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -1253,8 +1225,6 @@ Facebook ad extended report per organisation per account per campaign per ad per
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -1340,8 +1310,6 @@ Facebook ad extended report per organisation per account per campaign per day
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -1427,8 +1395,6 @@ Facebook ad extended report per organisation per account per campaign per day pl
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -1514,8 +1480,6 @@ Facebook ad extended report per organisation per account per campaign per device
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -1601,8 +1565,6 @@ Campaign group google ads report per organisation per account per campaign per d
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -1688,8 +1650,6 @@ Hashed ad campaign report per organisation per account per day
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -1775,8 +1735,6 @@ Linkedin ads extended report per organisation per account per campaign per day
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -1862,8 +1820,6 @@ Pinterest ads extended report per organisation per account per campaign per day
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -1949,8 +1905,6 @@ Snapchat ads extended report per organisation per account per campaign per day
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -2036,8 +1990,6 @@ TikTok ads extended report per organisation per account per campaign per day
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -2123,8 +2075,6 @@ Twitter ads extended report per organisation per account per campaign per day
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint

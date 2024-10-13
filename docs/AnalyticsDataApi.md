@@ -23,8 +23,6 @@ GA4 report per channel group per organisation per property
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -104,8 +102,6 @@ GA4 report per channel group per organisation per property per month
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -185,8 +181,6 @@ GA4 report per channel group per product name per organisation per property per 
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -266,8 +260,6 @@ GA4 report per channel group per source medium per organisation per property per
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -347,8 +339,6 @@ Views by organisation
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint

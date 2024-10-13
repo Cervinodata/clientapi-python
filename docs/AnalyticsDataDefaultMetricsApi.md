@@ -24,8 +24,6 @@ Analytics report per campaign per day by organisation
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -111,8 +109,6 @@ Analytics report per channel group per day by organisation
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -198,8 +194,6 @@ Analytics report per device per channel group per organisation per view per day
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -285,8 +279,6 @@ Analytics report per device per day by organisation
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -372,8 +364,6 @@ Analytics report per source medium per day by organisation
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint
@@ -459,8 +449,6 @@ GA4 report per device per channel group per organisation per property per day
 * Bearer Authentication (bearerAuth):
 
 ```python
-import time
-import os
 import cervinodata_api
 from cervinodata_api.rest import ApiException
 from pprint import pprint

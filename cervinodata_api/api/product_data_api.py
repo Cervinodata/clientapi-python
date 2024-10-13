@@ -12,26 +12,16 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
-import io
 import warnings
-
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Dict, List, Optional, Tuple, Union, Any
-
-try:
-    from typing import Annotated
-except ImportError:
-    from typing_extensions import Annotated
-
-from pydantic import Field
+from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
-from pydantic import StrictStr
 
+from pydantic import Field, StrictStr
 from typing import List
+from typing_extensions import Annotated
 
-
-from cervinodata_api.api_client import ApiClient
+from cervinodata_api.api_client import ApiClient, RequestSerialized
 from cervinodata_api.api_response import ApiResponse
 from cervinodata_api.rest import RESTResponseType
 
@@ -50,7 +40,7 @@ class ProductDataApi:
 
 
     @validate_call
-    def get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month(
+    def get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_0(
         self,
         organisation_uuids: Annotated[List[StrictStr], Field(description="Organisation uuids")],
         _request_timeout: Union[
@@ -94,7 +84,7 @@ class ProductDataApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_serialize(
+        _param = self._get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_0_serialize(
             organisation_uuids=organisation_uuids,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -119,7 +109,7 @@ class ProductDataApi:
 
 
     @validate_call
-    def get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_with_http_info(
+    def get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_0_with_http_info(
         self,
         organisation_uuids: Annotated[List[StrictStr], Field(description="Organisation uuids")],
         _request_timeout: Union[
@@ -163,7 +153,7 @@ class ProductDataApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_serialize(
+        _param = self._get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_0_serialize(
             organisation_uuids=organisation_uuids,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -188,7 +178,7 @@ class ProductDataApi:
 
 
     @validate_call
-    def get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_without_preload_content(
+    def get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_0_without_preload_content(
         self,
         organisation_uuids: Annotated[List[StrictStr], Field(description="Organisation uuids")],
         _request_timeout: Union[
@@ -232,7 +222,7 @@ class ProductDataApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_serialize(
+        _param = self._get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_0_serialize(
             organisation_uuids=organisation_uuids,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -252,19 +242,18 @@ class ProductDataApi:
         return response_data.response
 
 
-    def _get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_serialize(
+    def _get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_0_serialize(
         self,
         organisation_uuids,
         _request_auth,
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            
             'organisationUuids': 'csv',
         }
 
@@ -272,7 +261,9 @@ class ProductDataApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -285,11 +276,12 @@ class ProductDataApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'text/csv'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'text/csv'
+                ]
+            )
 
 
         # authentication setting
