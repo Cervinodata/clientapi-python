@@ -453,7 +453,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_ad_campaigns**
-> str get_ad_campaigns(organisation_uuid, from_date=from_date, format=format)
+> str get_ad_campaigns(organisation_uuid, from_date=from_date, include_inactive=include_inactive, format=format)
 
 Return ad campaigns by organisation
 
@@ -490,11 +490,12 @@ with cervinodata_api.ApiClient(configuration) as api_client:
     api_instance = cervinodata_api.AdvertisingDataApi(api_client)
     organisation_uuid = 'organisation_uuid_example' # str | Organisation uuid
     from_date = '2013-10-20' # date | From date (optional)
+    include_inactive = True # bool | Include inactive campaigns (optional)
     format = 'format_example' # str | Output format (optional)
 
     try:
         # Return ad campaigns by organisation
-        api_response = api_instance.get_ad_campaigns(organisation_uuid, from_date=from_date, format=format)
+        api_response = api_instance.get_ad_campaigns(organisation_uuid, from_date=from_date, include_inactive=include_inactive, format=format)
         print("The response of AdvertisingDataApi->get_ad_campaigns:\n")
         pprint(api_response)
     except Exception as e:
@@ -510,6 +511,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuid** | **str**| Organisation uuid | 
  **from_date** | **date**| From date | [optional] 
+ **include_inactive** | **bool**| Include inactive campaigns | [optional] 
  **format** | **str**| Output format | [optional] 
 
 ### Return type
@@ -536,7 +538,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_ad_groups**
-> str get_ad_groups(organisation_uuid, from_date=from_date, format=format)
+> str get_ad_groups(organisation_uuid, from_date=from_date, include_inactive=include_inactive, format=format)
 
 Return ad groups by organisation
 
@@ -573,11 +575,12 @@ with cervinodata_api.ApiClient(configuration) as api_client:
     api_instance = cervinodata_api.AdvertisingDataApi(api_client)
     organisation_uuid = 'organisation_uuid_example' # str | Organisation uuid
     from_date = '2013-10-20' # date | From date (optional)
+    include_inactive = True # bool | Include inactive ad groups (optional)
     format = 'format_example' # str | Output format (optional)
 
     try:
         # Return ad groups by organisation
-        api_response = api_instance.get_ad_groups(organisation_uuid, from_date=from_date, format=format)
+        api_response = api_instance.get_ad_groups(organisation_uuid, from_date=from_date, include_inactive=include_inactive, format=format)
         print("The response of AdvertisingDataApi->get_ad_groups:\n")
         pprint(api_response)
     except Exception as e:
@@ -593,6 +596,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_uuid** | **str**| Organisation uuid | 
  **from_date** | **date**| From date | [optional] 
+ **include_inactive** | **bool**| Include inactive ad groups | [optional] 
  **format** | **str**| Output format | [optional] 
 
 ### Return type

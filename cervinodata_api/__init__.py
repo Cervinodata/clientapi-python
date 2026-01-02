@@ -17,26 +17,50 @@
 
 __version__ = "0.1.0"
 
+# Define package exports
+__all__ = [
+    "AdvertisingDataApi",
+    "AnalyticsDataApi",
+    "AnalyticsDataDefaultMetricsApi",
+    "AnalyticsDataGoalsApi",
+    "AnalyticsDataProductMetricsApi",
+    "AnalyticsDataTransactionMetricsApi",
+    "CampaignGroupApi",
+    "GenericDataApi",
+    "ProductDataApi",
+    "ApiResponse",
+    "ApiClient",
+    "Configuration",
+    "OpenApiException",
+    "ApiTypeError",
+    "ApiValueError",
+    "ApiKeyError",
+    "ApiAttributeError",
+    "ApiException",
+    
+]
+
 # import apis into sdk package
-from cervinodata_api.api.advertising_data_api import AdvertisingDataApi
-from cervinodata_api.api.analytics_data_api import AnalyticsDataApi
-from cervinodata_api.api.analytics_data_default_metrics_api import AnalyticsDataDefaultMetricsApi
-from cervinodata_api.api.analytics_data_goals_api import AnalyticsDataGoalsApi
-from cervinodata_api.api.analytics_data_product_metrics_api import AnalyticsDataProductMetricsApi
-from cervinodata_api.api.analytics_data_transaction_metrics_api import AnalyticsDataTransactionMetricsApi
-from cervinodata_api.api.campaign_group_api import CampaignGroupApi
-from cervinodata_api.api.generic_data_api import GenericDataApi
-from cervinodata_api.api.product_data_api import ProductDataApi
+from cervinodata_api.api.advertising_data_api import AdvertisingDataApi as AdvertisingDataApi
+from cervinodata_api.api.analytics_data_api import AnalyticsDataApi as AnalyticsDataApi
+from cervinodata_api.api.analytics_data_default_metrics_api import AnalyticsDataDefaultMetricsApi as AnalyticsDataDefaultMetricsApi
+from cervinodata_api.api.analytics_data_goals_api import AnalyticsDataGoalsApi as AnalyticsDataGoalsApi
+from cervinodata_api.api.analytics_data_product_metrics_api import AnalyticsDataProductMetricsApi as AnalyticsDataProductMetricsApi
+from cervinodata_api.api.analytics_data_transaction_metrics_api import AnalyticsDataTransactionMetricsApi as AnalyticsDataTransactionMetricsApi
+from cervinodata_api.api.campaign_group_api import CampaignGroupApi as CampaignGroupApi
+from cervinodata_api.api.generic_data_api import GenericDataApi as GenericDataApi
+from cervinodata_api.api.product_data_api import ProductDataApi as ProductDataApi
 
 # import ApiClient
-from cervinodata_api.api_response import ApiResponse
-from cervinodata_api.api_client import ApiClient
-from cervinodata_api.configuration import Configuration
-from cervinodata_api.exceptions import OpenApiException
-from cervinodata_api.exceptions import ApiTypeError
-from cervinodata_api.exceptions import ApiValueError
-from cervinodata_api.exceptions import ApiKeyError
-from cervinodata_api.exceptions import ApiAttributeError
-from cervinodata_api.exceptions import ApiException
+from cervinodata_api.api_response import ApiResponse as ApiResponse
+from cervinodata_api.api_client import ApiClient as ApiClient
+from cervinodata_api.configuration import Configuration as Configuration
+from cervinodata_api.exceptions import OpenApiException as OpenApiException
+from cervinodata_api.exceptions import ApiTypeError as ApiTypeError
+from cervinodata_api.exceptions import ApiValueError as ApiValueError
+from cervinodata_api.exceptions import ApiKeyError as ApiKeyError
+from cervinodata_api.exceptions import ApiAttributeError as ApiAttributeError
+from cervinodata_api.exceptions import ApiException as ApiException
 
 # import models into sdk package
+

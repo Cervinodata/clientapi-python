@@ -40,7 +40,7 @@ class ProductDataApi:
 
 
     @validate_call
-    def get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_0(
+    def get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month(
         self,
         organisation_uuids: Annotated[List[StrictStr], Field(description="Organisation uuids")],
         _request_timeout: Union[
@@ -84,7 +84,7 @@ class ProductDataApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_0_serialize(
+        _param = self._get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_serialize(
             organisation_uuids=organisation_uuids,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -109,7 +109,7 @@ class ProductDataApi:
 
 
     @validate_call
-    def get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_0_with_http_info(
+    def get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_with_http_info(
         self,
         organisation_uuids: Annotated[List[StrictStr], Field(description="Organisation uuids")],
         _request_timeout: Union[
@@ -153,7 +153,7 @@ class ProductDataApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_0_serialize(
+        _param = self._get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_serialize(
             organisation_uuids=organisation_uuids,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -178,7 +178,7 @@ class ProductDataApi:
 
 
     @validate_call
-    def get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_0_without_preload_content(
+    def get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_without_preload_content(
         self,
         organisation_uuids: Annotated[List[StrictStr], Field(description="Organisation uuids")],
         _request_timeout: Union[
@@ -222,7 +222,7 @@ class ProductDataApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_0_serialize(
+        _param = self._get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_serialize(
             organisation_uuids=organisation_uuids,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -242,7 +242,7 @@ class ProductDataApi:
         return response_data.response
 
 
-    def _get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_0_serialize(
+    def _get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_serialize(
         self,
         organisation_uuids,
         _request_auth,

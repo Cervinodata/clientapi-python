@@ -4,11 +4,11 @@ All URIs are relative to *https://app.cervinodata.com/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_0**](ProductDataApi.md#get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_0) | **GET** /data/ga4-report-per-channel-group-per-product-name-per-organisation-per-property-per-month/{organisationUuids} | Return GA4 report per channel group per product name per organisation per property per month
+[**get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month**](ProductDataApi.md#get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month) | **GET** /data/ga4-report-per-channel-group-per-product-name-per-organisation-per-property-per-month/{organisationUuids} | Return GA4 report per channel group per product name per organisation per property per month
 
 
-# **get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_0**
-> str get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_0(organisation_uuids)
+# **get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month**
+> str get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month(organisation_uuids)
 
 Return GA4 report per channel group per product name per organisation per property per month
 
@@ -47,11 +47,11 @@ with cervinodata_api.ApiClient(configuration) as api_client:
 
     try:
         # Return GA4 report per channel group per product name per organisation per property per month
-        api_response = api_instance.get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_0(organisation_uuids)
-        print("The response of ProductDataApi->get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_0:\n")
+        api_response = api_instance.get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month(organisation_uuids)
+        print("The response of ProductDataApi->get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ProductDataApi->get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month_0: %s\n" % e)
+        print("Exception when calling ProductDataApi->get_ga4_report_per_channel_group_per_product_name_per_organisation_per_property_per_month: %s\n" % e)
 ```
 
 

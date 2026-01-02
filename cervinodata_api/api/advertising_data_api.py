@@ -18,7 +18,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from datetime import date
-from pydantic import Field, StrictStr, field_validator
+from pydantic import Field, StrictBool, StrictStr, field_validator
 from typing import List, Optional
 from typing_extensions import Annotated
 
@@ -1645,6 +1645,7 @@ class AdvertisingDataApi:
         self,
         organisation_uuid: Annotated[StrictStr, Field(description="Organisation uuid")],
         from_date: Annotated[Optional[date], Field(description="From date")] = None,
+        include_inactive: Annotated[Optional[StrictBool], Field(description="Include inactive campaigns")] = None,
         format: Annotated[Optional[StrictStr], Field(description="Output format")] = None,
         _request_timeout: Union[
             None,
@@ -1667,6 +1668,8 @@ class AdvertisingDataApi:
         :type organisation_uuid: str
         :param from_date: From date
         :type from_date: date
+        :param include_inactive: Include inactive campaigns
+        :type include_inactive: bool
         :param format: Output format
         :type format: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1694,6 +1697,7 @@ class AdvertisingDataApi:
         _param = self._get_ad_campaigns_serialize(
             organisation_uuid=organisation_uuid,
             from_date=from_date,
+            include_inactive=include_inactive,
             format=format,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1722,6 +1726,7 @@ class AdvertisingDataApi:
         self,
         organisation_uuid: Annotated[StrictStr, Field(description="Organisation uuid")],
         from_date: Annotated[Optional[date], Field(description="From date")] = None,
+        include_inactive: Annotated[Optional[StrictBool], Field(description="Include inactive campaigns")] = None,
         format: Annotated[Optional[StrictStr], Field(description="Output format")] = None,
         _request_timeout: Union[
             None,
@@ -1744,6 +1749,8 @@ class AdvertisingDataApi:
         :type organisation_uuid: str
         :param from_date: From date
         :type from_date: date
+        :param include_inactive: Include inactive campaigns
+        :type include_inactive: bool
         :param format: Output format
         :type format: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1771,6 +1778,7 @@ class AdvertisingDataApi:
         _param = self._get_ad_campaigns_serialize(
             organisation_uuid=organisation_uuid,
             from_date=from_date,
+            include_inactive=include_inactive,
             format=format,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1799,6 +1807,7 @@ class AdvertisingDataApi:
         self,
         organisation_uuid: Annotated[StrictStr, Field(description="Organisation uuid")],
         from_date: Annotated[Optional[date], Field(description="From date")] = None,
+        include_inactive: Annotated[Optional[StrictBool], Field(description="Include inactive campaigns")] = None,
         format: Annotated[Optional[StrictStr], Field(description="Output format")] = None,
         _request_timeout: Union[
             None,
@@ -1821,6 +1830,8 @@ class AdvertisingDataApi:
         :type organisation_uuid: str
         :param from_date: From date
         :type from_date: date
+        :param include_inactive: Include inactive campaigns
+        :type include_inactive: bool
         :param format: Output format
         :type format: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1848,6 +1859,7 @@ class AdvertisingDataApi:
         _param = self._get_ad_campaigns_serialize(
             organisation_uuid=organisation_uuid,
             from_date=from_date,
+            include_inactive=include_inactive,
             format=format,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1871,6 +1883,7 @@ class AdvertisingDataApi:
         self,
         organisation_uuid,
         from_date,
+        include_inactive,
         format,
         _request_auth,
         _content_type,
@@ -1908,6 +1921,10 @@ class AdvertisingDataApi:
                 )
             else:
                 _query_params.append(('from_date', from_date))
+            
+        if include_inactive is not None:
+            
+            _query_params.append(('include_inactive', include_inactive))
             
         if format is not None:
             
@@ -1956,6 +1973,7 @@ class AdvertisingDataApi:
         self,
         organisation_uuid: Annotated[StrictStr, Field(description="Organisation uuid")],
         from_date: Annotated[Optional[date], Field(description="From date")] = None,
+        include_inactive: Annotated[Optional[StrictBool], Field(description="Include inactive ad groups")] = None,
         format: Annotated[Optional[StrictStr], Field(description="Output format")] = None,
         _request_timeout: Union[
             None,
@@ -1978,6 +1996,8 @@ class AdvertisingDataApi:
         :type organisation_uuid: str
         :param from_date: From date
         :type from_date: date
+        :param include_inactive: Include inactive ad groups
+        :type include_inactive: bool
         :param format: Output format
         :type format: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2005,6 +2025,7 @@ class AdvertisingDataApi:
         _param = self._get_ad_groups_serialize(
             organisation_uuid=organisation_uuid,
             from_date=from_date,
+            include_inactive=include_inactive,
             format=format,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2033,6 +2054,7 @@ class AdvertisingDataApi:
         self,
         organisation_uuid: Annotated[StrictStr, Field(description="Organisation uuid")],
         from_date: Annotated[Optional[date], Field(description="From date")] = None,
+        include_inactive: Annotated[Optional[StrictBool], Field(description="Include inactive ad groups")] = None,
         format: Annotated[Optional[StrictStr], Field(description="Output format")] = None,
         _request_timeout: Union[
             None,
@@ -2055,6 +2077,8 @@ class AdvertisingDataApi:
         :type organisation_uuid: str
         :param from_date: From date
         :type from_date: date
+        :param include_inactive: Include inactive ad groups
+        :type include_inactive: bool
         :param format: Output format
         :type format: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2082,6 +2106,7 @@ class AdvertisingDataApi:
         _param = self._get_ad_groups_serialize(
             organisation_uuid=organisation_uuid,
             from_date=from_date,
+            include_inactive=include_inactive,
             format=format,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2110,6 +2135,7 @@ class AdvertisingDataApi:
         self,
         organisation_uuid: Annotated[StrictStr, Field(description="Organisation uuid")],
         from_date: Annotated[Optional[date], Field(description="From date")] = None,
+        include_inactive: Annotated[Optional[StrictBool], Field(description="Include inactive ad groups")] = None,
         format: Annotated[Optional[StrictStr], Field(description="Output format")] = None,
         _request_timeout: Union[
             None,
@@ -2132,6 +2158,8 @@ class AdvertisingDataApi:
         :type organisation_uuid: str
         :param from_date: From date
         :type from_date: date
+        :param include_inactive: Include inactive ad groups
+        :type include_inactive: bool
         :param format: Output format
         :type format: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2159,6 +2187,7 @@ class AdvertisingDataApi:
         _param = self._get_ad_groups_serialize(
             organisation_uuid=organisation_uuid,
             from_date=from_date,
+            include_inactive=include_inactive,
             format=format,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2182,6 +2211,7 @@ class AdvertisingDataApi:
         self,
         organisation_uuid,
         from_date,
+        include_inactive,
         format,
         _request_auth,
         _content_type,
@@ -2219,6 +2249,10 @@ class AdvertisingDataApi:
                 )
             else:
                 _query_params.append(('from_date', from_date))
+            
+        if include_inactive is not None:
+            
+            _query_params.append(('include_inactive', include_inactive))
             
         if format is not None:
             
