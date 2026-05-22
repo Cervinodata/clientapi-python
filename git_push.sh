@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 git_user_id=$1
 git_repo_id=$2
 release_note=$3
@@ -37,5 +39,12 @@ fi
 
 echo "Git pushing to $REMOTE_URL"
 
-git push origin master
+CURRENT_BRANCH=$(git branch --show-current)
+
+if [ "$CURRENT_BRANCH" = "" ]; then
+    CURRENT_BRANCH="main"
+    git checkout -B "$CURRENT_BRANCH"
+fi
+
+git push -u origin "$CURRENT_BRANCH"
 
