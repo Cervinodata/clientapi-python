@@ -19,6 +19,7 @@ cervinodata_api/api_response.py
 cervinodata_api/configuration.py
 cervinodata_api/exceptions.py
 cervinodata_api/models/__init__.py
+cervinodata_api/models/create_organisation_request.py
 cervinodata_api/py.typed
 cervinodata_api/rest.py
 docs/AdvertisingDataApi.md
@@ -28,6 +29,7 @@ docs/AnalyticsDataGoalsApi.md
 docs/AnalyticsDataProductMetricsApi.md
 docs/AnalyticsDataTransactionMetricsApi.md
 docs/CampaignGroupApi.md
+docs/CreateOrganisationRequest.md
 docs/GenericDataApi.md
 docs/ProductDataApi.md
 git_push.sh
@@ -37,4 +39,5 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_create_organisation_request.py
 tox.ini

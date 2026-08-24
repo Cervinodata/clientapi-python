@@ -37,7 +37,7 @@ __all__ = [
     "ApiKeyError",
     "ApiAttributeError",
     "ApiException",
-    
+    "CreateOrganisationRequest",
 ]
 
 # import apis into sdk package
@@ -63,4 +63,5 @@ from cervinodata_api.exceptions import ApiAttributeError as ApiAttributeError
 from cervinodata_api.exceptions import ApiException as ApiException
 
 # import models into sdk package
+from cervinodata_api.models.create_organisation_request import CreateOrganisationRequest as CreateOrganisationRequest
 
